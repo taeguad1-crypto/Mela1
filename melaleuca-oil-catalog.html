@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#176f31">
+  <title>오일 제품 도감 | 멜라루카 사랑방</title>
+  <style>
+    :root{--green:#176f31;--deep:#123b22;--ink:#193726;--muted:#65776a;--line:#d5e2d8;--paper:#f3f7f3;--gold:#cfaa55}*{box-sizing:border-box}html{font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;background:var(--paper);color:var(--ink)}body{margin:0;overflow-x:hidden}button,input,a{font:inherit}.top{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:9px;align-items:center;padding:calc(9px + env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 9px max(12px,env(safe-area-inset-left));background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.top>a,.top>button{height:44px;border:0;border-radius:13px;background:#e3efe5;color:var(--deep);display:grid;place-items:center;text-decoration:none;font-weight:900}.brand{min-width:0}.brand b,.brand small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand small{font-size:11px;color:var(--muted)}.intro{padding:28px max(16px,calc((100% - 1120px)/2));color:#fff;background:radial-gradient(circle at 85% 10%,#a8d76544,transparent 32%),linear-gradient(135deg,#123b22,#28783d)}.intro small{color:#d8f2aa;font-weight:900;letter-spacing:1.2px}.intro h1{font-size:clamp(31px,7vw,56px);line-height:1.04;margin:7px 0 10px}.intro p{max-width:760px;margin:0;line-height:1.6;color:#eff9ee}.wrap{width:min(100%,1120px);margin:auto;padding:16px max(12px,env(safe-area-inset-right)) calc(118px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}.notice{padding:14px 16px;border:1px solid #e6cf87;border-radius:16px;background:#fff7dc;color:#5f4a0f;font-size:13px;line-height:1.55}.search{position:sticky;top:63px;z-index:20;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin:14px 0;padding:9px;border:1px solid var(--line);border-radius:18px;background:#fffffff2;backdrop-filter:blur(12px)}.search input{min-width:0;height:48px;border:0;border-radius:12px;background:#edf4ef;padding:0 15px;color:var(--ink);font-size:16px}.search button{border:0;border-radius:12px;background:var(--green);color:#fff;padding:0 18px;font-weight:900}.chips{display:flex;gap:8px;overflow:auto;padding:0 0 12px;scrollbar-width:none}.chip{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);padding:9px 13px;font-weight:800}.chip.active{background:var(--deep);color:#fff;border-color:var(--deep)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.item{min-width:0;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#fff;box-shadow:0 11px 26px #14311d10}.photo{position:relative;display:block;height:230px;overflow:hidden;background:#fff}.photo img{position:absolute;width:200%;height:auto;max-width:none;top:-48px}.photo.left img{left:0}.photo.right img{right:0}.meta{padding:14px}.tag{display:inline-flex;padding:5px 8px;border-radius:999px;background:#e5f2e7;color:#1a6930;font-size:10px;font-weight:900}.item h2{margin:9px 0 5px;font-size:18px;line-height:1.25}.benefit{min-height:58px;margin:0;color:var(--muted);font-size:12px;line-height:1.5}.price{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.price div{padding:9px;border-radius:11px;background:#f0f5f1}.price small,.price b{display:block}.price small{font-size:10px;color:var(--muted)}.price b{margin-top:2px;font-size:15px}.point{margin-top:8px;color:var(--green);font-size:13px;font-weight:900}.official{display:grid;place-items:center;min-height:43px;margin-top:11px;border-radius:12px;background:var(--green);color:#fff;text-decoration:none;font-size:13px;font-weight:900}.empty{display:none;padding:40px 16px;text-align:center;color:var(--muted)}.safety{margin-top:20px;padding:18px;border-radius:20px;background:#fff;border:1px solid var(--line)}.safety h2{margin:0}.safety ul{margin:10px 0 0;padding-left:20px}.safety li{margin:7px 0;color:var(--muted);font-size:13px;line-height:1.5}.foot{text-align:center;margin:18px 0;color:#728076;font-size:11px;line-height:1.55}
+    @media(max-width:920px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:660px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo{height:205px}.item h2{font-size:16px}.meta{padding:12px}.benefit{min-height:72px}.price{grid-template-columns:1fr}.search{top:62px}}
+    @media(max-width:370px){.grid{grid-template-columns:1fr}.photo{height:260px}.benefit{min-height:0}}
+  </style>
+</head>
+<body>
+  <header class="top"><a href="melaleuca-oils.html" aria-label="이전 화면">←</a><div class="brand"><b>오일 제품 도감</b><small>제품 · 참고가격 · 포인트 · 안전안내</small></div><button onclick="window.__SARANGBANG_LISTEN__?.()" aria-label="음성 명령">◉</button></header>
+  <section class="intro"><small>OFFICIAL STORE REFERENCE</small><h1>제품을 사진으로 보고<br>안전하게 상담하세요</h1><p>제공받은 멜라루카 공식몰 화면을 기준으로 정리한 상담용 도감입니다. 제품별 최신 판매 여부와 정확한 가격·포인트는 구매 직전 공식몰에서 다시 확인하세요.</p></section>
+  <main class="wrap">
+    <section class="notice"><b>참고가격 안내</b> — 아래 금액과 포인트는 제공된 공식몰 화면의 촬영 시점 정보입니다. 스페셜·재고·회원 조건에 따라 바뀔 수 있으며, 이 화면에서 직접 주문하거나 결제하지 않습니다.</section>
+    <section class="search"><input id="query" type="search" placeholder="라벤더, 우디향, 10포인트처럼 검색" autocomplete="off"><button id="voice" type="button">음성검색</button></section>
+    <nav class="chips" aria-label="제품 분류"><button class="chip active" data-filter="all">전체</button><button class="chip" data-filter="single">싱글 오일</button><button class="chip" data-filter="blend">블렌드</button><button class="chip" data-filter="carrier">캐리어·도구</button><button class="chip" data-filter="care">바르는 제품</button></nav>
+    <section class="grid" id="grid"></section>
+    <p class="empty" id="empty">검색 조건에 맞는 제품이 없습니다.</p>
+    <section class="safety" id="safety"><h2>상담 전 안전 확인</h2><ul><li>제품 라벨과 공식 상세 페이지의 사용법·희석법·주의사항을 우선합니다.</li><li>눈·귓속·점막을 피하고, 어린이·반려동물의 손이 닿지 않게 보관합니다.</li><li>임신·수유 중이거나 진료·복약 중이면 사용 전 의료 전문가에게 문의합니다.</li><li>질병 치료·예방, 의약품 대체, 누구에게나 부작용이 없다는 표현은 사용하지 않습니다.</li><li>시트러스 오일은 제품별 감광성 및 자외선 주의 문구를 확인합니다.</li></ul></section>
+    <p class="foot">제품 사진 및 상표의 권리는 각 권리자에게 있습니다. 제안·상담용 화면이며 공개 홍보 전 멜라루카의 이미지·상표 사용 승인을 확인하세요.</p>
+  </main>
+  <script>
+  (()=>{
+    const store='https://kr.melaleuca.com/productstore/essential-oils';
+    const products=[
+      ['멜라루카 오일 T40-C3 5.8mL','care','민감성 피부용 표기 제품입니다. 피부 사용 전 공식 라벨을 확인하세요.','18,000원','25,800원','7P','assets/official-store-shots/oils-01.jpg','left',store],
+      ['퓨어 파촐리 오일','single','깊고 흙내음이 느껴지는 우디 향. 피부 사용 시 캐리어 오일 희석 안내를 우선합니다.','26,000원','37,200원','9P','assets/official-store-shots/oils-02.jpg','left',store],
+      ['퓨어 블루 히트 블렌드','blend','공식 안내의 피부 진정 느낌과 따뜻한 온기를 위한 마사지용 블렌드입니다.','29,000원','41,500원','10P','assets/official-store-shots/oils-02.jpg','right','https://kr.melaleuca.com/productstore/essential-oils/pure-blue-heat-oil-blend'],
+      ['퓨어 카다멈 오일','single','따뜻하고 달콤한 스파이시 향. 피부 마사지와 향기 루틴은 공식 사용법을 확인하세요.','25,200원','52,000원','7P','assets/official-store-shots/oils-03.jpg','left','https://kr.melaleuca.com/productstore/essential-oils/pure-cardamom-essential-oil'],
+      ['퓨어 피스 블렌드','blend','부드러운 시트러스·허브 향으로 평온한 분위기와 피부 마사지에 사용하는 블렌드입니다.','29,000원','41,500원','10P','assets/official-store-shots/oils-03.jpg','right','https://kr.melaleuca.com/productstore/essential-oils/pure-peace-oil-blend-new'],
+      ['멜라젤 토피컬 밤','care','국소 부위에 바르는 밤 타입 제품. 적용 부위와 횟수는 라벨 지침을 따릅니다.','11,600원','16,600원','4P','assets/official-store-shots/oils-05.jpg','left',store],
+      ['퓨어 주니퍼 베리 오일','single','맑고 산뜻한 우디 향. 향기·피부 사용 전 공식 희석 지침을 확인하세요.','18,200원','38,000원','5P','assets/official-store-shots/oils-05.jpg','right',store],
+      ['퓨어 유칼립투스 오일','single','시원하고 상쾌한 허브 향을 즐기는 향기 루틴에 활용합니다.','18,000원','25,800원','6P','assets/official-store-shots/oils-06.jpg','left',store],
+      ['퓨어 오렌지 오일','single','달콤하고 밝은 시트러스 향. 피부 사용 시 감광성·자외선 주의사항을 확인하세요.','12,800원','18,300원','4P','assets/official-store-shots/oils-06.jpg','right',store],
+      ['퓨어 오레가노 오일','single','강하고 따뜻한 허브 향. 고농축 제품이므로 공식 희석 지침을 반드시 따릅니다.','26,000원','37,200원','9P','assets/official-store-shots/oils-07.jpg','left',store],
+      ['퓨어 샌들우드 오일','single','부드럽고 따뜻한 우디 향. 향수·피부 케어 사용 시 라벨을 우선합니다.','60,000원','85,800원','17P','assets/official-store-shots/oils-07.jpg','right',store],
+      ['퓨어 레몬그라스 오일','single','상쾌한 풀과 시트러스 계열 향. 피부 사용 전 희석하고 소량 시험합니다.','12,800원','18,300원','4P','assets/official-store-shots/oils-08.jpg','left',store],
+      ['퓨어 제라늄 오일','single','풍성한 플로럴·그린 계열 향으로 향기와 피부 케어에 활용합니다.','26,000원','37,200원','9P','assets/official-store-shots/oils-08.jpg','right',store],
+      ['퓨어 페퍼민트 오일','single','선명하고 시원한 민트 향. 눈·민감 부위와 접촉하지 않도록 주의합니다.','27,000원','38,600원','9P','assets/official-store-shots/oils-09.jpg','left',store],
+      ['퓨어 레몬 오일','single','깨끗하고 산뜻한 시트러스 향. 피부 사용 후 빛 노출 주의를 확인하세요.','14,800원','21,200원','4P','assets/official-store-shots/oils-09.jpg','right',store],
+      ['퓨어 윈터그린 오일','single','달콤하고 선명한 민트 계열 향. 사용 대상과 주의사항을 라벨에서 확인합니다.','24,000원','34,300원','8P','assets/official-store-shots/oils-10.jpg','left',store],
+      ['퓨어 그레이프프루트 오일','single','밝고 가벼운 시트러스 향. 피부 사용 시 감광성 주의 문구를 확인하세요.','20,000원','28,600원','7P','assets/official-store-shots/oils-10.jpg','right',store],
+      ['퓨어 미르 오일','single','따뜻하고 풍부한 수지 향으로 피부 케어와 향기 루틴에 활용합니다.','58,000원','82,900원','19P','assets/official-store-shots/oils-11.jpg','left',store],
+      ['멜라루카 오일 T36-C5 30mL','care','일반 피부용 표기 제품입니다. 사용 부위·빈도는 공식 라벨을 따릅니다.','32,000원','45,800원','13P','assets/official-store-shots/oils-11.jpg','right',store],
+      ['퓨어 시더우드 오일','single','차분하고 드라이한 나무 향. 향기·피부 사용 시 캐리어 오일을 활용합니다.','18,000원','25,800원','6P','assets/official-store-shots/oils-12.jpg','left',store],
+      ['퓨어 라벤더 오일','single','부드러운 플로럴·허브 향으로 편안한 분위기와 피부 케어에 활용합니다.','28,000원','40,000원','9P','assets/official-store-shots/oils-12.jpg','right','https://kr.melaleuca.com/productstore/essential-oils/pure-lavender-essential-oil'],
+      ['멜라젤 토피컬 젤','care','젤 타입의 바르는 제품. 제품 라벨의 사용 부위와 주의사항을 따릅니다.','11,600원','16,600원','4P','assets/official-store-shots/oils-13.jpg','left',store],
+      ['퓨어 일랑일랑 오일','single','달콤하고 풍성한 플로럴 향. 퍼퓸·피부 사용 전 공식 희석법을 확인하세요.','39,000원','55,800원','14P','assets/official-store-shots/oils-13.jpg','right',store],
+      ['퓨어 프랑킨센스 오일','single','깊고 따뜻한 수지·우디 향으로 피부 케어와 향기 루틴에 활용합니다.','59,000원','84,300원','22P','assets/official-store-shots/oils-14.jpg','left','https://kr.melaleuca.com/productstore/essential-oils/pure-frankincense-essential-oil'],
+      ['퓨어 스위트 아몬드 오일','carrier','에센셜 오일을 피부에 사용할 때 농도를 낮추는 캐리어 오일입니다.','13,000원','18,600원','3P','assets/official-store-shots/oils-14.jpg','right',store],
+      ['퓨어 로즈마리 오일','single','또렷하고 상쾌한 허브 향. 향기·피부 사용 시 공식 희석 지침을 따릅니다.','18,000원','25,800원','6P','assets/official-store-shots/oils-16.jpg','left',store],
+      ['퓨어 정제 코코넛 오일','carrier','에센셜 오일을 피부용으로 희석할 때 사용하는 무향에 가까운 캐리어 오일입니다.','13,000원','18,600원','3P','assets/official-store-shots/oils-16.jpg','right',store],
+      ['퓨어 롤온 용기','carrier','희석한 오일을 휴대해 바를 수 있는 롤온 용기입니다.','5,000원','7,200원','0P','assets/official-store-shots/oils-17.jpg','left',store],
+      ['퓨어 에센셜 오일 스포이드','carrier','캐리어 오일을 계량하고 옮길 때 쓰는 스포이드 용기입니다.','1,300원','1,900원','0P','assets/official-store-shots/oils-18.jpg','left',store],
+      ['퓨어 에센셜 오일 4팩','blend','T36-C5·레몬·페퍼민트·라벤더 구성. 최신 구성과 재고를 공식몰에서 확인합니다.','70,000원','118,400원','23P','assets/official-store-shots/oils-18.jpg','right','https://kr.melaleuca.com/productstore/essential-oils/pure-essentials-4-pack']
+    ];
+    const labels={single:'싱글 오일',blend:'블렌드·팩',carrier:'캐리어·도구',care:'바르는 제품'};
+    const grid=document.querySelector('#grid'),query=document.querySelector('#query'),empty=document.querySelector('#empty');let filter='all';
+    function won(v){return v==='-'?'가격 확인':v}
+    function render(){const q=query.value.trim().toLowerCase().replace(/\s/g,'');const list=products.filter(p=>(filter==='all'||p[1]===filter)&&(!q||p.join(' ').toLowerCase().replace(/\s/g,'').includes(q)));grid.innerHTML=list.map(p=>`<article class="item"><a class="photo ${p[7]}" href="${p[6]}" target="_blank" rel="noopener" aria-label="${p[0]} 제공 사진 원본 보기"><img src="${p[6]}" alt="${p[0]} 실제 제품이 표시된 제공 공식몰 화면" loading="lazy"></a><div class="meta"><span class="tag">${labels[p[1]]}</span><h2>${p[0]}</h2><p class="benefit">${p[2]}</p><div class="price"><div><small>우대회원 참고가</small><b>${won(p[3])}</b></div><div><small>일반고객 참고가</small><b>${won(p[4])}</b></div></div><div class="point">참고 포인트 ${p[5]}</div><a class="official" href="${p[8]}" target="_blank" rel="noopener">공식 정보 확인</a></div></article>`).join('');empty.style.display=list.length?'none':'block'}
+    document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelector('.chip.active')?.classList.remove('active');b.classList.add('active');filter=b.dataset.filter;render()});query.oninput=render;document.querySelector('#voice').onclick=()=>window.__SARANGBANG_LISTEN__?.();
+    window.__SARANGBANG_ROUTE_COMMAND__=text=>{const raw=String(text||''),q=raw.replace(/[\s·._-]+/g,'').toLowerCase();if(/안전|주의|희석/.test(q)){document.querySelector('#safety').scrollIntoView({behavior:'smooth'});return true}if(/공식몰|공식스토어|구매/.test(q)){location.href=store;return true}const found=products.find(p=>q.includes(p[0].replace(/[\s·._-]+/g,'').replace(/^퓨어/,'').toLowerCase()));if(found){query.value=found[0];render();scrollTo({top:document.querySelector('#grid').offsetTop-120,behavior:'smooth'});return true}return false};render();
+  })();
+  </script>
+  <script src="melaleuca-web-voice.js"></script>
+</body>
+</html>

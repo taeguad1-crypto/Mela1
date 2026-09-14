@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07382f">
+  <title>멜라루카 회원가입 안내방 | 멜라루카 사랑방</title>
+  <style>
+    *{box-sizing:border-box}html{background:#edf7f3;color:#14342e;font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;scroll-behavior:smooth}body{margin:0;min-width:0;background:linear-gradient(180deg,#f8fffc,#eaf7f1);overflow-x:hidden}button,a{font:inherit}.top{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:calc(10px + env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 10px max(12px,env(safe-area-inset-left));background:#ffffffee;border-bottom:1px solid #cce7dd;backdrop-filter:blur(14px)}.top>a,.top>button{min-width:44px;height:44px;border:0;border-radius:13px;background:#e5f4ee;color:#17483e;text-decoration:none;display:grid;place-items:center;font-weight:900}.brand{min-width:0}.brand b{display:block;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand small{color:#52766d}.hero{min-height:320px;display:grid;align-content:end;padding:30px 20px;color:white;background:linear-gradient(180deg,#052d2266,#052d22e8),url("https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1400&q=86") center/cover}.hero .badge{width:max-content;padding:7px 11px;border:1px solid #c9ffe2aa;border-radius:999px;background:#073e33aa;font-size:12px;font-weight:800}.hero h1{max-width:700px;margin:12px 0 8px;font-size:clamp(30px,7vw,48px);line-height:1.12;word-break:keep-all}.hero p{max-width:620px;margin:0;line-height:1.6;color:#e7fff4}.voice{display:flex;align-items:center;gap:12px;width:min(100%,720px);margin:18px auto 0;padding:12px;border-radius:20px;background:#fff;color:#14342e;box-shadow:0 12px 30px #001f1655}.voice button{flex:0 0 58px;width:58px;height:58px;border:0;border-radius:50%;background:radial-gradient(circle,#55f6c6,#087762);color:#03281f;font-size:25px;box-shadow:0 0 0 6px #70f6d333,0 0 26px #43eec0}.voice b,.voice span{display:block}.voice span{font-size:13px;color:#5f776f;margin-top:3px}.wrap{width:min(100%,980px);margin:auto;padding:22px max(14px,env(safe-area-inset-right)) calc(120px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}.notice{padding:16px 18px;border-radius:18px;background:#fff8df;border:1px solid #edd37b;color:#604b12;line-height:1.5}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}.step{min-width:0;padding:16px;border-radius:18px;background:#fff;border:1px solid #cfe8df;box-shadow:0 8px 22px #315a4c12}.step i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#0b7d67;color:#fff;font-style:normal;font-weight:900}.step b{display:block;margin:10px 0 5px}.step span{display:block;color:#5a746b;font-size:13px;line-height:1.45}.actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 28px}.actions a{min-width:0;min-height:58px;padding:12px;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:900;color:#fff;background:linear-gradient(135deg,#0b886f,#08604f);box-shadow:0 10px 22px #0a665033}.actions a.secondary{color:#17483e;background:#fff;border:1px solid #b9dbcf;box-shadow:none}.section{scroll-margin-top:78px;margin:16px 0;padding:20px;border-radius:22px;background:#fff;border:1px solid #cfe8df;box-shadow:0 9px 28px #315a4c12}.section h2{margin:0 0 12px;font-size:23px}.section p{line-height:1.65;color:#506d64}.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.fact{min-width:0;padding:14px;border-radius:16px;background:#eef8f4}.fact b{display:block;color:#0b705d}.fact span{display:block;margin-top:5px;color:#536f66;font-size:13px;line-height:1.45}.faq{display:grid;gap:8px}.faq details{border:1px solid #d5e9e2;border-radius:15px;background:#fbfffd;overflow:hidden}.faq summary{cursor:pointer;padding:15px 16px;font-weight:850;word-break:keep-all}.faq details p{margin:0;padding:0 16px 16px}.legal{border-color:#f0d795;background:#fffdf4}.legal h2{color:#5a4610}.source{font-size:12px;color:#667c75}.source a{color:#076b59}.footer{text-align:center;color:#6d847d;font-size:12px;padding-top:16px}.float-home{position:fixed;right:14px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:10;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;text-decoration:none;color:white;background:#073d34;box-shadow:0 12px 30px #002f25aa}
+    @media(max-width:700px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.actions{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.hero{min-height:350px}.section{padding:17px}.brand b{font-size:16px}}
+    @media(max-width:360px){.steps{grid-template-columns:1fr}.hero{padding:24px 16px}.top{grid-template-columns:44px minmax(0,1fr) 44px}.top>button{font-size:0}.top>button:after{content:"새로";font-size:11px}}
+    @media(min-width:720px) and (orientation:landscape){.hero{min-height:260px}.wrap{padding-bottom:90px}.facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a href="melaleuca-hub.html" aria-label="사랑방 홈">←</a>
+    <div class="brand"><b>멜라루카 사랑방 · 멜라루카 회원가입 안내방</b><small>공식 사이트 확인 중심 안내</small></div>
+    <button type="button" onclick="location.reload()">새로고침</button>
+  </header>
+  <section class="hero">
+    <span class="badge">멜라루카 사랑방 GUIDE ROOM</span>
+    <h1>멜라루카 회원가입,<br>순서대로 확인하세요</h1>
+    <p>이 안내방은 가입을 대신 처리하지 않습니다. 필요한 내용을 이해한 뒤 최종 등록과 동의는 멜라루카 코리아 공식 사이트에서 직접 진행합니다.</p>
+    <div class="voice">
+      <button type="button" onclick="window.__SARANGBANG_LISTEN__?.()" aria-label="음성 질문">◉</button>
+      <div><b>음성으로 질문하기</b><span>“멜라루카 가입 조건”, “개인정보 안내”, “공식 가입 열어줘”라고 말씀하세요.</span></div>
+    </div>
+  </section>
+  <main class="wrap">
+    <div class="notice"><b>중요:</b> 주민등록번호, 계좌·카드번호, 비밀번호, 인증번호는 멜라루카 사랑방 질문방에 입력하지 마세요. 가입 정보는 반드시 공식 멜라루카 화면에서만 입력하세요.</div>
+    <section class="steps" aria-label="가입 안내 단계">
+      <article class="step"><i>1</i><b>가입 자격 확인</b><span>공식 개인정보방침에는 만 19세 이상 성인만 가입 가능하다고 안내되어 있습니다.</span></article>
+      <article class="step"><i>2</i><b>혜택·조건 확인</b><span>할인, 무료 선물, 쇼핑달러, 배송, VIP 등 현재 혜택과 조건을 공식 페이지에서 확인합니다.</span></article>
+      <article class="step"><i>3</i><b>동의 항목 검토</b><span>필수·선택 수집, 제3자 제공, 처리 위탁, 미국 국외 이전 내용을 읽고 선택합니다.</span></article>
+      <article class="step"><i>4</i><b>공식 화면에서 등록</b><span>등록·로그인·결제는 공식 사이트에서 직접 진행하고 완료 후 정보를 다시 확인합니다.</span></article>
+    </section>
+    <nav class="actions">
+      <a href="https://kr.melaleuca.com/our-story/become-a-member">공식 회원 안내 열기</a>
+      <a class="secondary" href="https://kr.melaleuca.com/login">공식 로그인</a>
+      <a class="secondary" href="tel:15443600">고객센터 1544-3600</a>
+      <a class="secondary" href="melaleuca-rooms.html#benefits">회원 혜택방</a>
+      <a class="secondary" href="melaleuca-rooms.html#overview">사업 오버뷰방</a>
+      <a class="secondary" href="melaleuca-rooms.html#catalog">카탈로그방</a>
+      <a class="secondary" href="melaleuca-inquiry.html">회원가입 문의방</a>
+      <a class="secondary" href="melaleuca-hub.html">사랑방 전체</a>
+      <a class="secondary" href="melaleuca-customers.html">고객 관리 로그인</a>
+    </nav>
+    <section class="section" id="benefits">
+      <h2>공식 페이지에 표시된 주요 혜택</h2>
+      <div class="facts">
+        <div class="fact"><b>회원 가격</b><span>공식 페이지는 30%~50% 할인 혜택을 안내합니다. 제품별 실제 가격을 확인하세요.</span></div>
+        <div class="fact"><b>신규 회원 혜택</b><span>등록 후 6개월까지 무료 선물, 신규 팩 등은 시기와 조건이 달라질 수 있습니다.</span></div>
+        <div class="fact"><b>쇼핑·배송</b><span>로열티쇼핑달러, 35포인트 무료 배송, VIP 참여 조건을 주문 전에 확인하세요.</span></div>
+      </div>
+      <p class="source">기준: <a href="https://kr.melaleuca.com/our-story/become-a-member">멜라루카 코리아 우대회원 안내</a>. 혜택과 조건은 공식 페이지의 최신 표시가 우선합니다.</p>
+    </section>
+    <section class="section" id="privacy">
+      <h2>개인정보·동의 확인</h2>
+      <div class="facts">
+        <div class="fact"><b>필수와 선택 구분</b><span>가입에 필요한 최소 정보와 마케팅 수신 같은 선택 동의를 나누어 확인하세요.</span></div>
+        <div class="fact"><b>국외 이전</b><span>공식 방침은 글로벌 회원관리와 서비스 제공을 위해 미국으로 온라인 전송될 수 있다고 안내합니다.</span></div>
+        <div class="fact"><b>열람·정정·삭제</b><span>공식 방침에서 정보 열람, 정정, 동의 철회와 삭제 요청 방법을 확인하세요.</span></div>
+      </div>
+      <p class="source"><a href="https://kr.melaleuca.com/help-center/privacypolicy">공식 개인정보방침 전문 보기</a></p>
+    </section>
+    <section class="section" id="faq">
+      <h2>예상 질문과 답변</h2>
+      <div class="faq">
+        <details open><summary>누가 가입할 수 있나요?</summary><p>멜라루카 코리아 개인정보방침은 만 19세 이상 성인 이용자만 가입할 수 있다고 안내합니다. 실제 등록 가능 여부는 공식 화면 또는 고객센터에서 확인하세요.</p></details>
+        <details><summary>멜라루카 사랑방가 대신 회원가입해 주나요?</summary><p>아닙니다. 멜라루카 사랑방는 절차와 공식 링크를 안내할 뿐입니다. 개인정보 입력, 약관 동의, 결제와 최종 제출은 본인이 공식 멜라루카 사이트에서 직접 진행해야 합니다.</p></details>
+        <details><summary>어떤 개인정보를 확인해야 하나요?</summary><p>수집 목적, 필수·선택 항목, 보유기간, 제3자 제공, 처리 위탁과 국외 이전을 확인하세요. 비밀번호와 인증번호는 누구에게도 알려주지 마세요.</p></details>
+        <details><summary>가입 혜택은 항상 같은가요?</summary><p>프로모션과 세부 조건은 변경될 수 있으므로 이 안내보다 공식 회원 안내 및 주문 화면의 최신 표시를 우선하세요.</p></details>
+        <details><summary>후원수당이나 사업 기회도 안내하나요?</summary><p>수익을 보장하지 않습니다. 참여를 검토한다면 공식 평균 후원 수당 자료, 비용, 의무, 해지 조건을 먼저 확인하세요.</p></details>
+        <details><summary>제품이 질병을 치료하나요?</summary><p>건강 관련 제품 정보를 의학적 진단이나 치료로 받아들이면 안 됩니다. 표시·광고를 확인하고 복용 중인 약이나 질환이 있다면 의사·약사와 상담하세요.</p></details>
+        <details><summary>가입을 취소하거나 정보를 고치려면?</summary><p>공식 개인정보방침과 이용약관의 열람·정정·동의 철회·해지 절차를 확인하고 멜라루카 고객센터에 문의하세요.</p></details>
+      </div>
+    </section>
+    <section class="section legal" id="legal">
+      <h2>독립 안내 및 법률 고지</h2>
+      <p>이 페이지는 멜라루카 사랑방가 제공하는 비공식 편의 안내이며 멜라루카 인터내셔날 코리아㈜의 공식 가입 화면이 아닙니다. 상표·제품 이미지·상품 설명을 복제하지 않고 공식 페이지로 연결합니다. 제품 효능, 가격, 할인, 회원 혜택, 후원수당은 보장하지 않으며 공식 약관과 최신 표시가 우선합니다.</p>
+      <div class="actions">
+        <a class="secondary" href="https://kr.melaleuca.com/help-center/termsofuse">공식 이용약관</a>
+        <a class="secondary" href="https://kr.melaleuca.com/help-center/privacypolicy">공식 개인정보방침</a>
+        <a class="secondary" href="https://kr.melaleuca.com/help-center/sudang">평균 후원 수당</a>
+      </div>
+    </section>
+    <p class="footer">공식 사이트 조사 기준일 2026-09-13 · © 멜라루카 사랑방 안내방</p>
+  </main>
+  <a class="float-home" href="index.html" aria-label="멜라루카 사랑방 홈">⌂</a>
+  <script>
+    window.__SARANGBANG_ROUTE_COMMAND__=function(text){
+      const q=String(text||'').replace(/[\s·._-]+/g,'').toLowerCase();
+      const go=id=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});return true};
+      if(/가입조건|가입자격|나이/.test(q))return go('faq');
+      if(/혜택|할인|배송|vip/.test(q))return go('benefits');
+      if(/개인정보|동의|국외이전|탈퇴|삭제/.test(q))return go('privacy');
+      if(/약관|법률|수당|수익|사업/.test(q))return go('legal');
+      if(/공식가입|가입시작|회원가입열어/.test(q)){location.href='https://kr.melaleuca.com/our-story/become-a-member';return true}
+      if(/가입문의|문의방|상담문의/.test(q)){location.href='melaleuca-inquiry.html';return true}
+      if(/고객관리|회원관리|주문관리|구매내역/.test(q)){location.href='melaleuca-customers.html';return true}
+      if(/멜라루카|melaleuca/.test(q))return go('faq');
+      return false;
+    };
+  </script>
+  <script src="melaleuca-web-voice.js"></script>
+</body>
+</html>

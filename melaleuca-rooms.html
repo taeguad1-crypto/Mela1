@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#092f28">
+  <title>멜라루카 안내방 | 멜라루카 사랑방</title>
+  <style>
+    *{box-sizing:border-box}html{font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;background:#eef7f3;color:#14332d;scroll-behavior:smooth}body{margin:0;overflow-x:hidden}a,button{font:inherit}.top{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:44px minmax(0,1fr) 50px;gap:9px;align-items:center;padding:calc(9px + env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 9px max(12px,env(safe-area-inset-left));background:#fffffff2;border-bottom:1px solid #cde3dc;backdrop-filter:blur(12px)}.top a,.top button{height:44px;border:0;border-radius:13px;background:#e3f3ed;color:#17483d;text-decoration:none;display:grid;place-items:center;font-weight:900}.brand{min-width:0}.brand b,.brand small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand small{font-size:11px;color:#607a71}.tabs{position:sticky;top:63px;z-index:25;display:flex;gap:7px;padding:10px 12px;overflow:auto;background:#f7fffbf2;border-bottom:1px solid #d6e9e2;scrollbar-width:none}.tabs a{flex:0 0 auto;padding:10px 14px;border-radius:999px;background:#fff;color:#23554a;text-decoration:none;font-weight:850;border:1px solid #c9e3da}.tabs a.active{background:#08745f;color:#fff}.hero{min-height:300px;display:grid;align-content:end;padding:30px 20px;color:#fff;background:linear-gradient(180deg,#032e2344,#032e23e9),var(--hero) center/cover}.hero h1{margin:8px 0;font-size:clamp(31px,8vw,52px);line-height:1.08}.hero p{max-width:680px;margin:0;line-height:1.6;color:#e9fff7}.hero .tag{font-size:12px;font-weight:900;letter-spacing:1px;color:#6fffd1}.room{display:none}.room.active{display:block}.wrap{width:min(100%,1020px);margin:auto;padding:20px max(14px,env(safe-area-inset-right)) calc(120px + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}.voice{display:flex;align-items:center;gap:12px;padding:13px;border-radius:19px;background:#fff;border:1px solid #cce5dc;box-shadow:0 8px 24px #173f3116}.voice button{width:56px;height:56px;flex:0 0 56px;border:0;border-radius:50%;background:radial-gradient(circle,#55f8c5,#087460);box-shadow:0 0 0 6px #61efc32b;font-size:24px}.voice b,.voice span{display:block}.voice span{margin-top:3px;color:#5c786e;font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.card{min-width:0;overflow:hidden;border-radius:20px;background:#fff;border:1px solid #cce5dc;box-shadow:0 9px 28px #173f3114}.card img{width:100%;height:150px;object-fit:cover;object-position:center}.card .copy{padding:15px}.card b{display:block;font-size:18px}.card span{display:block;margin-top:6px;color:#5a756c;font-size:13px;line-height:1.5}.card a{display:inline-flex;margin-top:12px;padding:9px 12px;border-radius:11px;background:#0a765f;color:#fff;text-decoration:none;font-weight:850}.panel{margin:16px 0;padding:20px;border-radius:21px;background:#fff;border:1px solid #cce5dc}.panel h2{margin:0 0 12px}.panel p,.panel li{line-height:1.65;color:#4f6c62}.panel ol,.panel ul{padding-left:22px}.buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.buttons a{min-width:0;min-height:52px;padding:10px;border-radius:14px;display:grid;place-items:center;text-align:center;text-decoration:none;background:#0a765f;color:#fff;font-weight:900}.buttons a.soft{background:#edf8f4;color:#1b5c4e;border:1px solid #c8e1d8}.warning{background:#fff9e6;border-color:#efd78f;color:#5c4812}.warning p{color:#5c4812}.foot{text-align:center;font-size:12px;color:#6f847e}.catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.catalog-grid .card img{height:190px}.float-home{position:fixed;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:20;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:#073f34;color:#fff;box-shadow:0 12px 28px #00291faa}
+    @media(max-width:680px){.top{grid-template-columns:44px minmax(0,1fr) 44px}.tabs{top:63px}.grid,.buttons{grid-template-columns:1fr}.catalog-grid{grid-template-columns:1fr}.hero{min-height:330px}.card img,.catalog-grid .card img{height:180px}.panel{padding:17px}}
+    @media(min-width:700px) and (orientation:landscape){.hero{min-height:255px}.wrap{padding-bottom:90px}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <header class="top"><a href="melaleuca-hub.html" aria-label="사랑방 홈">←</a><div class="brand"><b>멜라루카 사랑방 · 멜라루카 안내방</b><small>공식 자료 연결 · 음성 지원</small></div><button onclick="window.__SARANGBANG_LISTEN__?.()" aria-label="음성 질문">◉</button></header>
+  <nav class="tabs">
+    <a href="melaleuca-hub.html">5개방 홈</a>
+    <a href="melaleuca-guide.html">회원가입</a>
+    <a href="melaleuca-inquiry.html">가입 문의</a>
+    <a href="melaleuca-customers.html">고객 관리</a>
+    <a href="melaleuca-more.html">추가 정보</a>
+    <a href="#benefits" data-room="benefits">회원 혜택</a>
+    <a href="#overview" data-room="overview">사업 오버뷰</a>
+    <a href="#melalife" data-room="melalife">멜라라이프</a>
+    <a href="#catalog" data-room="catalog">카탈로그</a>
+  </nav>
+  <section class="room" data-page="overview">
+    <div class="hero" style="--hero:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=86')"><span class="tag">BUSINESS OVERVIEW ROOM</span><h1>멜라루카<br>사업 오버뷰</h1><p>공식 오버뷰·비즈니스 FAQ·후원수당 자료를 순서대로 확인하는 독립 안내방입니다. 수익을 보장하거나 가입을 권유하지 않습니다.</p></div>
+    <main class="wrap">
+      <div class="voice"><button onclick="window.__SARANGBANG_LISTEN__?.()">◉</button><div><b>음성 안내</b><span>“오버뷰 열어줘”, “7가지 핵심 활동”, “평균 후원수당”이라고 말씀하세요.</span></div></div>
+      <section class="grid">
+        <article class="card"><img src="assets/overview-presenter-1.webp" alt="사업 오버뷰 안내 모델"><div class="copy"><b>사랑방 오버뷰 웹 영상</b><span>회사·제품·회원·사업 정보를 안내 모델·자막·음성으로 살펴봅니다.</span><a href="melaleuca-overview.html">오버뷰 영상 재생</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=82" alt="팀 업무 회의"><div class="copy"><b>사업 활동</b><span>공식 FAQ의 7가지 핵심 활동과 팀 운영 안내를 확인합니다.</span><a href="https://kr.melaleuca.com/help-center/faq/business-development/building-your-business">공식 FAQ</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=82" alt="재무 자료 검토"><div class="copy"><b>수당·정책</b><span>평균 후원수당, 정책, 비용과 세금 정보를 먼저 검토합니다.</span><a href="https://kr.melaleuca.com/help-center/sudang">공식 수당 자료</a></div></article>
+      </section>
+      <section class="panel"><h2>오버뷰 확인 순서</h2><ol><li>회사와 제품 설명을 공식 오버뷰에서 확인합니다.</li><li>회원과 독립사업가의 역할·의무·비용을 구분합니다.</li><li>7가지 핵심 활동은 업무 안내이며 결과나 수익을 보장하지 않음을 확인합니다.</li><li>평균 후원수당과 정책·조건을 읽고 본인이 판단합니다.</li></ol></section>
+      <section class="panel warning"><h2>수익·표시광고 고지</h2><p>개인의 수익을 보장하거나 과장된 사례로 가입을 유도하지 않습니다. 가격, 혜택, 제품 효능, 수당, 세금과 사업 조건은 공식 최신 자료가 우선이며 필요하면 전문가에게 확인하세요.</p></section>
+      <div class="buttons"><a href="https://kr.melaleuca.com/help-center/faq/business-development/melaleuca-an-overview">오버뷰 공식 FAQ</a><a class="soft" href="https://kr.melaleuca.com/help-center/faq/business-development/policies-terms">정책 및 조건</a><a class="soft" href="https://kr.melaleuca.com/help-center/faq/business-development/compensation-taxes">보상 및 세금</a></div>
+      <p class="foot">공식 자료 조사 기준일 2026-09-13 · 멜라루카 사랑방 비공식 편의 안내</p>
+    </main>
+  </section>
+  <section class="room" data-page="melalife">
+    <div class="hero" style="--hero:url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=86')"><span class="tag">MELALIFE ROOM</span><h1>멜라라이프<br>소식 안내방</h1><p>월간 소식, 프로모션, 행사와 정책 변경을 최신 공식 채널에서 확인하도록 돕습니다.</p></div>
+    <main class="wrap">
+      <div class="voice"><button onclick="window.__SARANGBANG_LISTEN__?.()">◉</button><div><b>음성 안내</b><span>“멜라라이프 열어줘”, “이번 달 소식”, “행사 정보”라고 말씀하세요.</span></div></div>
+      <section class="grid">
+        <article class="card"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=82" alt="월간 소식"><div class="copy"><b>최신 멜라라이프</b><span>공식 FAQ는 멜라라이프가 매월 발행되며 비즈니스 센터에서 확인할 수 있다고 안내합니다.</span><a href="https://kr.melaleuca.com/login">비즈니스 센터 로그인</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=82" alt="행사와 미팅"><div class="copy"><b>미팅·이벤트</b><span>지역 행사와 일정 확인 방법은 공식 FAQ에서 확인합니다.</span><a href="https://kr.melaleuca.com/help-center/faq/business-development/meeting-events">행사 공식 FAQ</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=82" alt="정책 변경 확인"><div class="copy"><b>변경사항 확인</b><span>프로모션·가격·제품·정책은 과거 소식보다 현재 공식 화면을 우선합니다.</span><a href="https://kr.melaleuca.com/">공식 홈페이지</a></div></article>
+      </section>
+      <section class="panel"><h2>이번 달 확인 목록</h2><ul><li>신제품·단종·구성 변경</li><li>회원 프로모션과 적용 기간</li><li>월마감 주문 일정과 배송</li><li>미팅·행사·교육 일정</li><li>사업 정책 및 공지 변경</li></ul></section>
+      <section class="panel warning"><h2>최신성 안내</h2><p>멜라라이프는 월별로 바뀌므로 멜라루카 사랑방가 과거 내용을 최신 정보로 단정하지 않습니다. 로그인 후 비즈니스 센터의 최신 호와 공식 공지를 확인하세요.</p></section>
+      <p class="foot">멜라라이프 발행·확인 경로: 멜라루카 코리아 미팅 및 이벤트 공식 FAQ</p>
+    </main>
+  </section>
+  <section class="room" data-page="benefits">
+    <div class="hero" style="--hero:url('https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=1400&q=86')"><span class="tag">MEMBER BENEFITS ROOM</span><h1>멜라루카<br>회원 혜택방</h1><p>할인·신규회원·쇼핑달러·배송·VIP 혜택을 한눈에 확인하고 공식 조건으로 연결합니다.</p></div>
+    <main class="wrap">
+      <div class="voice"><button onclick="window.__SARANGBANG_LISTEN__?.()">◉</button><div><b>음성으로 혜택 찾기</b><span>“회원 할인”, “무료 선물”, “쇼핑달러”, “무료 배송”, “VIP 혜택”이라고 말씀하세요.</span></div></div>
+      <section class="grid">
+        <article class="card"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=82" alt="회원 가격 혜택"><div class="copy"><b>회원 가격</b><span>공식 안내의 30%~50% 할인은 제품·회원 조건에 따라 다를 수 있습니다.</span><a href="https://kr.melaleuca.com/our-story/become-a-member">조건 확인</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=82" alt="신규 회원 선물"><div class="copy"><b>신규 회원 혜택</b><span>무료 선물과 신규 팩은 등록 시점의 공식 적용 조건을 확인하세요.</span><a href="https://kr.melaleuca.com/our-story/become-a-member">혜택 확인</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&q=82" alt="쇼핑과 배송"><div class="copy"><b>쇼핑·배송·VIP</b><span>쇼핑달러 적립, 무료배송, VIP 참여는 포인트·기간·회원 상태 조건이 적용될 수 있습니다.</span><a href="https://kr.melaleuca.com/our-story/new-member-benefits">공식 상세</a></div></article>
+      </section>
+      <section class="panel"><h2>혜택 확인 체크리스트</h2><ul><li>내 회원 유형과 혜택 적용 대상</li><li>최소 제품 포인트·주문 기간·유지 조건</li><li>쇼핑달러 적립률, 사용처와 소멸 조건</li><li>무료 배송의 포인트·지역·제외 조건</li><li>VIP/VIP+ 참여 및 생일 프로모션 조건</li><li>변경·중단·반품·탈퇴 시 처리 기준</li></ul></section>
+      <section class="panel warning"><h2>혜택 표시 원칙</h2><p>멜라루카 사랑방는 혜택을 보장하지 않으며 가입을 대신 결정하지 않습니다. 프로모션은 변경 또는 중단될 수 있으므로 결제 직전 공식 화면의 최신 조건과 총비용을 확인하세요.</p></section>
+      <div class="buttons"><a href="https://kr.melaleuca.com/our-story/become-a-member">공식 우대회원 안내</a><a class="soft" href="https://kr.melaleuca.com/our-story/new-member-benefits">공식 회원 혜택</a><a class="soft" href="melaleuca-guide.html">가입 안내방</a></div>
+      <p class="foot">공식 회원 혜택 페이지 연결 · 멜라루카 사랑방 비공식 편의 안내</p>
+    </main>
+  </section>
+  <section class="room" data-page="catalog">
+    <div class="hero" style="--hero:url('https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1400&q=86')"><span class="tag">OFFICIAL CATALOG ROOM</span><h1>멜라루카<br>카탈로그 안내방</h1><p>상품 설명을 복제하지 않고 공식 제품 스토어와 컨츄리 카탈로그로 안전하게 연결합니다.</p></div>
+    <main class="wrap">
+      <div class="voice"><button onclick="window.__SARANGBANG_LISTEN__?.()">◉</button><div><b>음성으로 카테고리 열기</b><span>“비타민”, “청소 세탁”, “퍼스널 케어”, “뷰티”, “건강식품”이라고 말씀하세요.</span></div></div>
+      <section class="catalog-grid">
+        <article class="card"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=82" alt="퍼스널 케어"><div class="copy"><b>퍼스널 케어</b><span>핸드·바디·구강·헤어·베이비 제품</span><a href="https://kr.melaleuca.com/productstore/personal-care">공식 제품 보기</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=82" alt="비타민과 영양"><div class="copy"><b>비타민·영양</b><span>비타민과 영양보충용식품</span><a href="https://kr.melaleuca.com/productstore/supplements">공식 제품 보기</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=82" alt="청소와 세탁"><div class="copy"><b>청소·세탁</b><span>가정용 세정 및 세탁 제품</span><a href="https://kr.melaleuca.com/productstore/cleaning-and-laundry">공식 제품 보기</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=82" alt="뷰티"><div class="copy"><b>세이벨라 뷰티</b><span>스킨·메이크업·헤어 케어</span><a href="https://kr.melaleuca.com/productstore/sei-bella-beauty">공식 제품 보기</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=82" alt="건강 식품"><div class="copy"><b>건강 식품</b><span>건강 식품과 체중 관심 제품</span><a href="https://kr.melaleuca.com/productstore/healthy-foods-and-drinks">공식 제품 보기</a></div></article>
+        <article class="card"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=82" alt="전체 카탈로그"><div class="copy"><b>컨츄리 카탈로그</b><span>공식 전제품 카탈로그 안내</span><a href="https://kr.melaleuca.com/productstore/sales-aids-and-materials/kr-mcc-5-set">공식 안내 보기</a></div></article>
+      </section>
+      <section class="panel warning"><h2>제품 정보 고지</h2><p>상품 이미지·설명·가격은 멜라루카 코리아 공식 사이트의 저작물이며 멜라루카 사랑방는 이를 복제해 판매하지 않습니다. 건강 관련 정보는 질병 진단·치료가 아니며, 구매 전 성분·주의사항·반품 조건과 현재 가격을 공식 화면에서 확인하세요.</p></section>
+      <div class="buttons"><a href="https://kr.melaleuca.com/productstore">전체 제품 스토어</a><a class="soft" href="melaleuca-guide.html">회원가입 안내</a><a class="soft" href="https://kr.melaleuca.com/help-center/termsofuse">전자상거래 약관</a></div>
+      <p class="foot">공식 제품 카테고리 연결 · 멜라루카 사랑방 비공식 편의 안내</p>
+    </main>
+  </section>
+  <a class="float-home" href="index.html" aria-label="멜라루카 사랑방 홈">⌂</a>
+  <script>
+    const pages=[...document.querySelectorAll('[data-page]')],tabs=[...document.querySelectorAll('[data-room]')];
+    function showRoom(name){
+      if(!['overview','benefits','melalife','catalog'].includes(name))name='overview';
+      pages.forEach(x=>x.classList.toggle('active',x.dataset.page===name));
+      tabs.forEach(x=>x.classList.toggle('active',x.dataset.room===name));
+      if(location.hash!=='#'+name)history.replaceState(null,'','#'+name);
+      scrollTo(0,0);return true;
+    }
+    addEventListener('hashchange',()=>showRoom(location.hash.slice(1)));showRoom(location.hash.slice(1));
+    window.__SARANGBANG_ROUTE_COMMAND__=function(text){
+      const q=String(text||'').replace(/[\s·._-]+/g,'').toLowerCase();
+      if(/회원가입|가입안내|가입조건/.test(q)){location.href='melaleuca-guide.html';return true}
+      if(/가입문의|문의방|상담문의/.test(q)){location.href='melaleuca-inquiry.html';return true}
+      if(/고객관리|회원관리|주문관리|구매내역/.test(q)){location.href='melaleuca-customers.html';return true}
+      if(/추가정보|종합안내|배송|반품|환불|탈퇴|개인정보|사업정책|교육행사/.test(q)){location.href='melaleuca-more.html';return true}
+      if(/회원혜택|회원할인|무료선물|쇼핑달러|무료배송|vip/.test(q))return showRoom('benefits');
+      if(/오버뷰영상|영상오버뷰/.test(q)){location.href='melaleuca-overview.html';return true}
+      if(/제품영상|카테고리영상/.test(q)){location.href='melaleuca-product-video.html';return true}
+      if(/오버뷰|사업설명|사업소개|핵심활동|수당/.test(q))return showRoom('overview');
+      if(/멜라라이프|이번달소식|행사|이벤트/.test(q))return showRoom('melalife');
+      if(/카탈로그|제품목록|제품방/.test(q))return showRoom('catalog');
+      const routes=[
+        [/비타민|영양/, 'https://kr.melaleuca.com/productstore/supplements'],
+        [/청소|세탁/, 'https://kr.melaleuca.com/productstore/cleaning-and-laundry'],
+        [/퍼스널|바디|헤어/, 'https://kr.melaleuca.com/productstore/personal-care'],
+        [/뷰티|세이벨라/, 'https://kr.melaleuca.com/productstore/sei-bella-beauty'],
+        [/건강식품|체중/, 'https://kr.melaleuca.com/productstore/healthy-foods-and-drinks']
+      ];
+      for(const [rx,url] of routes)if(rx.test(q)){location.href=url;return true}
+      if(/멜라루카|melaleuca/.test(q))return showRoom('overview');
+      return false;
+    };
+  </script>
+  <script src="melaleuca-web-voice.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+name: Build Mela1 APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-debug-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out Mela source
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Run voice command tests
+        run: |
+          mkdir -p build/router-test
+          javac -encoding UTF-8 -d build/router-test \
+            app/src/main/java/com/melasarang/room/VoiceCommandRouter.java \
+            tests/RouterSmokeTest.java
+          java -cp build/router-test RouterSmokeTest
+
+      - name: Build installable APK
+        run: gradle --no-daemon clean testDebugUnitTest assembleDebug
+
+      - name: Name Mela APK
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk Mela-Sarangbang-1.1.0.apk
+          sha256sum Mela-Sarangbang-1.1.0.apk > Mela-Sarangbang-1.1.0.sha256
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mela-Sarangbang-Android-APK
+          path: |
+            Mela-Sarangbang-1.1.0.apk
+            Mela-Sarangbang-1.1.0.sha256
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Prepare phone download ZIP
+        run: zip -j Mela-Sarangbang-Android-1.1.0.zip Mela-Sarangbang-1.1.0.apk Mela-Sarangbang-1.1.0.sha256
+
+      - name: Publish stable phone downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view v1.1.0 >/dev/null 2>&1 || \
+            gh release create v1.1.0 --title "멜라루카 사랑방 Android 1.1.0" --notes "모바일 맞춤, 사이트 내부 뒤로가기, 음성 안내 및 음성 명령, 오버뷰·제품 영상, AI 상담, 보상플랜, 카카오톡 및 음성 명령 지원"
+          gh release upload v1.1.0 \
+            Mela-Sarangbang-1.1.0.apk \
+            Mela-Sarangbang-1.1.0.sha256 \
+            Mela-Sarangbang-Android-1.1.0.zip \
+            --clobber
