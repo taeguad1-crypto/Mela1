@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://taeguad1-crypto.github.io/Mela1/sitemap.xml
+Sitemap: https://melaleuca-room.kwonkiil.chatgpt.site/sitemap.xml

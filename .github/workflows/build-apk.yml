@@ -41,30 +41,30 @@ jobs:
 
       - name: Name Mela APK
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk Mela-Sarangbang-1.1.0.apk
-          sha256sum Mela-Sarangbang-1.1.0.apk > Mela-Sarangbang-1.1.0.sha256
+          cp app/build/outputs/apk/debug/app-debug.apk Mela-Sarangbang-1.1.1.apk
+          sha256sum Mela-Sarangbang-1.1.1.apk > Mela-Sarangbang-1.1.1.sha256
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: Mela-Sarangbang-Android-APK
           path: |
-            Mela-Sarangbang-1.1.0.apk
-            Mela-Sarangbang-1.1.0.sha256
+            Mela-Sarangbang-1.1.1.apk
+            Mela-Sarangbang-1.1.1.sha256
           if-no-files-found: error
           retention-days: 30
 
       - name: Prepare phone download ZIP
-        run: zip -j Mela-Sarangbang-Android-1.1.0.zip Mela-Sarangbang-1.1.0.apk Mela-Sarangbang-1.1.0.sha256
+        run: zip -j Mela-Sarangbang-Android-1.1.1.zip Mela-Sarangbang-1.1.1.apk Mela-Sarangbang-1.1.1.sha256
 
       - name: Publish stable phone downloads
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view v1.1.0 >/dev/null 2>&1 || \
-            gh release create v1.1.0 --title "멜라루카 사랑방 Android 1.1.0" --notes "모바일 맞춤, 사이트 내부 뒤로가기, 음성 안내 및 음성 명령, 오버뷰·제품 영상, AI 상담, 보상플랜, 카카오톡 및 음성 명령 지원"
-          gh release upload v1.1.0 \
-            Mela-Sarangbang-1.1.0.apk \
-            Mela-Sarangbang-1.1.0.sha256 \
-            Mela-Sarangbang-Android-1.1.0.zip \
+          gh release view v1.1.1 >/dev/null 2>&1 || \
+            gh release create v1.1.1 --title "멜라루카 사랑방 Android 1.1.1" --notes "모바일 맞춤, 사이트 내부 뒤로가기, 음성 안내 및 음성 명령, 오버뷰·제품 영상, AI 상담, 보상플랜, 카카오톡 및 음성 명령 지원"
+          gh release upload v1.1.1 \
+            Mela-Sarangbang-1.1.1.apk \
+            Mela-Sarangbang-1.1.1.sha256 \
+            Mela-Sarangbang-Android-1.1.1.zip \
             --clobber

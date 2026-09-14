@@ -5,7 +5,7 @@ import java.util.Locale;
 
 /** Converts Korean speech into browser, page and floating-microphone actions. */
 public final class VoiceCommandRouter {
-    private static final String HOME = "https://taeguad1-crypto.github.io/Mela1/";
+    private static final String HOME = "https://melaleuca-room.kwonkiil.chatgpt.site/";
 
     public enum Type {
         OPEN_URL, BACK, FORWARD, HOME, RELOAD, SHOW_MIC, HIDE_MIC, STOP_MIC,

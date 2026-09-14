@@ -2,8 +2,8 @@
 
 멜라루카와 21년째 권기일의 비공식 안내 사이트입니다.
 
-- 사이트: https://taeguad1-crypto.github.io/Mela1/
-- Android APK: https://github.com/taeguad1-crypto/Mela1/releases/latest/download/Mela-Sarangbang-1.1.0.apk
+- 사이트: https://melaleuca-room.kwonkiil.chatgpt.site/
+- Android APK: https://github.com/taeguad1-crypto/Mela1/releases/latest/download/Mela-Sarangbang-1.1.1.apk
 - AI 상담: 가입 절차·회사·보상·제품·법적 일반 안내
 - 상담: 010-5524-5119 / 카카오톡 ID `ccn21`
 

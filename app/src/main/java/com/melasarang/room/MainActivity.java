@@ -39,7 +39,7 @@ public final class MainActivity extends Activity implements
     VoiceAssistant.Callback,
     FloatingVoiceController.Listener {
 
-    public static final String HOME_URL = "https://taeguad1-crypto.github.io/Mela1/";
+    public static final String HOME_URL = "https://melaleuca-room.kwonkiil.chatgpt.site/";
     private static final String EXTRA_RESUME_MIC = "resume_sarangbang_voice";
     private static final String VOICE_CHANNEL = "sarangbang_voice_restore";
     private static final int VOICE_NOTIFICATION_ID = 125;
