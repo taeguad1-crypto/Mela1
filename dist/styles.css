@@ -201,12 +201,10 @@ h1 em, h2 em { display: inline-block; color: var(--gold); font-style: normal; fo
 .closing h2 { max-width: 900px; margin: 38px auto; }
 footer { padding: 56px 0 100px; background: #09080b; color: rgba(255,255,255,.65); border-top: 1px solid rgba(255,255,255,.1); }
 .footer-inner { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; display: grid; grid-template-columns: .8fr 1.4fr; gap: 40px; }
-.contact-panel { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 20px; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(217,195,143,.26); border-radius: 24px; background: linear-gradient(120deg, rgba(183,154,98,.17), rgba(255,255,255,.04)); }
+.contact-panel { grid-column: 1 / -1; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(217,195,143,.26); border-radius: 24px; background: linear-gradient(120deg, rgba(183,154,98,.17), rgba(255,255,255,.04)); }
 .contact-panel div { display: grid; gap: 7px; }
 .contact-panel small { color: #d9c38f; font-size: 13px; font-weight: 800; letter-spacing: .1em; }
 .contact-panel strong { color: #fff; font-size: clamp(26px, 4vw, 42px); }
-.contact-number { color: #fff; font: 600 clamp(21px, 3vw, 34px)/1.2 Georgia, serif; white-space: nowrap; }
-.copy-number { min-height: 44px; padding: 0 16px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; color: #fff; background: rgba(255,255,255,.08); cursor: pointer; }
 .footer-inner b { color: #fff; letter-spacing: .12em; }
 .footer-inner p { line-height: 1.7; font-size: 12px; }
 .copyright { grid-column: 1 / -1; color: rgba(255,255,255,.35); }
@@ -300,8 +298,6 @@ footer { padding: 56px 0 100px; background: #09080b; color: rgba(255,255,255,.65
   .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 8px; }
   .gallery-item.wide { grid-column: span 2; }
   .footer-inner { grid-template-columns: 1fr; gap: 18px; }
-  .contact-panel { grid-template-columns: 1fr; gap: 14px; }
-  .contact-number { white-space: normal; }
   .copyright { grid-column: 1; }
   .closing-logo > img { width: 170px; }
   .voice-main { height: 48px; padding: 0 15px; }

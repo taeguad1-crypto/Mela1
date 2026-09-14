@@ -363,17 +363,6 @@
   });
   setLanguage(lang);
 
-  document.querySelector('[data-contact-copy]')?.addEventListener('click', async (event) => {
-    try {
-      await navigator.clipboard.writeText('+82 01 8913 0220');
-      const copied = { zh: '已复制', ja: 'コピーしました', en: 'Copied', ko: '복사됨' };
-      event.currentTarget.textContent = copied[lang];
-      window.setTimeout(() => setLanguage(lang), 1400);
-    } catch (_) {
-      event.currentTarget.focus();
-    }
-  });
-
   menuToggle.addEventListener('click', () => {
     const open = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!open));
