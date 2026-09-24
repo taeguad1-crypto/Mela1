@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=.7,maximum-scale=3,user-scalable=yes,viewport-fit=cover">
+<title>AUSOAI Document Studio</title>
+<style>
+:root{--mint:#4fdcc0;--blue:#63aef8;--ink:#173f3e;--muted:#678985}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR",system-ui,sans-serif;background:linear-gradient(150deg,#f8fffd,#e9f8f4 56%,#edf5ff);color:var(--ink)}
+body{overflow:auto}
+.wrap{min-height:100vh;display:flex;flex-direction:column;padding:calc(8px + env(safe-area-inset-top)) 8px calc(14px + env(safe-area-inset-bottom));gap:7px;max-width:1050px;margin:auto}
+.top{display:flex;gap:5px;align-items:center;overflow:auto;padding:6px;border-radius:15px;background:rgba(255,255,255,.92);box-shadow:0 6px 20px rgba(35,105,95,.09)}
+.brand{font-size:10px;font-weight:950;color:#168f80;white-space:nowrap;margin-right:auto}
+button{border:0;border-radius:10px;background:#e2f7f1;color:#195f59;min-height:38px;padding:0 9px;font-size:9px;font-weight:850;white-space:nowrap}
+.primary{background:linear-gradient(135deg,var(--mint),var(--blue));color:#fff}
+.command{display:flex;gap:6px}.command input{flex:1;min-width:0;height:40px;border:0;border-radius:12px;background:#fff;padding:0 11px;font-size:11px;outline:1px solid #cfe9e3}
+.title{height:46px;border:0;border-radius:12px;background:#fff;padding:0 12px;color:#173f3e;font-size:19px;font-weight:900;outline:1px solid #cfe9e3}
+.format{display:flex;gap:5px;overflow:auto}
+.editor{flex:1;min-height:58vh;overflow:auto;background:#fff;border-radius:16px;padding:18px;color:#1c4142;font-size:16px;line-height:1.75;outline:1px solid #cbe8e1;box-shadow:0 12px 32px rgba(36,107,97,.10)}
+.editor:focus{outline:2px solid #65d7c2}
+.status{padding:8px 10px;border-radius:11px;background:#dff5ef;color:#3b736e;font-size:8.5px}
+@media(min-width:700px){.editor{font-size:17px;padding:24px}}
+@media print{.top,.command,.format,.status{display:none}.wrap{padding:0}.title{outline:0}.editor{outline:0;box-shadow:none;min-height:auto}}
+</style></head>
+<body><div class="wrap">
+<div class="top"><div class="brand">AUSOAI · DOCUMENT</div>
+<button onclick="fresh()">새 문서</button><button onclick="undo()">되돌리기</button><button onclick="redo()">다시</button>
+<button onclick="cancelEdit()">취소</button><button onclick="copyAll()">복사</button><button onclick="exportWord()">Word</button>
+<button onclick="window.print()">PDF</button><button class="primary" onclick="save()">저장</button></div>
+<form class="command" id="cmdForm"><input id="cmd" placeholder="예: 제목을 사업계획서로 바꿔 / 마지막에 결론 추가해 / 저장해"><button class="primary">실행</button></form>
+<input id="title" class="title" value="새 문서" aria-label="문서 제목">
+<div class="format"><button onclick="fmt('bold')"><b>B</b></button><button onclick="fmt('italic')"><i>I</i></button><button onclick="fmt('underline')"><u>U</u></button>
+<button onclick="fmt('justifyLeft')">왼쪽</button><button onclick="fmt('justifyCenter')">가운데</button><button onclick="fmt('justifyRight')">오른쪽</button>
+<button onclick="fontDelta(1)">글자＋</button><button onclick="fontDelta(-1)">글자−</button></div>
+<div id="editor" class="editor" contenteditable="true" role="textbox" aria-multiline="true"></div>
+<div id="status" class="status">터치 · 문자 · 음성 편집 준비됨</div></div>
+<script>
+const e=document.getElementById('editor'),t=document.getElementById('title'),s=document.getElementById('status');
+const BODY='vh_doc_body',TITLE='vh_doc_title',SAVED='vh_doc_saved_at';let fontPx=16,saved={title:'새 문서',body:''};
+function stamp(v){s.textContent=v}
+function savedState(){return{title:localStorage.getItem(TITLE)||'새 문서',body:localStorage.getItem(BODY)||''}}
+function save(){saved={title:t.value,body:e.innerHTML};localStorage.setItem(BODY,saved.body);localStorage.setItem(TITLE,saved.title);localStorage.setItem(SAVED,new Date().toLocaleString());stamp('저장됨 · '+new Date().toLocaleTimeString())}
+function cancelEdit(){t.value=saved.title||'새 문서';e.innerHTML=saved.body||'';stamp('변경 취소 · 마지막 저장 상태 복원')}
+function fresh(){t.value='새 문서';e.innerHTML='';e.focus();stamp('새 문서 · 저장 전')}
+function undo(){document.execCommand('undo');stamp('되돌리기')}
+function redo(){document.execCommand('redo');stamp('다시 실행')}
+function fmt(cmd){e.focus();document.execCommand(cmd);stamp('서식 적용')}
+function fontDelta(d){fontPx=Math.max(10,Math.min(34,fontPx+d));e.style.fontSize=fontPx+'px';stamp('글자 '+fontPx+'px')}
+function appendText(v){if(!v)return;e.focus();e.innerHTML+=(e.innerHTML?'<p>':'<p>')+esc(v)+'</p>';stamp('수정 중 · 저장 또는 취소')}
+function replaceBody(v){e.innerHTML='<p>'+esc(v)+'</p>';stamp('수정 중 · 저장 또는 취소')}
+async function copyAll(){const text=(t.value+'\n\n'+e.innerText).trim();try{await navigator.clipboard.writeText(text);stamp('문서 복사됨')}catch(err){e.focus();document.execCommand('selectAll');document.execCommand('copy');stamp('본문 복사됨')}}
+function exportWord(){const html='<!doctype html><html><meta charset="utf-8"><body><h1>'+esc(t.value)+'</h1>'+e.innerHTML+'</body></html>';const b=new Blob(['\ufeff',html],{type:'application/msword'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=(t.value||'AUSOAI_문서')+'.doc';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200);stamp('Word 내보내기')}
+function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function command(raw){const q=String(raw||'').trim();if(!q)return false;let m;
+ if((m=q.match(/제목(?:을|을 )?(.+?)(?:로|으로)?\s*(?:바꿔|변경|수정)/))){t.value=m[1].trim();stamp('제목 수정 중 · 저장 또는 취소');return true}
+ if((m=q.match(/(?:마지막에|끝에)\s*(.+?)\s*(?:추가해|추가|넣어)/))){appendText(m[1].trim());return true}
+ if((m=q.match(/(?:내용을|본문을)\s*(.+?)\s*(?:로|으로)?\s*(?:바꿔|교체|수정)/))){replaceBody(m[1].trim());return true}
+ if(/저장/.test(q)){save();return true} if(/취소|복원/.test(q)){cancelEdit();return true}
+ if(/되돌리/.test(q)){undo();return true} if(/다시실행|다시 해/.test(q)){redo();return true}
+ if(/복사/.test(q)){copyAll();return true} if(/워드.*(내보내|저장)|word.*export/i.test(q)){exportWord();return true}
+ if(/pdf|피디에프/i.test(q)){window.print();return true}
+ if(/굵게/.test(q)){fmt('bold');return true} if(/밑줄/.test(q)){fmt('underline');return true}
+ if(/가운데.*정렬/.test(q)){fmt('justifyCenter');return true} if(/왼쪽.*정렬/.test(q)){fmt('justifyLeft');return true}
+ if(/오른쪽.*정렬/.test(q)){fmt('justifyRight');return true}
+ if(/글자.*(크게|키워)/.test(q)){fontDelta(2);return true} if(/글자.*(작게|줄여)/.test(q)){fontDelta(-2);return true}
+ return false}
+window.__AUSOAI_COMMAND__=raw=>command(raw)?'handled':false;
+document.getElementById('cmdForm').onsubmit=ev=>{ev.preventDefault();command(document.getElementById('cmd').value)||stamp('명령을 이해하지 못했습니다')};
+onload=()=>{saved=savedState();t.value=saved.title;e.innerHTML=saved.body||'<p>여기를 누르고 문서를 작성하세요.</p>';saved={title:t.value,body:e.innerHTML};const at=localStorage.getItem(SAVED);if(at)stamp('마지막 저장 · '+at)}
+['input','keyup'].forEach(ev=>e.addEventListener(ev,()=>stamp('수정 중 · 저장 또는 취소')));t.addEventListener('input',()=>stamp('제목 수정 중 · 저장 또는 취소'));
+</script></body></html>
