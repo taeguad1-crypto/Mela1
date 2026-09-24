@@ -82,9 +82,9 @@ body{
 @keyframes orbidle{0%,100%{transform:scale(1);filter:saturate(.94)}50%{transform:scale(1.025);filter:saturate(1.08)}}
 @keyframes orbheart{0%,100%{transform:scale(1)}12%{transform:scale(1.105)}24%{transform:scale(.995)}40%{transform:scale(1.07)}58%{transform:scale(1)}}
 @keyframes orbspeak{0%,100%{transform:scale(1)}30%{transform:scale(1.06)}60%{transform:scale(1.018)}}
-@keyframes orbit1{from{transform:rotate(0deg) translateX(43px) rotate(0deg)}to{transform:rotate(360deg) translateX(43px) rotate(-360deg)}}to{transform:rotate(360deg) translateX(50px) rotate(-360deg)}}
-@keyframes orbit2{from{transform:rotate(120deg) translateX(43px) rotate(-120deg)}to{transform:rotate(480deg) translateX(43px) rotate(-480deg)}}to{transform:rotate(480deg) translateX(50px) rotate(-480deg)}}
-@keyframes orbit3{from{transform:rotate(240deg) translateX(43px) rotate(-240deg)}to{transform:rotate(600deg) translateX(43px) rotate(-600deg)}}to{transform:rotate(600deg) translateX(50px) rotate(-600deg)}}
+@keyframes orbit1{from{transform:rotate(0deg) translateX(43px) rotate(0deg)}to{transform:rotate(360deg) translateX(43px) rotate(-360deg)}}
+@keyframes orbit2{from{transform:rotate(120deg) translateX(43px) rotate(-120deg)}to{transform:rotate(480deg) translateX(43px) rotate(-480deg)}}
+@keyframes orbit3{from{transform:rotate(240deg) translateX(43px) rotate(-240deg)}to{transform:rotate(600deg) translateX(43px) rotate(-600deg)}}
 .langbar{position:sticky;bottom:4px;z-index:50;display:flex;gap:5px;align-items:center;margin:8px 0 2px;padding:6px;border:1px solid rgba(255,255,255,.85);border-radius:15px;background:rgba(248,255,253,.93);backdrop-filter:blur(15px)}
 .langbar select,.langbar button{height:33px;border:1px solid rgba(59,140,128,.16);border-radius:10px;background:#fff;color:#174c48;font-size:9px;padding:0 9px}.langbar select{flex:1}
 
@@ -118,7 +118,7 @@ body{
 .videoGuide{margin:12px 0;border-radius:18px;padding:14px;background:linear-gradient(145deg,#f7fffd,#eef6ff);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(41,96,88,.06)}.videoGuideHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.videoGuideHead b{font-size:11px}.videoGuideHead span{font-size:7px;color:#6b8884}.videoTimeline{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:9px}.videoTimeline div{padding:8px 6px;border-radius:11px;background:#fff;font-size:7px;color:#466d69;line-height:1.35}.videoTimeline strong{display:block;font-size:8px;color:#185f58;margin-bottom:2px}
 @media(max-width:640px){.voiceSecurityGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.flashSlide{grid-template-columns:1fr;min-height:340px;padding:18px 16px 32px}.flashVisual{min-height:150px}.videoTimeline{grid-template-columns:repeat(2,1fr)}}
 
-.voiceQuickBar{position:sticky;top:0;z-index:95;display:flex;align-items:center;gap:5px;margin:0 0 6px;padding:5px 6px;border-radius:13px;background:rgba(248,255,253,.95);border:1px solid rgba(255,255,255,.95);box-shadow:0 5px 14px rgba(26,83,78,.06);backdrop-filter:blur(14px);overflow-x:auto;scrollbar-width:none}.voiceQuickBar::-webkit-scrollbar{display:none}.vqTitle{flex:0 0 auto;font-size:8px;font-weight:950;color:#145f57}.vqBtn{flex:0 0 auto;border:0;border-radius:999px;padding:6px 8px;background:#e9faf6;color:#215f59;font-size:7px;font-weight:900}.vqBtn.primary{background:linear-gradient(135deg,#5ee0c5,#78afff);color:#083f42}.vqStatus{flex:0 0 auto;font-size:7px;color:#64817d;padding:0 4px}
+.voiceQuickBar{display:none!important;position:sticky;top:0;z-index:95;display:flex;align-items:center;gap:5px;margin:0 0 6px;padding:5px 6px;border-radius:13px;background:rgba(248,255,253,.95);border:1px solid rgba(255,255,255,.95);box-shadow:0 5px 14px rgba(26,83,78,.06);backdrop-filter:blur(14px);overflow-x:auto;scrollbar-width:none}.voiceQuickBar::-webkit-scrollbar{display:none}.vqTitle{flex:0 0 auto;font-size:8px;font-weight:950;color:#145f57}.vqBtn{flex:0 0 auto;border:0;border-radius:999px;padding:6px 8px;background:#e9faf6;color:#215f59;font-size:7px;font-weight:900}.vqBtn.primary{background:linear-gradient(135deg,#5ee0c5,#78afff);color:#083f42}.vqStatus{flex:0 0 auto;font-size:7px;color:#64817d;padding:0 4px}
 .heroShowcase{display:grid;grid-template-columns:1.35fr .65fr;gap:8px;margin:8px 0 10px}.heroPhotoCard{min-height:190px;border-radius:20px;overflow:hidden;position:relative;background:linear-gradient(135deg,#e9fff8,#eef4ff);box-shadow:0 12px 34px rgba(31,89,82,.10);border:1px solid rgba(255,255,255,.94)}.heroPhotoCard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 74% 22%,rgba(99,226,199,.28),transparent 25%),radial-gradient(circle at 30% 80%,rgba(109,156,255,.18),transparent 26%)}.heroContent{position:relative;z-index:2;padding:20px}.heroContent b{font-size:22px;line-height:1.05;display:block}.heroContent p{font-size:9px;line-height:1.6;color:#5b7875;max-width:560px}.heroDevice{position:absolute;right:18px;bottom:15px;width:38%;min-width:120px;aspect-ratio:.72;border-radius:20px;background:linear-gradient(160deg,#ffffff,#dff7f1);box-shadow:0 12px 28px rgba(25,73,78,.16);border:6px solid #f9ffff;overflow:hidden}.heroDevice:before{content:"AUSOAI";position:absolute;top:12px;left:12px;font-size:7px;font-weight:950;color:#17645c}.heroDevice:after{content:"Voice · Translate · Edit";position:absolute;left:12px;right:12px;bottom:12px;font-size:6.5px;color:#567975;background:#fff;padding:7px;border-radius:10px}.heroSide{display:grid;gap:8px}.heroSideCard{border-radius:18px;padding:13px;background:#fff;border:1px solid rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(31,89,82,.07)}.heroSideCard b{display:block;font-size:10px}.heroSideCard small{font-size:7px;color:#6d8885;line-height:1.5}.brandLogoRow{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.brandLogoPill{display:flex;align-items:center;gap:4px;padding:5px 7px;background:#fff;border-radius:999px;font-size:6.5px;font-weight:850;color:#476b68}.brandLogoPill img{width:14px;height:14px;object-fit:contain}
 @media(max-width:640px){.heroShowcase{grid-template-columns:1fr}.heroPhotoCard{min-height:210px}.heroDevice{width:42%}}
 
@@ -140,7 +140,7 @@ body{
 .voiceStartGuide .pulseMic:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:12px;transform:translate(-50%,-58%);border:1.7px solid #fff;border-radius:6px}
 .voiceStartGuide .guideText{min-width:0;flex:1}.voiceStartGuide .guideText b{display:block;font-size:9px;color:#165c55}.voiceStartGuide .guideText small{display:block;margin-top:2px;font-size:7px;color:#6a8783}.voiceStartGuide button{border:0;border-radius:999px;padding:7px 10px;background:linear-gradient(135deg,#52d8bc,#6caaff);color:#063e3c;font-size:7.5px;font-weight:900}
 
-.premiumMicBar{display:flex;align-items:center;gap:8px;margin:7px 0 8px;padding:7px 9px;border-radius:16px;background:linear-gradient(90deg,rgba(250,255,254,.98),rgba(239,248,255,.98));border:1px solid rgba(255,255,255,.96);box-shadow:0 7px 22px rgba(27,83,79,.08);backdrop-filter:blur(16px)}
+.premiumMicBar{display:none!important;align-items:center;gap:8px;margin:7px 0 8px;padding:7px 9px;border-radius:16px;background:linear-gradient(90deg,rgba(250,255,254,.98),rgba(239,248,255,.98));border:1px solid rgba(255,255,255,.96);box-shadow:0 7px 22px rgba(27,83,79,.08);backdrop-filter:blur(16px)}
 .premiumMicBrand{display:flex;align-items:center;gap:6px;min-width:0}.premiumMicBrand .miniMark{width:28px;height:28px;border-radius:9px;overflow:hidden;box-shadow:0 4px 10px rgba(12,70,91,.13)}.premiumMicBrand b{font-size:8.5px;color:#174f4b}.premiumMicBrand small{display:block;font-size:6.2px;color:#7a918e}
 .premiumMicActions{display:flex;gap:5px;overflow:auto;margin-left:auto;scrollbar-width:none}.premiumMicActions::-webkit-scrollbar{display:none}.premiumMicActions button{flex:0 0 auto;border:0;border-radius:999px;padding:7px 9px;background:#eefbf7;color:#1b625b;font-size:7px;font-weight:900}.premiumMicActions .active{background:linear-gradient(135deg,#58dbc0,#6da9ff);color:#073f3d}
 .webVoiceHud{width:210px;height:145px}
@@ -173,6 +173,26 @@ body{
 @media(max-width:680px){.refTop{grid-template-columns:1fr 1.1fr}.refUser{display:none}.refEarth{height:50px}.refBrandLogo{width:42px;height:42px}.refHero{min-height:200px}.refCopy{max-width:40%;left:13px;top:16px}.refCopy b{font-size:20px}.refPortrait{width:25%;height:82%}.refPortrait.f1{left:31%}.refPortrait.f2{right:20%}.refPortrait.f3{right:-2%}.refNav{grid-template-columns:repeat(5,1fr)}.refPromos{grid-template-columns:1fr 1fr 1fr}.refWork{grid-template-columns:1fr}.refStatus,.refRecentPanel{display:none}.refQuickGrid{grid-template-columns:repeat(5,1fr)}.refBottom{grid-template-columns:1fr 1fr}.refBottom .refPanel:last-child{grid-column:1/-1}}
 
 body.refReady .ausoTopRibbon,body.refReady .voiceQuickBar,body.refReady .voiceStartGuide,body.refReady .head,body.refReady .homeHeroPeople,body.refReady .sampleToolbar,body.refReady .flashDeck{display:none!important}
+
+.refShowHero{position:relative;min-height:235px;border-radius:22px;overflow:hidden;margin:8px 0;background:
+radial-gradient(circle at 50% 46%,rgba(65,236,211,.30),transparent 20%),
+linear-gradient(110deg,#0b3855 0%,#145f76 52%,#0c3b59 100%);box-shadow:0 14px 36px rgba(13,66,76,.18);isolation:isolate}
+.refShowHero:before{content:"";position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(4,27,45,.62),rgba(8,55,72,.10) 42%,rgba(255,255,255,.03)),
+radial-gradient(circle at 75% 5%,rgba(111,192,255,.18),transparent 22%);z-index:-1}
+.refCopy{position:absolute;left:18px;top:22px;z-index:5;color:#fff;width:30%}.refCopy small{font-size:7px;letter-spacing:.16em;font-weight:900;color:#b4fff1}.refCopy b{display:block;font-size:23px;line-height:1.05;margin:7px 0}.refCopy p{font-size:8px;line-height:1.55;color:#ddf6f2}.refCopy button{border:1px solid rgba(255,255,255,.82);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:7px 11px;font-size:7px;font-weight:900}
+.refPeople{position:absolute;left:34%;right:8%;bottom:0;top:8px;z-index:3}.refPerson{position:absolute;bottom:-2px;width:31%;height:90%;object-fit:cover;object-position:center top;filter:saturate(1.02) contrast(1.03);-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);cursor:pointer}
+.refPerson.rp1{left:0;animation:personFloat1 5.3s ease-in-out infinite}.refPerson.rp2{left:34%;animation:personFloat2 5.8s ease-in-out infinite}.refPerson.rp3{right:0;animation:personFloat3 6.2s ease-in-out infinite}
+.refPerson.selected{filter:saturate(1.08) contrast(1.04) drop-shadow(0 0 10px rgba(105,243,218,.55))}
+.refCenterMic{position:absolute;left:58%;top:46%;transform:translate(-50%,-50%);z-index:6;width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff 0 7%,#c5fff4 11%,#66ead1 28%,#239ab0 59%,#082a45 100%);box-shadow:0 0 0 8px rgba(91,235,211,.10),0 0 32px rgba(63,229,205,.55);cursor:pointer;animation:heroMicPulse 2.4s ease-in-out infinite}
+.refCenterMic:before{content:"";position:absolute;left:50%;top:50%;width:15px;height:24px;transform:translate(-50%,-60%);border:2.3px solid #fff;border-radius:10px;box-shadow:0 0 9px rgba(255,255,255,.35)}
+.refCenterMic:after{content:"";position:absolute;left:50%;top:62%;width:28px;height:18px;transform:translateX(-50%);border:2px solid #fff;border-top:0;border-radius:0 0 18px 18px}
+.refWave{position:absolute;left:43%;right:21%;top:47%;height:26px;z-index:4;display:flex;align-items:center;justify-content:center;gap:3px;pointer-events:none}.refWave i{display:block;width:2px;height:6px;border-radius:3px;background:rgba(130,255,236,.82);animation:waveBeat .75s ease-in-out infinite}.refWave i:nth-child(2n){animation-delay:.1s}.refWave i:nth-child(3n){animation-delay:.2s}
+.refLangs{position:absolute;right:10px;top:12px;z-index:7;display:grid;gap:4px}.refLangs button{border:0;border-radius:999px;background:rgba(255,255,255,.90);padding:4px 7px;font-size:6.5px;font-weight:850;color:#1d5f59}
+.refHint{position:absolute;left:49%;bottom:12px;z-index:7;color:#e8fffb;background:rgba(5,45,54,.46);padding:5px 8px;border-radius:999px;font-size:6.5px;backdrop-filter:blur(8px)}
+@keyframes personFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes personFloat2{0%,100%{transform:translateY(-2px)}50%{transform:translateY(6px)}}@keyframes personFloat3{0%,100%{transform:translateY(3px)}50%{transform:translateY(-5px)}}@keyframes heroMicPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}18%{transform:translate(-50%,-50%) scale(1.07)}34%{transform:translate(-50%,-50%) scale(1)}55%{transform:translate(-50%,-50%) scale(1.04)}}@keyframes waveBeat{0%,100%{height:5px;opacity:.55}50%{height:22px;opacity:1}}
+.movingFeatureStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}.movingFeature{position:relative;min-height:92px;border-radius:16px;overflow:hidden;padding:12px;color:#fff;background:linear-gradient(135deg,#103a58,#1f7790);box-shadow:0 8px 20px rgba(18,71,78,.10)}.movingFeature:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-30px;top:-50px;background:radial-gradient(circle,rgba(112,248,222,.35),transparent 65%);animation:orbDrift 6s ease-in-out infinite}.movingFeature b{position:relative;z-index:2;font-size:10px}.movingFeature small{position:relative;z-index:2;display:block;margin-top:5px;font-size:7px;color:#dff7f4}.movingFeature:nth-child(2){background:linear-gradient(135deg,#1b5f77,#286f9e)}.movingFeature:nth-child(3){background:linear-gradient(135deg,#244b65,#426d91)}@keyframes orbDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-15px,18px)}}
+@media(max-width:640px){.refShowHero{min-height:220px}.refCopy{width:33%;left:13px}.refCopy b{font-size:19px}.refPeople{left:31%;right:4%}.refCenterMic{left:58%;width:58px;height:58px}.refWave{left:42%;right:17%}.movingFeatureStrip{grid-template-columns:1fr 1fr 1fr;gap:5px}.movingFeature{min-height:78px;padding:9px}}
 </style>
 </head>
 <body><div class="shell">
@@ -257,13 +277,27 @@ body.refReady .ausoTopRibbon,body.refReady .voiceQuickBar,body.refReady .voiceSt
   <div class="brand"><b>AUSOAI Global · Work Hub</b><small>매일 쓰는 기능을 터치 · 문자 · 음성으로 같은 방식으로 실행</small></div>
   <button class="home" onclick="location.href='voicehub://home'">홈</button>
 </header>
-<section class="homeHeroPeople">
-  <div class="heroPeopleCopy"><small>AUSOAI AI GLOBAL</small><b>AI가 만드는<br>더 넓은 세상</b><p>말하면 바로 실행됩니다.<br>Voice · Translate · Edit · Mail · Meeting</p></div>
-  <div class="heroPeopleMic" onclick="unlockVoice();showWebHud(true)" aria-label="AUSOAI 마이크 시작"></div>
-  <img class="heroPortrait p1" id="heroP1" alt="">
-  <img class="heroPortrait p2" id="heroP2" alt="">
-  <img class="heroPortrait p3" id="heroP3" alt="">
-  <div class="heroLangs"><span>🇰🇷 한국어</span><span>🇺🇸 English</span><span>🇯🇵 日本語</span><span>🇨🇳 中文</span></div>
+<section class="refShowHero">
+  <div class="refCopy"><small>AUSOAI AI GLOBAL</small><b>AI가 만드는<br>더 넓은 세상</b><p>말하면 바로 실행됩니다.<br>Voice · Translate · Edit · Mail · Meeting</p><button onclick="unlockVoice();showWebHud(true)">지금, 말해보세요 →</button></div>
+  <div class="refPeople">
+    <img class="refPerson rp1" id="refP1" alt="AUSOAI 여성 음성 모델" onclick="selectVoicePreset('female')">
+    <img class="refPerson rp2" id="refP2" alt="AUSOAI 남성 음성 모델" onclick="selectVoicePreset('male')">
+    <img class="refPerson rp3" id="refP3" alt="AUSOAI 시니어 음성 모델" onclick="selectVoicePreset('senior')">
+  </div>
+  <div class="refWave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="refCenterMic" onclick="unlockVoice();showWebHud(true)" aria-label="AUSOAI 마이크 시작"></div>
+  <div class="refHint">마이크를 누르면 대화 시작</div>
+  <div class="refLangs">
+    <button onclick="document.getElementById('langSel').value='ko';applyHubLanguage('ko')">🇰🇷 한국어</button>
+    <button onclick="document.getElementById('langSel').value='en';applyHubLanguage('en')">🇺🇸 English</button>
+    <button onclick="document.getElementById('langSel').value='ja';applyHubLanguage('ja')">🇯🇵 日本語</button>
+    <button onclick="document.getElementById('langSel').value='zh-CN';applyHubLanguage('zh-CN')">🇨🇳 中文</button>
+  </div>
+</section>
+<section class="movingFeatureStrip">
+  <div class="movingFeature"><b>01 · AUSOAI 글로벌 AI OS</b><small>음성·문자·터치로 연결되는 실행형 환경</small></div>
+  <div class="movingFeature"><b>02 · 실시간 화면 번역</b><small>선택 언어 유지 · Android WebView 연동</small></div>
+  <div class="movingFeature"><b>03 · 편집·메일·회의·프로젝트</b><small>작업을 하나의 흐름으로 이어서 실행</small></div>
 </section>
 <div class="sampleToolbar">
   <a href="voicehub://mic">🎙 음성</a><a href="#langbarAnchor">🌐 번역</a><a href="./editor.html">✎ 편집</a><a href="./mail.html">✉ 메일</a><a href="voicehub://meeting">◉ 회의</a><a href="#groups">▦ 프로젝트</a>
@@ -670,7 +704,9 @@ let selectedVoicePreset='male';
 document.getElementById('modelMale').onclick=()=>selectVoicePreset('male');
 document.getElementById('modelFemale1').onclick=()=>selectVoicePreset('female');
 document.getElementById('modelFemale2').onclick=()=>selectVoicePreset('senior');
-function selectVoicePreset(name){selectedVoicePreset=name;document.querySelectorAll('[data-voice]').forEach(x=>x.classList.toggle('active',x.dataset.voice===name));if(hudAi)hudAi.textContent='AUSOAI: '+voicePresets[name].label+' 음성 선택';unlockVoice();speakHud('음성이 변경되었습니다.')}
+function selectVoicePreset(name){selectedVoicePreset=name;
+ document.querySelectorAll('.refPerson').forEach(x=>x.classList.remove('selected'));
+ const map={female:'refP1',male:'refP2',senior:'refP3'};const rp=document.getElementById(map[name]);if(rp)rp.classList.add('selected');document.querySelectorAll('[data-voice]').forEach(x=>x.classList.toggle('active',x.dataset.voice===name));if(hudAi)hudAi.textContent='AUSOAI: '+voicePresets[name].label+' 음성 선택';unlockVoice();speakHud('음성이 변경되었습니다.')}
 document.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{selectedVoicePreset=b.dataset.voice;document.querySelectorAll('[data-voice]').forEach(x=>x.classList.toggle('active',x===b));hudAi.textContent='AUSOAI: '+voicePresets[selectedVoicePreset].label+' 음성 선택';speakHud('음성이 변경되었습니다.')});
 
 render();
