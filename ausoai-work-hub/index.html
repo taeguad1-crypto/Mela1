@@ -134,6 +134,11 @@ body{
 .heroLangs{position:absolute;right:10px;top:11px;z-index:3;display:grid;gap:4px}.heroLangs span{font-size:6.5px;font-weight:850;color:#1b5b55;background:rgba(255,255,255,.86);padding:4px 6px;border-radius:999px}
 .sampleToolbar{display:flex;gap:4px;overflow:auto;margin:0 0 7px;scrollbar-width:none}.sampleToolbar a{flex:0 0 auto;text-decoration:none;color:#174f4a;background:#fff;border-radius:12px;padding:7px 9px;font-size:7px;font-weight:900;box-shadow:0 3px 10px rgba(30,86,81,.05)}
 @media(max-width:640px){.heroPeopleCopy{max-width:49%}.heroPortrait{width:72px;height:99px}.heroPortrait.p1{left:39%}.heroPortrait.p2{right:18%}}
+
+.voiceStartGuide{display:flex;align-items:center;gap:8px;margin:7px 0;padding:8px 10px;border-radius:14px;background:linear-gradient(90deg,rgba(231,255,248,.96),rgba(237,246,255,.96));border:1px solid rgba(255,255,255,.95);box-shadow:0 5px 16px rgba(28,84,79,.06)}
+.voiceStartGuide .pulseMic{width:30px;height:30px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff 0 8%,#7ef1dd 18%,#2cb2b9 58%,#0b3852 100%);box-shadow:0 0 0 5px rgba(91,221,198,.10);position:relative;flex:0 0 30px}
+.voiceStartGuide .pulseMic:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:12px;transform:translate(-50%,-58%);border:1.7px solid #fff;border-radius:6px}
+.voiceStartGuide .guideText{min-width:0;flex:1}.voiceStartGuide .guideText b{display:block;font-size:9px;color:#165c55}.voiceStartGuide .guideText small{display:block;margin-top:2px;font-size:7px;color:#6a8783}.voiceStartGuide button{border:0;border-radius:999px;padding:7px 10px;background:linear-gradient(135deg,#52d8bc,#6caaff);color:#063e3c;font-size:7.5px;font-weight:900}
 </style>
 </head>
 <body><div class="shell">
@@ -163,6 +168,11 @@ body{
   <button class="vqBtn" onclick="document.getElementById('langSel').focus()">번역</button>
   <button class="vqBtn" onclick="showWebHud(false);document.getElementById('hudText').focus()">문자대화</button>
   <span class="vqStatus" id="topVoiceStatus">웹 데모 · Android OS 연결 준비</span>
+</div>
+<div class="voiceStartGuide" id="voiceStartGuide">
+  <div class="pulseMic" aria-hidden="true"></div>
+  <div class="guideText"><b>마이크를 눌러 주세요 · 대화가 시작됩니다</b><small>질문은 대화로 답하고, 실행 명령은 바로 수행합니다. 문자 입력도 함께 사용할 수 있습니다.</small></div>
+  <button onclick="unlockVoice();showWebHud(true)">대화 시작</button>
 </div>
 <header class="head">
   <div class="ausoLogo" id="headerLogo"></div>
@@ -449,7 +459,7 @@ async function loadPortrait(id,name){try{const t=await fetch('./'+name+'.b64').t
 loadPortrait('novaImg','nova_face');loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');
 loadPortrait('heroP1','aura_face');loadPortrait('heroP2','nova_face');loadPortrait('heroP3','lumi_face');
 function clampHud(x,y){const w=hud.offsetWidth||246,h=hud.offsetHeight||204;return{x:Math.max(0,Math.min(innerWidth-w,x)),y:Math.max(0,Math.min(innerHeight-h,y))}}
-function showWebHud(listen=true){unlockVoice();hud.classList.add('show');hud.style.display='block';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 실행 · 질문/명령 가능';if(!firstVoiceGuidePlayed){firstVoiceGuidePlayed=true;hudAi.textContent='AUSOAI: 마이크를 눌러 주세요. 대화가 시작됩니다.';speakHud('마이크를 눌러 주세요. 대화가 시작됩니다.')}if(listen){setTimeout(()=>{hudAi.textContent='AUSOAI: 듣고 있습니다';startWebVoice()},250)}}
+function showWebHud(listen=true){unlockVoice();if(startGuide){startGuide.style.display='none';sessionStorage.setItem('voiceStartGuideDismissed','1')}hud.classList.add('show');hud.style.display='block';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 실행 · 질문/명령 가능';if(!firstVoiceGuidePlayed){firstVoiceGuidePlayed=true;hudAi.textContent='AUSOAI: 마이크를 눌러 주세요. 대화가 시작됩니다.';speakHud('마이크를 눌러 주세요. 대화가 시작됩니다.')}if(listen){setTimeout(()=>{hudAi.textContent='AUSOAI: 듣고 있습니다';startWebVoice()},250)}}
 function hideWebHud(){hud.classList.remove('show');hud.style.display='none';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 숨김 · Android Voice OS는 별도 유지'}
 function deleteWebHud(){webVoiceSessionActive=false;stopWebVoice();hideWebHud();hud.dataset.deleted='1';if(hudStateChip)hudStateChip.textContent='종료'}
 function stopWebVoice(){if(hudRecognizer){try{hudRecognizer.abort()}catch(e){}hudRecognizer=null}orb.classList.remove('listening');hud.classList.remove('listening')}
@@ -486,6 +496,8 @@ function speakHud(text){
 }
 setHudPersona(0);
 document.addEventListener('pointerdown',unlockVoice,{once:true,passive:true});
+const startGuide=document.getElementById('voiceStartGuide');
+if(startGuide && sessionStorage.getItem('voiceStartGuideDismissed')==='1') startGuide.style.display='none';
 document.addEventListener('keydown',unlockVoice,{once:true});
 function runHudText(text){const q=String(text||'').trim();if(!q)return;hudUser.textContent='나: '+q;hudText.value='';
  if(/마이크.*(숨겨|감춰|감춤)/.test(q)){hudAi.textContent='AUSOAI: 마이크를 감췄습니다.';speakHud('마이크를 감췄습니다.');setTimeout(hideWebHud,200);return}
