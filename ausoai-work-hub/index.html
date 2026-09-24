@@ -153,6 +153,26 @@ body{
 .hudTalk{background:rgba(240,255,251,.88);border-color:rgba(147,224,208,.30)}
 .hudTalk input{color:#174f4a}.hudTalk input::placeholder{color:#78928e}
 .hudCtl button{background:rgba(238,255,250,.86)}
+
+.refDashboard{margin:0 0 10px;border-radius:22px;overflow:hidden;background:#f7fcff;border:1px solid rgba(255,255,255,.95);box-shadow:0 12px 34px rgba(24,72,82,.10)}
+.refTop{display:grid;grid-template-columns:1.15fr 1.7fr .85fr;gap:8px;align-items:center;padding:9px 11px;background:linear-gradient(90deg,#fbffff,#eff8ff 58%,#f7fbff)}
+.refBrand{display:flex;align-items:center;gap:9px;min-width:0}.refBrandLogo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#68d8df,#4888d9);display:grid;place-items:center;color:#fff;font-weight:1000;font-size:24px;letter-spacing:-.08em;box-shadow:0 6px 16px rgba(42,103,145,.18)}.refBrand b{display:block;font-size:14px;color:#173a52}.refBrand small{display:block;margin-top:2px;font-size:7px;color:#6f858e}
+.refEarth{height:58px;border-radius:17px;position:relative;overflow:hidden;background:radial-gradient(circle at 58% 140%,#66b6ff 0 24%,#1f6ba9 32%,#0c3558 50%,#eaf7ff 51% 100%)}.refEarth:after{content:"A BRIGHTER TOMORROW TOGETHER";position:absolute;right:15px;top:14px;color:#fff;font-size:7px;letter-spacing:.28em;line-height:1.45;font-weight:900;text-align:right}
+.refUser{height:58px;border-radius:17px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center}.refUser b{font-size:9px}.refUser small{display:block;font-size:6px;color:#7b8d92;margin-top:2px}
+.refHero{position:relative;min-height:235px;background:linear-gradient(110deg,#0c3450,#145b72 54%,#154b65);overflow:hidden}.refHero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 52% 48%,rgba(74,239,214,.24),transparent 20%),linear-gradient(90deg,rgba(2,28,46,.56),transparent 46%,rgba(255,255,255,.04))}
+.refCopy{position:absolute;left:18px;top:22px;z-index:5;color:#fff;max-width:29%}.refCopy b{font-size:25px;line-height:1.05;display:block}.refCopy p{font-size:8px;line-height:1.55;color:#d9f2ef}.refCopy button{border:1px solid rgba(255,255,255,.78);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;padding:7px 12px;font-size:7px;font-weight:900}
+.refMic{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 34% 26%,#fff 0 7%,#94fff0 13%,#4ad8c6 34%,#2a9eb4 58%,#082d49 100%);box-shadow:0 0 0 9px rgba(103,241,218,.12),0 0 35px rgba(73,226,209,.55);z-index:5}.refMic:after{content:"";position:absolute;left:50%;top:50%;width:17px;height:27px;transform:translate(-50%,-58%);border:2px solid #fff;border-radius:11px}
+.refWave{position:absolute;left:37%;right:37%;top:48%;height:1px;background:rgba(134,255,235,.65);box-shadow:0 0 14px rgba(121,255,233,.8)}
+.refPortrait{position:absolute;bottom:0;width:23%;height:88%;object-fit:cover;object-position:center top;filter:saturate(.98) contrast(1.03);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);z-index:3}.refPortrait.f1{left:27%}.refPortrait.f2{right:22%}.refPortrait.f3{right:1%}
+.refLang{position:absolute;right:9px;top:14px;z-index:6;display:grid;gap:4px}.refLang button{border:0;border-radius:999px;background:rgba(255,255,255,.90);padding:5px 7px;font-size:6.5px;font-weight:850;color:#245b56}
+.refSpeech{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);z-index:7;color:#fff;text-align:center;font-size:8px;font-weight:900;text-shadow:0 1px 5px rgba(0,0,0,.5)}.refSpeech small{display:block;margin-top:3px;font-size:6.5px;font-weight:500;color:#d2f8f1}
+.refNav{display:grid;grid-template-columns:repeat(10,1fr);gap:2px;padding:6px 8px;background:rgba(252,255,255,.98);border-bottom:1px solid rgba(84,147,156,.09)}.refNav a{display:grid;place-items:center;text-decoration:none;color:#164d4a;font-size:6.4px;font-weight:850;padding:6px 2px;border-radius:10px}.refNav a span{font-size:14px;line-height:1;margin-bottom:3px}
+.refPromos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px}.refPromo{position:relative;min-height:95px;border-radius:15px;overflow:hidden;padding:11px;color:#fff;background:linear-gradient(135deg,#0a3550,#2c7d91)}.refPromo:nth-child(2){background:linear-gradient(135deg,#1c6880,#47b3c7)}.refPromo:nth-child(3){background:linear-gradient(135deg,#274d70,#6aa1b4)}.refPromo b{font-size:12px;display:block;max-width:72%}.refPromo small{display:block;margin-top:5px;font-size:6.5px;color:#d9f6f1;max-width:72%}.refPromo:after{content:"";position:absolute;right:-15px;bottom:-22px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#d9ffff 0 5%,#58d9d3 18%,#2c6a9a 55%,transparent 56%)}
+.refWork{display:grid;grid-template-columns:.75fr 2fr .95fr;gap:7px;padding:0 8px 8px}.refPanel{background:#fff;border-radius:15px;padding:9px;box-shadow:0 5px 14px rgba(30,84,82,.05)}.refPanel h4{margin:0 0 7px;font-size:9px}.refStatusItem{display:flex;gap:6px;align-items:center;font-size:6.7px;color:#587571;padding:5px 0}.refStatusItem i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#e9faf6;font-style:normal}.refQuickGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.refQuick{border:0;border-radius:12px;background:#f8fcff;padding:7px 3px;text-align:center;font-size:6.5px;color:#254f4d}.refQuick .qicon{width:34px;height:34px;margin:0 auto 5px;border-radius:11px;background:#fff;display:grid;place-items:center;box-shadow:0 4px 10px rgba(31,86,82,.08);font-size:16px}.refRecent{font-size:6.5px;color:#587571}.refRecent div{padding:5px 0;border-bottom:1px solid #edf4f3}
+.refBottom{display:grid;grid-template-columns:1.1fr 1.1fr 1fr;gap:7px;padding:0 8px 8px}.refBottom .refPanel{min-height:70px}.refVoiceBar{display:flex;align-items:center;gap:6px;padding:7px 8px;background:#f9ffff;border-top:1px solid rgba(84,147,156,.09)}.refVoiceBar .voiceChoice{display:flex;gap:5px;align-items:center;overflow:auto;flex:1}.refVoiceBar .voiceChoice button{flex:0 0 auto;border:0;background:#fff;border-radius:999px;padding:4px 7px;font-size:6px}.refVoiceBar .bigMic{width:42px;height:42px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fff 0 7%,#7bf3df 16%,#2ab0bd 56%,#082c47 100%);box-shadow:0 0 0 6px rgba(82,222,201,.10)}
+@media(max-width:680px){.refTop{grid-template-columns:1fr 1.1fr}.refUser{display:none}.refEarth{height:50px}.refBrandLogo{width:42px;height:42px}.refHero{min-height:200px}.refCopy{max-width:40%;left:13px;top:16px}.refCopy b{font-size:20px}.refPortrait{width:25%;height:82%}.refPortrait.f1{left:31%}.refPortrait.f2{right:20%}.refPortrait.f3{right:-2%}.refNav{grid-template-columns:repeat(5,1fr)}.refPromos{grid-template-columns:1fr 1fr 1fr}.refWork{grid-template-columns:1fr}.refStatus,.refRecentPanel{display:none}.refQuickGrid{grid-template-columns:repeat(5,1fr)}.refBottom{grid-template-columns:1fr 1fr}.refBottom .refPanel:last-child{grid-column:1/-1}}
+
+body.refReady .ausoTopRibbon,body.refReady .voiceQuickBar,body.refReady .voiceStartGuide,body.refReady .head,body.refReady .homeHeroPeople,body.refReady .sampleToolbar,body.refReady .flashDeck{display:none!important}
 </style>
 </head>
 <body><div class="shell">
@@ -197,7 +217,42 @@ body{
     <button onclick="showWebHud(false);document.getElementById('hudText').focus()">문자 입력</button>
   </div>
 </div>
-<header class="head">
+<section class="refDashboard" data-ref-dashboard>
+  <div class="refTop">
+    <div class="refBrand"><div class="refBrandLogo">A</div><div><b>AUSOAI</b><small>Global AI OS · Voice to Create</small></div></div>
+    <div class="refEarth"><span>세상을 연결하는<br>당신만의 AI 파트너</span></div>
+    <div class="refUser"><div><b>의장님</b><small>AUSOAI와 함께합니다.</small></div></div>
+  </div>
+  <div class="refHero">
+    <div class="refCopy"><b>AI가 만드는<br>더 넓은 세상</b><p>언어의 벽을 넘어 사람과 비즈니스, 기회를 연결합니다.</p><button onclick="unlockVoice();showWebHud(true)">지금, 말해보세요 →</button></div>
+    <div class="refWave"></div><div class="refMic" onclick="unlockVoice();showWebHud(true)"></div>
+    <img id="refP1" class="refPortrait f1" alt=""><img id="refP2" class="refPortrait f2" alt=""><img id="refP3" class="refPortrait f3" alt="">
+    <div class="refLang"><button onclick="setRefLang('ko')">🇰🇷 한국어</button><button onclick="setRefLang('en')">🇺🇸 English</button><button onclick="setRefLang('ja')">🇯🇵 日本語</button><button onclick="setRefLang('zh-CN')">🇨🇳 中文</button></div>
+    <div class="refSpeech">말하면, 바로 실행됩니다<small>언제 어디서나, 당신의 목소리로</small></div>
+  </div>
+  <nav class="refNav">
+    <a href="./"><span>⌂</span>홈</a><a href="voicehub://mic"><span>🎙</span>음성</a><a href="#langbarAnchor"><span>🌐</span>번역</a><a href="./editor.html"><span>✎</span>편집</a><a href="./mail.html"><span>✉</span>메일</a><a href="voicehub://meeting"><span>◉</span>회의</a><a href="#groups"><span>▦</span>프로젝트</a><a href="voicehub://files"><span>▱</span>파일</a><a href="voicehub://mapos"><span>⌖</span>지도</a><a href="#supportPolicy"><span>⚙</span>지원</a>
+  </nav>
+  <div class="refPromos"><div class="refPromo"><b>01 AUSOAI 글로벌 AI OS</b><small>사람과 세상, 비즈니스를 연결하는 새로운 AI 플랫폼</small></div><div class="refPromo"><b>02 실시간 화면 번역</b><small>언어를 바꿔도 작업 흐름은 그대로</small></div><div class="refPromo"><b>03 편집 · 메일 · 회의 · 프로젝트</b><small>모든 작업을 하나의 플랫폼에서</small></div></div>
+  <div class="refWork">
+    <div class="refPanel refStatus"><h4>의장님, 오늘도 좋은 하루입니다</h4><div class="refStatusItem"><i>🎙</i>내 목소리 설정</div><div class="refStatusItem"><i>▣</i>개인 작업공간</div><div class="refStatusItem"><i>🔔</i>알림</div><div class="refStatusItem"><i>🛡</i>보안 상태</div></div>
+    <div class="refPanel"><h4>오늘 바로 쓰기</h4><div class="refQuickGrid">
+      <button class="refQuick" onclick="unlockVoice();showWebHud(true)"><div class="qicon">🎙</div>마이크</button>
+      <button class="refQuick" onclick="location.href='voicehub://daily'"><div class="qicon">📅</div>Daily</button>
+      <button class="refQuick" onclick="location.href='voicehub://dial'"><div class="qicon">📞</div>전화</button>
+      <button class="refQuick" onclick="location.href='./editor.html'"><div class="qicon">✎</div>편집기</button>
+      <button class="refQuick" onclick="location.href='./mail.html'"><div class="qicon">✉</div>메일</button>
+      <button class="refQuick" onclick="location.href='intent://launch/#Intent;scheme=kakaotalk;package=com.kakao.talk;end'"><div class="qicon">💬</div>카카오톡</button>
+      <button class="refQuick" onclick="location.href='https://www.naver.com/'"><div class="qicon">N</div>네이버</button>
+      <button class="refQuick" onclick="location.href='https://www.google.com/'"><div class="qicon">G</div>Google</button>
+      <button class="refQuick" onclick="location.href='voicehub://mapos'"><div class="qicon">⌖</div>지도</button>
+      <button class="refQuick" onclick="location.href='voicehub://meeting'"><div class="qicon">◉</div>회의실</button>
+    </div></div>
+    <div class="refPanel refRecentPanel"><h4>최근 작업 이어하기</h4><div class="refRecent"><div>Reverse12 상세페이지 편집</div><div>일본어 번역 프로젝트</div><div>AUSOAI 명함 디자인 수정</div><div>메일 초안 작성</div><div>회의록 정리</div></div></div>
+  </div>
+  <div class="refBottom"><div class="refPanel"><h4>AI 추천</h4><div class="refRecent"><div>최근 작업을 이어갈까요?</div><div>회의에서 남은 할 일을 확인하세요.</div></div></div><div class="refPanel"><h4>현재 작업 상태</h4><div class="refRecent"><div>Voice OS · 준비됨</div><div>한국어 · 저장됨</div></div></div><div class="refPanel"><h4>프로젝트</h4><div class="refRecent"><div>NARU Mobility · Reverse12</div><div>AUSOAI Portal · Global</div></div></div></div>
+  <div class="refVoiceBar"><div class="voiceChoice"><button onclick="selectVoicePreset&&selectVoicePreset('general')">일반</button><button onclick="selectVoicePreset&&selectVoicePreset('female')">여성</button><button onclick="selectVoicePreset&&selectVoicePreset('male')">남성</button><button onclick="selectVoicePreset&&selectVoicePreset('senior')">시니어</button><button onclick="selectVoicePreset&&selectVoicePreset('child')">어린이</button></div><button class="bigMic" onclick="unlockVoice();showWebHud(true)"></button><div style="font-size:6.5px;color:#6e8888">말하세요<br>AUSOAI가 듣고 있습니다.</div></div>
+</section><header class="head">
   <div class="ausoLogo" id="headerLogo"></div>
   <div class="brand"><b>AUSOAI Global · Work Hub</b><small>매일 쓰는 기능을 터치 · 문자 · 음성으로 같은 방식으로 실행</small></div>
   <button class="home" onclick="location.href='voicehub://home'">홈</button>
@@ -321,6 +376,9 @@ body{
 <script>
 const AUSO_SVG='<svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#04122F"/><path fill="#50F5FF" d="M54 16c-21 0-38 17-38 38s17 38 38 38c13 0 25-7 32-17l-13-9c-4 6-11 10-19 10-12 0-22-10-22-22s10-22 22-22c8 0 15 4 19 10l13-9c-7-10-19-17-32-17z"/><path fill="#247CFF" d="M54 34c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 12c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/></svg>';
 document.getElementById('headerLogo').innerHTML=AUSO_SVG;
+document.body.classList.add('refReady');
+function setRefLang(lang){const s=document.getElementById('langSel');if(s){s.value=lang;applyHubLanguage(lang)}}
+
 const pml=document.getElementById('premiumMicLogo');if(pml)pml.innerHTML=AUSO_SVG;
 const fav=d=>'https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';
 const SI=(name,color='')=>'https://cdn.simpleicons.org/'+name+(color?'/'+color:'');
@@ -482,6 +540,7 @@ let firstVoiceGuidePlayed=false;
 async function loadPortrait(id,name){try{const t=await fetch('./'+name+'.b64').then(r=>r.text());document.getElementById(id).src='data:image/jpeg;base64,'+t.trim()}catch(e){}}
 loadPortrait('novaImg','nova_face');loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');
 loadPortrait('heroP1','aura_face');loadPortrait('heroP2','nova_face');loadPortrait('heroP3','lumi_face');
+loadPortrait('refP1','aura_face');loadPortrait('refP2','nova_face');loadPortrait('refP3','lumi_face');
 function clampHud(x,y){const w=hud.offsetWidth||246,h=hud.offsetHeight||204;return{x:Math.max(0,Math.min(innerWidth-w,x)),y:Math.max(0,Math.min(innerHeight-h,y))}}
 function showWebHud(listen=true){unlockVoice();if(startGuide){startGuide.style.display='none';sessionStorage.setItem('voiceStartGuideDismissed','1')}hud.classList.add('show');hud.style.display='block';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 실행 · 질문/명령 가능';if(!firstVoiceGuidePlayed){firstVoiceGuidePlayed=true;hudAi.textContent='AUSOAI: 마이크를 눌러 주세요. 대화가 시작됩니다.';speakHud('마이크를 눌러 주세요. 대화가 시작됩니다.')}if(listen){setTimeout(()=>{hudAi.textContent='AUSOAI: 듣고 있습니다';startWebVoice()},250)}}
 function hideWebHud(){hud.classList.remove('show');hud.style.display='none';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 숨김 · Android Voice OS는 별도 유지'}
