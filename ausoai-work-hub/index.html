@@ -63,7 +63,7 @@ body{
 @media(max-width:380px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.card{min-height:82px}}
 @media(min-width:700px){.grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.card{min-height:92px}.visual{height:54px}.caption b{font-size:10px}.caption small{font-size:7px}}
 
-.webVoiceHud{position:fixed;z-index:2147483645;left:50%;bottom:18px;transform:translateX(-50%);width:226px;height:156px;pointer-events:none;display:none}
+.webVoiceHud{position:fixed;z-index:2147483645;left:50%;bottom:18px;transform:translateX(-50%);width:246px;height:204px;pointer-events:auto;display:none;touch-action:none;user-select:none}
 .webVoiceHud.show{display:block}
 .voiceOrbWrap{position:absolute;left:77px;top:18px;width:72px;height:72px;pointer-events:auto;touch-action:none}
 .voiceOrb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#eaffff 0 10%,#52f7de 28%,#1699b5 58%,#05273c 100%);box-shadow:0 0 0 7px rgba(82,247,222,.11),0 0 28px rgba(52,228,211,.55);display:grid;place-items:center;color:#fff;font-size:34px;animation:orbbeat 1.6s ease-in-out infinite}
@@ -71,7 +71,7 @@ body{
 .modelDot{position:absolute;width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid #dff;box-shadow:0 0 12px rgba(80,240,220,.45);background:#fff;left:97px;top:38px;transform-origin:16px 16px;pointer-events:none}
 .modelDot img{width:100%;height:100%;object-fit:cover}
 .m1{animation:orbit1 9s linear infinite}.m2{animation:orbit2 9s linear infinite}.m3{animation:orbit3 9s linear infinite}
-.hudLines{position:absolute;left:6px;right:6px;bottom:2px;background:rgba(5,39,45,.9);color:#eafffb;border:1px solid rgba(95,232,211,.75);border-radius:13px;padding:6px 8px;font-size:9px;line-height:1.45;pointer-events:auto}
+.hudLines{position:absolute;left:6px;right:6px;bottom:2px;background:rgba(5,39,45,.93);color:#eafffb;border:1px solid rgba(95,232,211,.75);border-radius:13px;padding:6px 8px;font-size:9px;line-height:1.45;pointer-events:auto}.hudTalk{display:grid;grid-template-columns:1fr auto;gap:5px;margin-top:5px}.hudTalk input{min-width:0;height:29px;border:0;border-radius:8px;padding:0 8px;font-size:9px}.hudTalk button{border:0;border-radius:8px;background:#56d9bd;color:#063a35;font-weight:900;padding:0 9px;font-size:9px}.hudCtl{display:flex;gap:4px;margin-top:4px}.hudCtl button{flex:1;border:0;border-radius:8px;padding:5px;background:#dff8f1;color:#155e58;font-size:8px;font-weight:800}
 .hudNav{display:flex;gap:5px;margin-top:5px}.hudNav button{flex:1;border:0;border-radius:9px;padding:6px;background:#e9fff9;color:#155e58;font-size:9px;font-weight:800}
 @keyframes orbbeat{0%,100%{transform:scale(1)}18%{transform:scale(1.09)}34%{transform:scale(1)}50%{transform:scale(1.05)}}
 @keyframes orbit1{from{transform:rotate(0deg) translateX(66px) rotate(0deg)}to{transform:rotate(360deg) translateX(66px) rotate(-360deg)}}
@@ -98,7 +98,7 @@ body{
   <div class="modelDot m1"><img id="auraImg" alt="AURA"></div>
   <div class="modelDot m2"><img id="lumiImg" alt="LUMI"></div>
   <div class="modelDot m3"><img id="novaImg" alt="NOVA"></div>
-  <div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div></div>
+  <div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="hudCtl"><button id="hudHide">감춤</button><button id="hudDelete">삭제</button><button id="hudListen">듣기</button></div></div>
 </div>
 <div class="footer">AUSOAI Global · Practical Voice Work Environment</div>
 </div>
@@ -118,12 +118,12 @@ const APPICON=(emoji,c1,c2)=>'data:image/svg+xml;charset=utf-8,'+encodeURICompon
 );
 const I=(title,sub,url,theme,keywords,logo,symbol,auso=false)=>({title,sub,url,theme,keywords,logo,symbol,auso});
 const groups=[
- {id:'quick',title:'오늘 바로 쓰기',sub:'AUSOAI 마이크 · Daily · 편집 · 메일 · 휴대폰 기본 기능',items:[
-  I('AUSOAI 편집기','음성·문자·터치 편집','https://taeguad1-crypto.github.io/Mela1/ausoai-work-hub/editor.html','tGold',['편집기','편집','문서편집'],null,null,true),
-  I('AUSOAI Mail','작성·저장·취소·EML','https://taeguad1-crypto.github.io/Mela1/ausoai-work-hub/mail.html','tMint',['메일작업','메일스튜디오','메일열어','메일작성'],null,null,true),
-  I('AUSOAI 마이크','눌러서 한 번 듣기 · 이후 무음 대기','voicehub://mic','tViolet',['마이크','음성','말하기','듣기'],null,null,true),
+ {id:'quick',title:'오늘 바로 쓰기',sub:'AUSOAI 마이크 · Daily · 전화 · 편집 · 메일',items:[
+  I('AUSOAI 마이크','눌러서 듣기 · 이동 가능','voicehub://mic','tViolet',['마이크','음성','말하기','듣기','마이크보여줘'],null,null,true),
   I('AUSOAI Daily','일정·메모·메일·파일','file:///android_asset/ausoai-daily.html','tMint',['데일리','일일비서','오늘업무'],null,null,true),
   I('전화','전화 앱','voicehub://dial','tGreen',['전화','통화'],APPICON('📞','#23c99f','#2e8df7')),
+  I('AUSOAI 편집기','음성·문자·터치 편집','https://taeguad1-crypto.github.io/Mela1/ausoai-work-hub/editor.html','tGold',['편집기','편집','문서편집'],null,null,true),
+  I('AUSOAI Mail','작성·저장·취소·EML','https://taeguad1-crypto.github.io/Mela1/ausoai-work-hub/mail.html','tMint',['메일작업','메일스튜디오','메일열어','메일작성'],null,null,true),
   I('문자','메시지 앱','voicehub://sms','tBlue',['문자','메시지'],APPICON('💬','#54b7ff','#6f7cff')),
   I('연락처','연락처 선택','voicehub://contacts','tPink',['연락처','주소록'],APPICON('👤','#ff87b8','#8d7cff')),
   I('카메라','사진 촬영','voicehub://camera','tGold',['카메라','촬영'],APPICON('📷','#ffb84f','#ff6f7d')),
@@ -256,20 +256,46 @@ function execute(q){
 window.__AUSOAI_COMMAND__=q=>execute(q)?'handled':false;
 document.getElementById('cmdForm').onsubmit=e=>{e.preventDefault();execute(document.getElementById('cmd').value)};
 
-// Web fallback voice HUD: same three-model orbit concept as the previous native FuturisticMicOrb.
-const hud=document.getElementById('webVoiceHud'),orb=document.getElementById('voiceOrb'),hudUser=document.getElementById('hudUser'),hudAi=document.getElementById('hudAi');
+// Web fallback voice HUD: previous three-model orbit + draggable two-line dialogue.
+const hud=document.getElementById('webVoiceHud'),orb=document.getElementById('voiceOrb'),hudUser=document.getElementById('hudUser'),hudAi=document.getElementById('hudAi'),hudText=document.getElementById('hudText');
+let hudRecognizer=null,hudDragging=false,hudMoved=false,hudDX=0,hudDY=0;
 async function loadPortrait(id,name){try{const t=await fetch('./'+name+'.b64').then(r=>r.text());document.getElementById(id).src='data:image/jpeg;base64,'+t.trim()}catch(e){}}
 loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');loadPortrait('novaImg','nova_face');
-function showWebHud(listen=true){hud.classList.add('show');if(listen)startWebVoice()}
-function startWebVoice(){
- const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
- if(!SR){hudAi.textContent='AUSOAI: 이 브라우저는 음성 인식을 지원하지 않습니다.';return}
- const r=new SR();r.lang='ko-KR';r.interimResults=true;r.continuous=false;orb.classList.add('listening');hudAi.textContent='AUSOAI: 듣는 중';
- r.onresult=e=>{const text=Array.from(e.results).map(x=>x[0].transcript).join(' ');hudUser.textContent='나: '+text;if(e.results[e.results.length-1].isFinal){hudAi.textContent='AUSOAI: 실행합니다';execute(text)}};
- r.onerror=()=>{hudAi.textContent='AUSOAI: 음성 인식 오류';orb.classList.remove('listening')};r.onend=()=>orb.classList.remove('listening');try{r.start()}catch(e){}
+function clampHud(x,y){const w=hud.offsetWidth||246,h=hud.offsetHeight||204;return{x:Math.max(0,Math.min(innerWidth-w,x)),y:Math.max(0,Math.min(innerHeight-h,y))}}
+function showWebHud(listen=true){hud.classList.add('show');hud.style.display='block';if(listen)startWebVoice()}
+function hideWebHud(){hud.classList.remove('show');hud.style.display='none'}
+function deleteWebHud(){stopWebVoice();hideWebHud();hud.dataset.deleted='1'}
+function stopWebVoice(){if(hudRecognizer){try{hudRecognizer.abort()}catch(e){}hudRecognizer=null}orb.classList.remove('listening')}
+function runHudText(text){const q=String(text||'').trim();if(!q)return;hudUser.textContent='나: '+q;hudText.value='';
+ if(/마이크.*(숨겨|감춰|감춤)/.test(q)){hudAi.textContent='AUSOAI: 마이크를 감췄습니다.';setTimeout(hideWebHud,200);return}
+ if(/마이크.*(삭제|없애)/.test(q)){hudAi.textContent='AUSOAI: 화면에서 삭제합니다. 다시 마이크를 누르면 나타납니다.';setTimeout(deleteWebHud,250);return}
+ if(/마이크.*(보여|나와|열어)/.test(q)){showWebHud(false);hudAi.textContent='AUSOAI: 마이크를 표시했습니다.';return}
+ hudAi.textContent='AUSOAI: '+q+' 실행 중';
+ const ok=execute(q);if(!ok)hudAi.textContent='AUSOAI: 명령을 확인해 주세요.';
 }
+function startWebVoice(){
+ stopWebVoice();const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){hudAi.textContent='AUSOAI: 이 브라우저는 음성 인식을 지원하지 않습니다.';return}
+ const r=new SR();hudRecognizer=r;r.lang='ko-KR';r.interimResults=true;r.continuous=false;orb.classList.add('listening');hudAi.textContent='AUSOAI: 듣는 중 · 말씀하세요';
+ r.onresult=e=>{const text=Array.from(e.results).map(x=>x[0].transcript).join(' ');hudUser.textContent='나: '+text;hudText.value=text;if(e.results[e.results.length-1].isFinal){hudAi.textContent='AUSOAI: 확인했습니다.';setTimeout(()=>runHudText(text),120)}};
+ r.onerror=()=>{hudAi.textContent='AUSOAI: 음성 인식 오류';orb.classList.remove('listening')};r.onend=()=>{if(hudRecognizer===r)hudRecognizer=null;orb.classList.remove('listening')};try{r.start()}catch(e){}
+}
+document.getElementById('hudSend').onclick=()=>runHudText(hudText.value);
+hudText.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runHudText(hudText.value)}});
+document.getElementById('hudListen').onclick=startWebVoice;
+document.getElementById('hudHide').onclick=hideWebHud;
+document.getElementById('hudDelete').onclick=deleteWebHud;
 document.getElementById('hudBack').onclick=()=>history.back();document.getElementById('hudHome').onclick=()=>location.href='./';document.getElementById('hudNext').onclick=()=>history.forward();
-document.addEventListener('click',ev=>{const a=ev.target.closest('a');if(a&&a.getAttribute('href')==='voicehub://mic'){ev.preventDefault();try{location.href='voicehub://mic'}catch(e){}setTimeout(()=>showWebHud(true),250)}});
+
+// Drag the whole HUD by the microphone orb; a short tap starts listening.
+const dragOrb=document.getElementById('dragOrb');
+dragOrb.addEventListener('pointerdown',e=>{hudDragging=true;hudMoved=false;const r=hud.getBoundingClientRect();hudDX=e.clientX-r.left;hudDY=e.clientY-r.top;dragOrb.setPointerCapture(e.pointerId);e.preventDefault()});
+dragOrb.addEventListener('pointermove',e=>{if(!hudDragging)return;hudMoved=true;const p=clampHud(e.clientX-hudDX,e.clientY-hudDY);hud.style.left=p.x+'px';hud.style.top=p.y+'px';hud.style.bottom='auto';hud.style.transform='none';e.preventDefault()});
+function endHudDrag(e){if(!hudDragging)return;hudDragging=false;try{dragOrb.releasePointerCapture(e.pointerId)}catch(_){ }if(!hudMoved)startWebVoice()}
+dragOrb.addEventListener('pointerup',endHudDrag);dragOrb.addEventListener('pointercancel',()=>{hudDragging=false});
+
+// Native app gets voicehub://mic; normal browser gets this same fallback HUD.
+document.addEventListener('click',ev=>{const a=ev.target.closest('a');if(a&&a.getAttribute('href')==='voicehub://mic'){ev.preventDefault();hud.dataset.deleted='0';showWebHud(false);try{location.href='voicehub://mic'}catch(e){}}});
 document.getElementById('translateBtn').onclick=()=>{const l=document.getElementById('langSel').value;if(l==='ko')return;location.href='https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(location.href)};
 document.getElementById('origBtn').onclick=()=>location.href='./';
 render();
