@@ -102,6 +102,21 @@ display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s
 .siteInfo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:7px}
 .siteInfo a,.siteInfo button{border:0;border-radius:11px;padding:9px;background:#f8fffd;color:#215f59;font-size:8px;font-weight:850;text-decoration:none;text-align:center}
 @media(max-width:700px){.policyGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.siteInfo{grid-template-columns:1fr 1fr}.ausoTopRibbon{top:0}}
+
+.flashDeck{position:relative;margin:8px 0 10px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.86);box-shadow:0 15px 42px rgba(30,82,77,.10);background:linear-gradient(135deg,#effcf8,#edf5ff 55%,#fff6ea)}
+.flashTrack{display:flex;transition:transform .55s cubic-bezier(.22,.8,.22,1)}
+.flashSlide{min-width:100%;min-height:220px;padding:22px;display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:center;position:relative;overflow:hidden}
+.flashSlide:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-70px;top:-80px;background:radial-gradient(circle,rgba(88,224,200,.22),transparent 68%)}
+.flashCopy{position:relative;z-index:1}.flashKicker{font-size:9px;font-weight:950;letter-spacing:.16em;color:#138a78}.flashTitle{font-size:clamp(22px,5vw,42px);line-height:1.04;font-weight:950;letter-spacing:-.04em;margin:7px 0}.flashDesc{font-size:11px;line-height:1.7;color:#5b7d78;max-width:520px}.flashBadges{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.flashBadges span{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.82);font-size:8px;font-weight:850;color:#2f6862}
+.flashVisual{position:relative;z-index:1;min-height:170px;border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(218,245,239,.9));display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),0 12px 28px rgba(45,100,93,.08)}
+.flashOrb{width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff 0 7%,#c8fff5 10%,#55e5ca 31%,#2698b1 58%,#071f38 100%);box-shadow:0 0 0 10px rgba(85,229,202,.10),0 0 34px rgba(69,214,195,.28);position:relative}
+.flashOrb:after{content:"AUSOAI";position:absolute;left:50%;bottom:12px;transform:translateX(-50%);color:#eafffb;font-size:9px;font-weight:900;letter-spacing:.18em}
+.flashDots{position:absolute;left:50%;top:50%;width:170px;height:170px;transform:translate(-50%,-50%);animation:flashspin 13s linear infinite}.flashDots i{position:absolute;width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.9);box-shadow:0 5px 15px rgba(29,87,80,.15);background:#fff}.flashDots i:nth-child(1){left:64px;top:-8px}.flashDots i:nth-child(2){right:-8px;top:96px}.flashDots i:nth-child(3){left:-8px;top:96px}.flashDots img{width:100%;height:100%;object-fit:cover}
+.flashNav{position:absolute;left:14px;right:14px;bottom:10px;z-index:4;display:flex;justify-content:space-between;align-items:center}.flashDotsNav{display:flex;gap:5px}.flashDotsNav button{width:7px;height:7px;border:0;border-radius:50%;background:#b9d8d2;padding:0}.flashDotsNav button.active{background:#178b7b;transform:scale(1.25)}.flashCtl{border:0;border-radius:999px;background:rgba(255,255,255,.86);padding:6px 10px;font-size:8px;color:#275f59;font-weight:900}
+@keyframes flashspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.voiceProfileTray{display:flex;gap:6px;margin-top:6px;overflow:auto;padding-bottom:2px}.voiceProfile{flex:0 0 auto;display:grid;grid-template-columns:28px auto;align-items:center;gap:6px;border:1px solid rgba(107,197,180,.34);border-radius:12px;background:#f7fffc;padding:5px 8px;color:#245f59}.voiceProfile.active{background:#dff9f2;border-color:#6ad6bf}.voiceProfile img{width:28px;height:28px;border-radius:50%;object-fit:cover}.voiceProfile b{display:block;font-size:8px}.voiceProfile small{display:block;font-size:6.5px;color:#73918d}
+.videoGuide{margin:12px 0;border-radius:18px;padding:14px;background:linear-gradient(145deg,#f7fffd,#eef6ff);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(41,96,88,.06)}.videoGuideHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.videoGuideHead b{font-size:11px}.videoGuideHead span{font-size:7px;color:#6b8884}.videoTimeline{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:9px}.videoTimeline div{padding:8px 6px;border-radius:11px;background:#fff;font-size:7px;color:#466d69;line-height:1.35}.videoTimeline strong{display:block;font-size:8px;color:#185f58;margin-bottom:2px}
+@media(max-width:640px){.flashSlide{grid-template-columns:1fr;min-height:340px;padding:18px 16px 32px}.flashVisual{min-height:150px}.videoTimeline{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body><div class="shell">
@@ -124,6 +139,23 @@ display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s
   <div class="brand"><b>AUSOAI Global · Work Hub</b><small>매일 쓰는 기능을 터치 · 문자 · 음성으로 같은 방식으로 실행</small></div>
   <button class="home" onclick="location.href='voicehub://home'">홈</button>
 </header>
+<section class="flashDeck" aria-label="AUSOAI 소개 플래시">
+  <div class="flashTrack" id="flashTrack">
+    <article class="flashSlide">
+      <div class="flashCopy"><div class="flashKicker">AUSOAI AI GLOBAL</div><div class="flashTitle">말하면, 화면이 움직입니다.</div><p class="flashDesc">음성·문자·터치가 하나의 실행 엔진으로 연결되는 글로벌 AI OS. 검색하고, 이동하고, 번역하고, 편집하고, 저장하고, 공유합니다.</p><div class="flashBadges"><span>Voice OS</span><span>Global Translate</span><span>Work Hub</span></div></div>
+      <div class="flashVisual"><div class="flashOrb"></div><div class="flashDots"><i><img data-portrait="nova_face" alt=""></i><i><img data-portrait="aura_face" alt=""></i><i><img data-portrait="lumi_face" alt=""></i></div></div>
+    </article>
+    <article class="flashSlide">
+      <div class="flashCopy"><div class="flashKicker">REAL-TIME GLOBAL VIEW</div><div class="flashTitle">한 번 선택한 언어가 다음 화면까지.</div><p class="flashDesc">현재 페이지의 링크와 작업 상태를 유지하면서 번역 상태가 다음 화면으로 이어지는 구조를 목표로 합니다.</p><div class="flashBadges"><span>한국어</span><span>日本語</span><span>English</span><span>中文</span></div></div>
+      <div class="flashVisual"><div style="font-size:54px">🌐</div><div style="position:absolute;bottom:18px;font-size:10px;font-weight:900;color:#27665f">Translate · Click · Continue</div></div>
+    </article>
+    <article class="flashSlide">
+      <div class="flashCopy"><div class="flashKicker">CREATE · MEET · MAIL</div><div class="flashTitle">대화하면서 바로 작업합니다.</div><p class="flashDesc">편집기, 메일, 회의, 프로젝트를 하나의 대화 흐름으로 연결하고 작업 이력과 결과물을 이어갑니다.</p><div class="flashBadges"><span>Edit</span><span>Mail</span><span>Meeting</span><span>Projects</span></div></div>
+      <div class="flashVisual"><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:78%"><div class="policyCard"><b>편집</b><p>문서·이미지·PDF</p></div><div class="policyCard"><b>메일</b><p>작성·첨부·전송</p></div><div class="policyCard"><b>회의</b><p>번역·회의록</p></div><div class="policyCard"><b>프로젝트</b><p>저장·복구·배포</p></div></div></div>
+    </article>
+  </div>
+  <div class="flashNav"><div class="flashDotsNav"><button class="active" data-f="0"></button><button data-f="1"></button><button data-f="2"></button></div><button class="flashCtl" id="flashPause">일시정지</button></div>
+</section>
 <form class="command" id="cmdForm"><input id="cmd" autocomplete="off" placeholder="예: 지메일 열어 / 일정 열어 / 사진 편집 / PG / 네이버 지도"><button>실행</button></form>
 <div class="chips" id="chips"></div>
 <p class="hint">작은 컬러 카드 · 선명한 서비스 로고 · 핀치 확대/축소 · 상하 스크롤 · 음성 HUD에서 같은 명령 사용</p>
@@ -135,9 +167,27 @@ display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s
   <div class="modelDot m1" id="modelMale" data-label="남성"><img id="novaImg" alt="남성 모델"></div>
   <div class="modelDot m2" id="modelFemale1" data-label="여성 1"><img id="auraImg" alt="여성 모델 1"></div>
   <div class="modelDot m3" id="modelFemale2" data-label="여성 2"><img id="lumiImg" alt="여성 모델 2"></div>
-  <div class="voicePulseBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="hudCtl"><button id="hudHide">감춤</button><button id="hudDelete">삭제</button><button id="hudListen">듣기</button></div></div>
+  <div class="voicePulseBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="voiceProfileTray" id="voiceProfileTray">
+  <button class="voiceProfile active" data-voice="male"><img id="vpMale" alt=""><span><b>남성</b><small>빠르고 낮은 톤</small></span></button>
+  <button class="voiceProfile" data-voice="female"><img id="vpFemale" alt=""><span><b>여성</b><small>자연스러운 톤</small></span></button>
+  <button class="voiceProfile" data-voice="senior"><img id="vpSenior" alt=""><span><b>시니어</b><small>차분한 톤</small></span></button>
+  <button class="voiceProfile" data-voice="child"><span><b>어린이</b><small>밝은 톤</small></span></button>
+  <button class="voiceProfile" data-voice="general"><span><b>일반</b><small>기본 음성</small></span></button>
+</div>
+<div class="hudCtl"><button id="hudHide">감춤</button><button id="hudDelete">삭제</button><button id="hudListen">듣기</button></div></div>
 </div>
 
+<section class="videoGuide">
+  <div class="videoGuideHead"><b>AUSOAI 3분 사용설명 영상 구성</b><span>실제 기능 화면을 기준으로 제작</span></div>
+  <div class="videoTimeline">
+    <div><strong>0:00–0:25</strong>브랜드·3개 플래시</div>
+    <div><strong>0:25–0:55</strong>이동형 마이크·음성</div>
+    <div><strong>0:55–1:25</strong>음성+문자 동시 대화</div>
+    <div><strong>1:25–1:55</strong>화면 번역·링크 유지</div>
+    <div><strong>1:55–2:30</strong>편집·메일·PDF·공유</div>
+    <div><strong>2:30–3:00</strong>회의·프로젝트·글로벌 OS</div>
+  </div>
+</section>
 <section id="supportPolicy" class="policySection">
   <div class="groupHead"><b>AUSOAI 지원정책</b><span>서비스 운영 · 계정 · 데이터 · 보안</span></div>
   <div class="policyGrid">
@@ -353,9 +403,9 @@ function chooseHudVoice(p){
 }
 function speakHud(text){
  if(!('speechSynthesis' in window)||!text||!voiceUnlocked)return;
- const p=setHudPersona(hudPersonaIndex+1),u=new SpeechSynthesisUtterance(text);
- const chosen=chooseHudVoice(p);if(chosen)u.voice=chosen;
- u.lang='ko-KR';u.pitch=p.pitch;u.rate=p.rate;u.volume=1;
+ const visual=setHudPersona(hudPersonaIndex+1),preset=(typeof voicePresets!=='undefined'&&voicePresets[selectedVoicePreset])?voicePresets[selectedVoicePreset]:visual,u=new SpeechSynthesisUtterance(text);
+ const chosen=chooseHudVoice(preset);if(chosen)u.voice=chosen;
+ u.lang='ko-KR';u.pitch=preset.pitch;u.rate=preset.rate;u.volume=1;
  u.onstart=()=>{orb.classList.add('speaking');hud.classList.add('speaking')};
  u.onend=u.onerror=()=>{orb.classList.remove('speaking');hud.classList.remove('speaking')};
  try{speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}
@@ -395,6 +445,30 @@ dragOrb.addEventListener('pointerup',endHudDrag);dragOrb.addEventListener('point
 document.addEventListener('click',ev=>{const a=ev.target.closest('a');if(a&&a.getAttribute('href')==='voicehub://mic'){ev.preventDefault();hud.dataset.deleted='0';showWebHud(false);try{location.href='voicehub://mic'}catch(e){}}});
 document.getElementById('translateBtn').onclick=()=>{const l=document.getElementById('langSel').value;if(l==='ko')return;location.href='https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(location.href)};
 document.getElementById('origBtn').onclick=()=>location.href='./';
+
+let flashIndex=0,flashTimer=null,flashPaused=false;
+function showFlash(i){flashIndex=(i+3)%3;const tr=document.getElementById('flashTrack');if(tr)tr.style.transform='translateX(-'+(flashIndex*100)+'%)';document.querySelectorAll('[data-f]').forEach((b,n)=>b.classList.toggle('active',n===flashIndex))}
+function startFlash(){clearInterval(flashTimer);if(!flashPaused)flashTimer=setInterval(()=>showFlash(flashIndex+1),4800)}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{showFlash(Number(b.dataset.f));startFlash()});
+const fp=document.getElementById('flashPause');if(fp)fp.onclick=()=>{flashPaused=!flashPaused;fp.textContent=flashPaused?'재생':'일시정지';startFlash()};
+startFlash();
+
+document.querySelectorAll('img[data-portrait]').forEach(async im=>{try{const t=await fetch('./'+im.dataset.portrait+'.b64').then(r=>r.text());im.src='data:image/jpeg;base64,'+t.trim()}catch(e){}});
+(async()=>{try{
+ const names={vpMale:'nova_face',vpFemale:'aura_face',vpSenior:'lumi_face'};
+ for(const [id,n] of Object.entries(names)){const t=await fetch('./'+n+'.b64').then(r=>r.text());const el=document.getElementById(id);if(el)el.src='data:image/jpeg;base64,'+t.trim()}
+}catch(e){}})();
+
+const voicePresets={
+ male:{pitch:.92,rate:1.07,prefer:/male|man|민준|인준|hyun/i,label:'남성'},
+ female:{pitch:1.03,rate:1.04,prefer:/female|woman|유나|서연|sunhi/i,label:'여성'},
+ senior:{pitch:.88,rate:.94,prefer:/male|female|senior|older|elder/i,label:'시니어'},
+ child:{pitch:1.28,rate:1.06,prefer:/child|kid|young/i,label:'어린이'},
+ general:{pitch:1,rate:1,prefer:/natural|neural|premium|google|samsung|microsoft/i,label:'일반'}
+};
+let selectedVoicePreset='male';
+document.querySelectorAll('[data-voice]').forEach(b=>b.onclick=()=>{selectedVoicePreset=b.dataset.voice;document.querySelectorAll('[data-voice]').forEach(x=>x.classList.toggle('active',x===b));hudAi.textContent='AUSOAI: '+voicePresets[selectedVoicePreset].label+' 음성 선택';speakHud('음성이 변경되었습니다.')});
+
 render();
 </script>
 </body>
