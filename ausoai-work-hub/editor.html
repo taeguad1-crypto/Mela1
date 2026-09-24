@@ -49,7 +49,7 @@ function fontDelta(d){fontPx=Math.max(10,Math.min(34,fontPx+d));e.style.fontSize
 function appendText(v){if(!v)return;e.focus();e.innerHTML+=(e.innerHTML?'<p>':'<p>')+esc(v)+'</p>';stamp('수정 중 · 저장 또는 취소')}
 function replaceBody(v){e.innerHTML='<p>'+esc(v)+'</p>';stamp('수정 중 · 저장 또는 취소')}
 async function copyAll(){const text=(t.value+'\n\n'+e.innerText).trim();try{await navigator.clipboard.writeText(text);stamp('문서 복사됨')}catch(err){e.focus();document.execCommand('selectAll');document.execCommand('copy');stamp('본문 복사됨')}}
-function exportWord(){const html='<!doctype html><html><meta charset="utf-8"><body><h1>'+esc(t.value)+'</h1>'+e.innerHTML+'</body></html>';const b=new Blob(['\ufeff',html],{type:'application/msword'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=(t.value||'AUSOAI_문서')+'.doc';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200);stamp('Word 내보내기')}
+function exportWord(){const html='<!doctype html><html><meta charset="utf-8"><body><h1>'+esc(t.value)+'</h1>'+e.innerHTML+'<script src="os-layer.js"></script></body></html>';const b=new Blob(['\ufeff',html],{type:'application/msword'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=(t.value||'AUSOAI_문서')+'.doc';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200);stamp('Word 내보내기')}
 function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function command(raw){const q=String(raw||'').trim();if(!q)return false;let m;
  if((m=q.match(/제목(?:을|을 )?(.+?)(?:로|으로)?\s*(?:바꿔|변경|수정)/))){t.value=m[1].trim();stamp('제목 수정 중 · 저장 또는 취소');return true}
