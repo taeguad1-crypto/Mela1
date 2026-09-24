@@ -63,31 +63,28 @@ body{
 @media(max-width:380px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.card{min-height:82px}}
 @media(min-width:700px){.grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.card{min-height:92px}.visual{height:54px}.caption b{font-size:10px}.caption small{font-size:7px}}
 
-.webVoiceHud{position:fixed;z-index:2147483645;left:50%;bottom:18px;transform:translateX(-50%);width:min(292px,calc(100vw - 18px));height:332px;pointer-events:auto;display:none;touch-action:none;user-select:none;border-radius:22px;background:rgba(247,255,253,.96);border:1px solid rgba(255,255,255,.96);box-shadow:0 18px 55px rgba(18,68,70,.22),0 0 0 1px rgba(56,172,151,.08);backdrop-filter:blur(22px) saturate(145%);overflow:visible}
+.webVoiceHud{position:fixed;z-index:2147483645;left:50%;bottom:18px;transform:translateX(-50%);width:min(248px,calc(100vw - 18px));height:176px;pointer-events:auto;display:none;touch-action:none;user-select:none;background:transparent;border:0;box-shadow:none;overflow:visible}
 .webVoiceHud.show{display:block}
-.hudDragBar{position:absolute;left:8px;right:8px;top:7px;height:20px;border-radius:999px;background:linear-gradient(90deg,rgba(215,248,241,.95),rgba(226,239,255,.95));display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:900;letter-spacing:.08em;color:#4b7772;touch-action:none;cursor:grab}.hudDragBar:before{content:"";width:34px;height:3px;border-radius:3px;background:#8ccfc2;margin-right:6px}
-.hudStateChip{position:absolute;right:13px;top:11px;font-size:6px;font-weight:900;color:#1f756b}
-.voiceOrbWrap{position:absolute;left:50%;top:31px;transform:translateX(-50%);width:78px;height:78px;pointer-events:auto;touch-action:none}
-.voiceOrb{position:absolute;inset:0;border-radius:50%;background:
-radial-gradient(circle at 38% 28%,rgba(255,255,255,.98) 0 7%,rgba(194,255,245,.96) 10%,rgba(72,226,201,.94) 29%,rgba(32,138,163,.96) 58%,#08253b 100%);
-box-shadow:inset 0 0 0 1px rgba(255,255,255,.65),inset 0 -10px 24px rgba(3,26,48,.42),0 0 0 5px rgba(99,238,216,.10),0 10px 28px rgba(12,81,95,.26);
-display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s ease-in-out infinite}
+.hudDragBar{position:absolute;left:50%;top:0;transform:translateX(-50%);height:18px;min-width:96px;padding:0 10px;border-radius:999px;background:rgba(239,255,251,.92);border:1px solid rgba(105,208,190,.38);box-shadow:0 4px 14px rgba(20,87,82,.10);display:flex;align-items:center;justify-content:center;font-size:6.5px;font-weight:900;letter-spacing:.08em;color:#4b7772;touch-action:none;cursor:grab;backdrop-filter:blur(10px)}.hudDragBar:before{content:"";width:34px;height:3px;border-radius:3px;background:#8ccfc2;margin-right:6px}
+.hudStateChip{position:absolute;right:4px;top:2px;font-size:6px;font-weight:900;color:#1f756b;background:rgba(255,255,255,.86);padding:3px 6px;border-radius:999px}
+.voiceOrbWrap{position:absolute;left:50%;top:25px;transform:translateX(-50%);width:58px;height:58px;pointer-events:auto;touch-action:none}
+.voiceOrb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 34% 26%,#ffffff 0 7%,#d8fff6 10%,#6aead2 29%,#2ca4b7 57%,#092943 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),inset 0 -9px 20px rgba(3,26,48,.35),0 0 0 4px rgba(99,238,216,.10),0 8px 24px rgba(12,81,95,.23);display:grid;place-items:center;color:#fff;font-size:0;animation:orbidle 3.6s ease-in-out infinite}
 .voiceOrb:before{content:"";position:absolute;inset:9px;border-radius:50%;border:1px solid rgba(225,255,250,.52);box-shadow:inset 0 0 18px rgba(255,255,255,.20)}
-.voiceOrb:after{content:"";position:absolute;width:14px;height:22px;border:2px solid rgba(255,255,255,.94);border-radius:9px;box-shadow:0 0 9px rgba(255,255,255,.36)}
+.voiceOrb:after{content:"";position:absolute;width:12px;height:19px;border:2px solid rgba(255,255,255,.96);border-radius:8px;box-shadow:0 0 8px rgba(255,255,255,.35)}
 .voiceOrb.listening{animation:orbheart .86s ease-in-out infinite;box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 0 0 7px rgba(77,241,208,.13),0 0 34px rgba(71,233,208,.68)}
 .voiceOrb.speaking{animation:orbspeak 1.1s ease-in-out infinite;box-shadow:0 0 0 7px rgba(116,184,255,.12),0 0 34px rgba(111,174,255,.55)}
-.modelDot{position:absolute;width:34px;height:34px;border-radius:50%;overflow:hidden;border:2px solid #dff;box-shadow:0 0 12px rgba(80,240,220,.45);background:#fff;left:50%;top:49px;margin-left:-17px;transform-origin:17px 17px;pointer-events:auto;cursor:pointer}
+.modelDot{position:absolute;width:27px;height:27px;border-radius:50%;overflow:hidden;border:1.5px solid #eafffb;box-shadow:0 3px 10px rgba(35,122,111,.18);background:#fff;left:50%;top:41px;margin-left:-13.5px;transform-origin:13.5px 13.5px;pointer-events:auto;cursor:pointer}
 .modelDot img{width:100%;height:100%;object-fit:cover}.modelDot:after{content:attr(data-label);position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);font-size:6px;font-weight:900;color:#0c5b55;white-space:nowrap}.modelDot.active{border-color:#55f2d5;box-shadow:0 0 0 4px rgba(85,242,213,.18),0 0 18px rgba(80,240,220,.72)}
 .m1{animation:orbit1 9s linear infinite}.m2{animation:orbit2 9s linear infinite}.m3{animation:orbit3 9s linear infinite}
-.hudLines{position:absolute;left:8px;right:8px;top:126px;bottom:8px;background:linear-gradient(180deg,rgba(245,255,252,.98),rgba(231,248,246,.98));color:#184e4a;border:1px solid rgba(91,193,174,.30);border-radius:16px;padding:8px;font-size:9px;line-height:1.45;pointer-events:auto;overflow:auto}.hudTalk{display:grid;grid-template-columns:1fr auto;gap:5px;margin-top:5px}.hudTalk input{min-width:0;height:29px;border:0;border-radius:8px;padding:0 8px;font-size:9px}.hudTalk button{border:0;border-radius:8px;background:#56d9bd;color:#063a35;font-weight:900;padding:0 9px;font-size:9px}.hudCtl{display:flex;gap:4px;margin-top:4px}.hudCtl button{flex:1;border:0;border-radius:8px;padding:5px;background:#dff8f1;color:#155e58;font-size:8px;font-weight:800}
-.voicePulseBars{position:absolute;left:50%;top:111px;transform:translateX(-50%);height:15px;display:flex;align-items:center;gap:2px;opacity:.45;pointer-events:none}.voicePulseBars i{display:block;width:2px;height:4px;border-radius:2px;background:#48d9c0}.webVoiceHud.listening .voicePulseBars i{animation:barpulse .7s ease-in-out infinite}.webVoiceHud.listening .voicePulseBars i:nth-child(2){animation-delay:.08s}.webVoiceHud.listening .voicePulseBars i:nth-child(3){animation-delay:.16s}.webVoiceHud.listening .voicePulseBars i:nth-child(4){animation-delay:.24s}.webVoiceHud.listening .voicePulseBars i:nth-child(5){animation-delay:.32s}@keyframes barpulse{0%,100%{height:4px}50%{height:14px}}
+.hudLines{position:absolute;left:0;right:0;top:103px;background:rgba(248,255,253,.96);color:#184e4a;border:1px solid rgba(91,193,174,.34);border-radius:14px;padding:6px 7px;font-size:8.5px;line-height:1.35;pointer-events:auto;box-shadow:0 8px 24px rgba(25,80,76,.13);backdrop-filter:blur(14px)}.hudTalk{display:grid;grid-template-columns:1fr auto;gap:5px;margin-top:5px}.hudTalk input{min-width:0;height:29px;border:0;border-radius:8px;padding:0 8px;font-size:9px}.hudTalk button{border:0;border-radius:8px;background:#56d9bd;color:#063a35;font-weight:900;padding:0 9px;font-size:9px}.hudCtl{display:flex;gap:4px;margin-top:4px}.hudCtl button{flex:1;border:0;border-radius:8px;padding:5px;background:#dff8f1;color:#155e58;font-size:8px;font-weight:800}
+.voicePulseBars{position:absolute;left:50%;top:89px;transform:translateX(-50%);height:12px;display:flex;align-items:center;gap:2px;opacity:.5;pointer-events:none}.voicePulseBars i{display:block;width:2px;height:4px;border-radius:2px;background:#48d9c0}.webVoiceHud.listening .voicePulseBars i{animation:barpulse .7s ease-in-out infinite}.webVoiceHud.listening .voicePulseBars i:nth-child(2){animation-delay:.08s}.webVoiceHud.listening .voicePulseBars i:nth-child(3){animation-delay:.16s}.webVoiceHud.listening .voicePulseBars i:nth-child(4){animation-delay:.24s}.webVoiceHud.listening .voicePulseBars i:nth-child(5){animation-delay:.32s}@keyframes barpulse{0%,100%{height:4px}50%{height:14px}}
 .hudNav{display:flex;gap:5px;margin-top:5px}.hudNav button{flex:1;border:0;border-radius:9px;padding:6px;background:#e9fff9;color:#155e58;font-size:9px;font-weight:800}
 @keyframes orbidle{0%,100%{transform:scale(1);filter:saturate(.94)}50%{transform:scale(1.025);filter:saturate(1.08)}}
 @keyframes orbheart{0%,100%{transform:scale(1)}12%{transform:scale(1.105)}24%{transform:scale(.995)}40%{transform:scale(1.07)}58%{transform:scale(1)}}
 @keyframes orbspeak{0%,100%{transform:scale(1)}30%{transform:scale(1.06)}60%{transform:scale(1.018)}}
-@keyframes orbit1{from{transform:rotate(0deg) translateX(66px) rotate(0deg)}to{transform:rotate(360deg) translateX(66px) rotate(-360deg)}}
-@keyframes orbit2{from{transform:rotate(120deg) translateX(66px) rotate(-120deg)}to{transform:rotate(480deg) translateX(66px) rotate(-480deg)}}
-@keyframes orbit3{from{transform:rotate(240deg) translateX(66px) rotate(-240deg)}to{transform:rotate(600deg) translateX(66px) rotate(-600deg)}}
+@keyframes orbit1{from{transform:rotate(0deg) translateX(50px) rotate(0deg)}to{transform:rotate(360deg) translateX(50px) rotate(-360deg)}}
+@keyframes orbit2{from{transform:rotate(120deg) translateX(50px) rotate(-120deg)}to{transform:rotate(480deg) translateX(50px) rotate(-480deg)}}
+@keyframes orbit3{from{transform:rotate(240deg) translateX(50px) rotate(-240deg)}to{transform:rotate(600deg) translateX(50px) rotate(-600deg)}}to{transform:rotate(600deg) translateX(66px) rotate(-600deg)}}
 .langbar{position:sticky;bottom:4px;z-index:50;display:flex;gap:5px;align-items:center;margin:8px 0 2px;padding:6px;border:1px solid rgba(255,255,255,.85);border-radius:15px;background:rgba(248,255,253,.93);backdrop-filter:blur(15px)}
 .langbar select,.langbar button{height:33px;border:1px solid rgba(59,140,128,.16);border-radius:10px;background:#fff;color:#174c48;font-size:9px;padding:0 9px}.langbar select{flex:1}
 
@@ -116,10 +113,14 @@ display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s
 .flashDots{position:absolute;left:50%;top:50%;width:170px;height:170px;transform:translate(-50%,-50%);animation:flashspin 13s linear infinite}.flashDots i{position:absolute;width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.9);box-shadow:0 5px 15px rgba(29,87,80,.15);background:#fff}.flashDots i:nth-child(1){left:64px;top:-8px}.flashDots i:nth-child(2){right:-8px;top:96px}.flashDots i:nth-child(3){left:-8px;top:96px}.flashDots img{width:100%;height:100%;object-fit:cover}
 .flashNav{position:absolute;left:14px;right:14px;bottom:10px;z-index:4;display:flex;justify-content:space-between;align-items:center}.flashDotsNav{display:flex;gap:5px}.flashDotsNav button{width:7px;height:7px;border:0;border-radius:50%;background:#b9d8d2;padding:0}.flashDotsNav button.active{background:#178b7b;transform:scale(1.25)}.flashCtl{border:0;border-radius:999px;background:rgba(255,255,255,.86);padding:6px 10px;font-size:8px;color:#275f59;font-weight:900}
 @keyframes flashspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-.voiceProfileTray{display:flex;gap:6px;margin-top:6px;overflow:auto;padding-bottom:2px}.voiceProfile{flex:0 0 auto;display:grid;grid-template-columns:28px auto;align-items:center;gap:6px;border:1px solid rgba(107,197,180,.34);border-radius:12px;background:#f7fffc;padding:5px 8px;color:#245f59}.voiceProfile.active{background:#dff9f2;border-color:#6ad6bf}.voiceProfile img{width:28px;height:28px;border-radius:50%;object-fit:cover}.voiceProfile b{display:block;font-size:8px}.voiceProfile small{display:block;font-size:6.5px;color:#73918d}
+.voiceProfileTray{display:none}.voiceProfile{flex:0 0 auto;display:grid;grid-template-columns:28px auto;align-items:center;gap:6px;border:1px solid rgba(107,197,180,.34);border-radius:12px;background:#f7fffc;padding:5px 8px;color:#245f59}.voiceProfile.active{background:#dff9f2;border-color:#6ad6bf}.voiceProfile img{width:28px;height:28px;border-radius:50%;object-fit:cover}.voiceProfile b{display:block;font-size:8px}.voiceProfile small{display:block;font-size:6.5px;color:#73918d}
 .voiceSecurity{margin:10px 0;border-radius:18px;padding:13px;background:linear-gradient(135deg,#effcf8,#f1f6ff);border:1px solid rgba(255,255,255,.95);box-shadow:0 8px 22px rgba(41,96,88,.06)}.voiceSecurityGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:8px}.voiceSecurityCard{padding:9px;border-radius:12px;background:#fff;min-height:70px}.voiceSecurityCard b{display:block;font-size:8.5px;color:#175e57;margin-bottom:4px}.voiceSecurityCard small{font-size:6.8px;line-height:1.45;color:#6b8783}.voiceSecurityActions{display:flex;gap:6px;overflow:auto;margin-top:8px}.voiceSecurityActions a,.voiceSecurityActions button{flex:0 0 auto;border:0;text-decoration:none;border-radius:999px;padding:7px 10px;background:#dff8f1;color:#175e57;font-size:8px;font-weight:900}.introPlayer{position:relative;margin-top:10px;min-height:170px;border-radius:16px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#2a7890,#0b2941 70%);color:white;display:grid;place-items:center}.introScene{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;opacity:0;transform:scale(1.03);transition:.7s}.introScene.active{opacity:1;transform:scale(1)}.introScene b{display:block;font-size:18px;margin-bottom:8px}.introScene span{font-size:9px;color:#c9f6f0}.introPlay{position:absolute;right:10px;bottom:10px;z-index:4;border:0;border-radius:999px;padding:7px 11px;background:rgba(255,255,255,.9);color:#175e57;font-size:8px;font-weight:900}
 .videoGuide{margin:12px 0;border-radius:18px;padding:14px;background:linear-gradient(145deg,#f7fffd,#eef6ff);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(41,96,88,.06)}.videoGuideHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.videoGuideHead b{font-size:11px}.videoGuideHead span{font-size:7px;color:#6b8884}.videoTimeline{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:9px}.videoTimeline div{padding:8px 6px;border-radius:11px;background:#fff;font-size:7px;color:#466d69;line-height:1.35}.videoTimeline strong{display:block;font-size:8px;color:#185f58;margin-bottom:2px}
 @media(max-width:640px){.voiceSecurityGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.flashSlide{grid-template-columns:1fr;min-height:340px;padding:18px 16px 32px}.flashVisual{min-height:150px}.videoTimeline{grid-template-columns:repeat(2,1fr)}}
+
+.voiceQuickBar{position:sticky;top:0;z-index:95;display:flex;align-items:center;gap:6px;margin:0 0 7px;padding:6px 7px;border-radius:14px;background:rgba(248,255,253,.94);border:1px solid rgba(255,255,255,.95);box-shadow:0 7px 20px rgba(26,83,78,.08);backdrop-filter:blur(16px);overflow-x:auto;scrollbar-width:none}.voiceQuickBar::-webkit-scrollbar{display:none}.vqTitle{flex:0 0 auto;font-size:8px;font-weight:950;color:#145f57}.vqBtn{flex:0 0 auto;border:0;border-radius:999px;padding:7px 9px;background:#e9faf6;color:#215f59;font-size:7.5px;font-weight:900}.vqBtn.primary{background:linear-gradient(135deg,#5ee0c5,#78afff);color:#083f42}.vqStatus{flex:0 0 auto;font-size:7px;color:#64817d;padding:0 4px}
+.heroShowcase{display:grid;grid-template-columns:1.35fr .65fr;gap:8px;margin:8px 0 10px}.heroPhotoCard{min-height:190px;border-radius:20px;overflow:hidden;position:relative;background:linear-gradient(135deg,#e9fff8,#eef4ff);box-shadow:0 12px 34px rgba(31,89,82,.10);border:1px solid rgba(255,255,255,.94)}.heroPhotoCard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 74% 22%,rgba(99,226,199,.28),transparent 25%),radial-gradient(circle at 30% 80%,rgba(109,156,255,.18),transparent 26%)}.heroContent{position:relative;z-index:2;padding:20px}.heroContent b{font-size:22px;line-height:1.05;display:block}.heroContent p{font-size:9px;line-height:1.6;color:#5b7875;max-width:560px}.heroDevice{position:absolute;right:18px;bottom:15px;width:38%;min-width:120px;aspect-ratio:.72;border-radius:20px;background:linear-gradient(160deg,#ffffff,#dff7f1);box-shadow:0 12px 28px rgba(25,73,78,.16);border:6px solid #f9ffff;overflow:hidden}.heroDevice:before{content:"AUSOAI";position:absolute;top:12px;left:12px;font-size:7px;font-weight:950;color:#17645c}.heroDevice:after{content:"Voice · Translate · Edit";position:absolute;left:12px;right:12px;bottom:12px;font-size:6.5px;color:#567975;background:#fff;padding:7px;border-radius:10px}.heroSide{display:grid;gap:8px}.heroSideCard{border-radius:18px;padding:13px;background:#fff;border:1px solid rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(31,89,82,.07)}.heroSideCard b{display:block;font-size:10px}.heroSideCard small{font-size:7px;color:#6d8885;line-height:1.5}.brandLogoRow{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.brandLogoPill{display:flex;align-items:center;gap:4px;padding:5px 7px;background:#fff;border-radius:999px;font-size:6.5px;font-weight:850;color:#476b68}.brandLogoPill img{width:14px;height:14px;object-fit:contain}
+@media(max-width:640px){.heroShowcase{grid-template-columns:1fr}.heroPhotoCard{min-height:210px}.heroDevice{width:42%}}
 </style>
 </head>
 <body><div class="shell">
@@ -138,11 +139,38 @@ display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s
     <button class="ribbonLink" onclick="document.getElementById('siteGuide').scrollIntoView({behavior:'smooth'})">사이트안내</button>
   </div>
 </div>
+<div class="voiceQuickBar">
+  <span class="vqTitle">AUSOAI Voice OS</span>
+  <button class="vqBtn primary" onclick="showWebHud(false)">마이크</button>
+  <button class="vqBtn" onclick="location.href='voicehub://settings'">음성설정</button>
+  <button class="vqBtn" onclick="document.getElementById('langSel').focus()">번역</button>
+  <button class="vqBtn" onclick="showWebHud(false);document.getElementById('hudText').focus()">문자대화</button>
+  <span class="vqStatus" id="topVoiceStatus">웹 데모 · Android OS 연결 준비</span>
+</div>
 <header class="head">
   <div class="ausoLogo" id="headerLogo"></div>
   <div class="brand"><b>AUSOAI Global · Work Hub</b><small>매일 쓰는 기능을 터치 · 문자 · 음성으로 같은 방식으로 실행</small></div>
   <button class="home" onclick="location.href='voicehub://home'">홈</button>
 </header>
+<section class="heroShowcase">
+  <div class="heroPhotoCard">
+    <div class="heroContent"><div class="flashKicker">AUSOAI AI GLOBAL</div><b>Voice to Create<br>Beyond Editing</b><p>말하면 화면을 열고, 이동하고, 번역하고, 편집하고, 저장하고, 공유하는 실행형 AI OS.</p>
+      <div class="brandLogoRow">
+        <span class="brandLogoPill"><img src="https://cdn.simpleicons.org/naver/03C75A">Naver</span>
+        <span class="brandLogoPill"><img src="https://cdn.simpleicons.org/google">Google</span>
+        <span class="brandLogoPill"><img src="https://cdn.simpleicons.org/kakao/FFCD00">KakaoTalk</span>
+        <span class="brandLogoPill"><img src="https://cdn.simpleicons.org/gmail/EA4335">Gmail</span>
+        <span class="brandLogoPill"><img src="https://cdn.simpleicons.org/youtube/FF0000">YouTube</span>
+      </div>
+    </div>
+    <div class="heroDevice"></div>
+  </div>
+  <div class="heroSide">
+    <div class="heroSideCard"><b>오늘 작업 이어하기</b><small>최근 편집·메일·회의·프로젝트 상태를 이어서 실행</small></div>
+    <div class="heroSideCard"><b>Global Translation</b><small>허브 자체 언어는 즉시 전환 · Android WebView 번역 레이어 연동</small></div>
+    <div class="heroSideCard"><b>Security Layer</b><small>업로드·다운로드·권한·감사로그·국가별 정책 연결</small></div>
+  </div>
+</section>
 <section class="flashDeck" aria-label="AUSOAI 소개 플래시">
   <div class="flashTrack" id="flashTrack">
     <article class="flashSlide">
@@ -172,7 +200,7 @@ display:grid;place-items:center;color:#fff;font-size:28px;animation:orbidle 3.6s
   <div class="modelDot m1" id="modelMale" data-label="남성"><img id="novaImg" alt="남성 모델"></div>
   <div class="modelDot m2" id="modelFemale1" data-label="여성 1"><img id="auraImg" alt="여성 모델 1"></div>
   <div class="modelDot m3" id="modelFemale2" data-label="여성 2"><img id="lumiImg" alt="여성 모델 2"></div>
-  <div class="voicePulseBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="voiceProfileTray" id="voiceProfileTray">
+  <div class="voicePulseBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="hudLines"><div id="hudUser" style="font-weight:850;color:#174d48">나: 말씀하세요</div><div id="hudAi" style="margin-top:2px;color:#2a6d65">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="voiceProfileTray" id="voiceProfileTray">
   <button class="voiceProfile active" data-voice="male"><img id="vpMale" alt=""><span><b>남성</b><small>빠르고 낮은 톤</small></span></button>
   <button class="voiceProfile" data-voice="female"><img id="vpFemale" alt=""><span><b>여성</b><small>자연스러운 톤</small></span></button>
   <button class="voiceProfile" data-voice="senior"><img id="vpSenior" alt=""><span><b>시니어</b><small>차분한 톤</small></span></button>
@@ -409,8 +437,8 @@ let webVoiceSessionActive=false;
 async function loadPortrait(id,name){try{const t=await fetch('./'+name+'.b64').then(r=>r.text());document.getElementById(id).src='data:image/jpeg;base64,'+t.trim()}catch(e){}}
 loadPortrait('novaImg','nova_face');loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');
 function clampHud(x,y){const w=hud.offsetWidth||246,h=hud.offsetHeight||204;return{x:Math.max(0,Math.min(innerWidth-w,x)),y:Math.max(0,Math.min(innerHeight-h,y))}}
-function showWebHud(listen=true){hud.classList.add('show');hud.style.display='block';if(listen)startWebVoice()}
-function hideWebHud(){hud.classList.remove('show');hud.style.display='none'}
+function showWebHud(listen=true){hud.classList.add('show');hud.style.display='block';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 표시 · 문자대화 가능';if(listen)startWebVoice()}
+function hideWebHud(){hud.classList.remove('show');hud.style.display='none';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 숨김 · Android Voice OS는 별도 유지'}
 function deleteWebHud(){webVoiceSessionActive=false;stopWebVoice();hideWebHud();hud.dataset.deleted='1';if(hudStateChip)hudStateChip.textContent='종료'}
 function stopWebVoice(){if(hudRecognizer){try{hudRecognizer.abort()}catch(e){}hudRecognizer=null}orb.classList.remove('listening');hud.classList.remove('listening')}
 const hudPersonas=[
@@ -482,8 +510,28 @@ dragOrb.addEventListener('pointerup',endHudDrag);hudDragBar.addEventListener('po
 
 // Native app gets voicehub://mic; normal browser gets this same fallback HUD.
 document.addEventListener('click',ev=>{const a=ev.target.closest('a');if(a&&a.getAttribute('href')==='voicehub://mic'){ev.preventDefault();hud.dataset.deleted='0';showWebHud(false);try{location.href='voicehub://mic'}catch(e){}}});
-document.getElementById('translateBtn').onclick=()=>{const l=document.getElementById('langSel').value;if(l==='ko')return;location.href='https://translate.google.com/translate?sl=auto&tl='+encodeURIComponent(l)+'&u='+encodeURIComponent(location.href)};
-document.getElementById('origBtn').onclick=()=>location.href='./';
+const HUB_I18N={
+ ko:{home:'홈',run:'실행',translate:'화면 번역',original:'원문',mic:'마이크',voice:'음성설정',text:'문자대화'},
+ en:{home:'Home',run:'Run',translate:'Translate screen',original:'Original',mic:'Mic',voice:'Voice settings',text:'Text chat'},
+ ja:{home:'ホーム',run:'実行',translate:'画面翻訳',original:'原文',mic:'マイク',voice:'音声設定',text:'文字会話'},
+ 'zh-CN':{home:'主页',run:'运行',translate:'屏幕翻译',original:'原文',mic:'麦克风',voice:'语音设置',text:'文字对话'}
+};
+function applyHubLanguage(lang){
+ localStorage.setItem('ausoLang',lang);
+ document.documentElement.lang=lang==='zh-CN'?'zh-CN':lang;
+ const t=HUB_I18N[lang]||HUB_I18N.ko;
+ const home=document.querySelector('.home');if(home)home.textContent=t.home;
+ const run=document.querySelector('#cmdForm button');if(run)run.textContent=t.run;
+ const tb=document.getElementById('translateBtn');if(tb)tb.textContent=t.translate;
+ const ob=document.getElementById('origBtn');if(ob)ob.textContent=t.original;
+ const quick=[...document.querySelectorAll('.vqBtn')];if(quick[0])quick[0].textContent=t.mic;if(quick[1])quick[1].textContent=t.voice;if(quick[3])quick[3].textContent=t.text;
+ if(window.AUSOAI_TRANSLATION&&typeof window.AUSOAI_TRANSLATION.setLanguage==='function'){try{window.AUSOAI_TRANSLATION.setLanguage(lang)}catch(e){}}
+ flash(lang==='ko'?'한국어 원문':(lang+' · 허브 번역 적용'));
+}
+const savedLang=localStorage.getItem('ausoLang')||'ko';document.getElementById('langSel').value=savedLang;applyHubLanguage(savedLang);
+document.getElementById('translateBtn').onclick=()=>applyHubLanguage(document.getElementById('langSel').value);
+document.getElementById('langSel').onchange=()=>applyHubLanguage(document.getElementById('langSel').value);
+document.getElementById('origBtn').onclick=()=>{document.getElementById('langSel').value='ko';applyHubLanguage('ko')};
 
 let introIndex=0,introTimer=null,introPaused=false;
 function showIntro(i){const scenes=[...document.querySelectorAll('.introScene')];if(!scenes.length)return;introIndex=(i+scenes.length)%scenes.length;scenes.forEach((s,n)=>s.classList.toggle('active',n===introIndex))}
