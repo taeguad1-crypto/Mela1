@@ -193,6 +193,40 @@ radial-gradient(circle at 75% 5%,rgba(111,192,255,.18),transparent 22%);z-index:
 @keyframes personFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes personFloat2{0%,100%{transform:translateY(-2px)}50%{transform:translateY(6px)}}@keyframes personFloat3{0%,100%{transform:translateY(3px)}50%{transform:translateY(-5px)}}@keyframes heroMicPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}18%{transform:translate(-50%,-50%) scale(1.07)}34%{transform:translate(-50%,-50%) scale(1)}55%{transform:translate(-50%,-50%) scale(1.04)}}@keyframes waveBeat{0%,100%{height:5px;opacity:.55}50%{height:22px;opacity:1}}
 .movingFeatureStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}.movingFeature{position:relative;min-height:92px;border-radius:16px;overflow:hidden;padding:12px;color:#fff;background:linear-gradient(135deg,#103a58,#1f7790);box-shadow:0 8px 20px rgba(18,71,78,.10)}.movingFeature:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-30px;top:-50px;background:radial-gradient(circle,rgba(112,248,222,.35),transparent 65%);animation:orbDrift 6s ease-in-out infinite}.movingFeature b{position:relative;z-index:2;font-size:10px}.movingFeature small{position:relative;z-index:2;display:block;margin-top:5px;font-size:7px;color:#dff7f4}.movingFeature:nth-child(2){background:linear-gradient(135deg,#1b5f77,#286f9e)}.movingFeature:nth-child(3){background:linear-gradient(135deg,#244b65,#426d91)}@keyframes orbDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-15px,18px)}}
 @media(max-width:640px){.refShowHero{min-height:220px}.refCopy{width:33%;left:13px}.refCopy b{font-size:19px}.refPeople{left:31%;right:4%}.refCenterMic{left:58%;width:58px;height:58px}.refWave{left:42%;right:17%}.movingFeatureStrip{grid-template-columns:1fr 1fr 1fr;gap:5px}.movingFeature{min-height:78px;padding:9px}}
+
+/* CLEAN_REFERENCE_TOP_20260924 */
+body.refReady .ausoTopRibbon,
+body.refReady #voiceOnboarding,
+body.refReady .voiceQuickBar,
+body.refReady .voiceStartGuide,
+body.refReady .premiumMicBar,
+body.refReady .head,
+body.refReady .homeHeroPeople,
+body.refReady .heroShowcase,
+body.refReady .refShowHero,
+body.refReady .movingFeatureStrip,
+body.refReady .sampleToolbar,
+body.refReady .flashDeck{display:none!important}
+body.refReady .refDashboard{display:block!important;margin-top:0}
+.refBrandLogo{background:transparent!important;box-shadow:none!important;padding:0!important}
+.refBrandLogo svg{width:48px;height:48px;display:block}
+.refPortrait.f1{animation:refFloat1 5.2s ease-in-out infinite}
+.refPortrait.f2{animation:refFloat2 5.8s ease-in-out infinite}
+.refPortrait.f3{animation:refFloat3 6.4s ease-in-out infinite}
+.refMic{animation:refMicBeat 1.9s ease-in-out infinite}
+.refWave{height:30px!important;background:transparent!important;box-shadow:none!important;overflow:hidden}
+.refWave:before{content:"";position:absolute;inset:0;background:
+repeating-linear-gradient(90deg,transparent 0 5px,rgba(130,255,238,.86) 5px 7px,transparent 7px 11px);
+clip-path:polygon(0 48%,5% 42%,10% 55%,15% 28%,20% 64%,25% 39%,30% 58%,35% 20%,40% 70%,45% 44%,50% 52%,55% 24%,60% 66%,65% 38%,70% 58%,75% 30%,80% 64%,85% 42%,90% 54%,95% 45%,100% 50%);
+animation:refWaveMove 1.2s linear infinite;filter:drop-shadow(0 0 4px rgba(91,240,219,.8))}
+.refPromo:after{animation:refPromoFloat 5.5s ease-in-out infinite}
+.refPromo:nth-child(2):after{animation-delay:.8s}.refPromo:nth-child(3):after{animation-delay:1.5s}
+@keyframes refFloat1{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-7px) scale(1.015)}}
+@keyframes refFloat2{0%,100%{transform:translateY(-2px) scale(1.01)}50%{transform:translateY(6px) scale(1.025)}}
+@keyframes refFloat3{0%,100%{transform:translateY(3px) scale(1)}50%{transform:translateY(-6px) scale(1.02)}}
+@keyframes refMicBeat{0%,100%{transform:translate(-50%,-50%) scale(1)}18%{transform:translate(-50%,-50%) scale(1.08)}36%{transform:translate(-50%,-50%) scale(1)}58%{transform:translate(-50%,-50%) scale(1.045)}}
+@keyframes refWaveMove{from{transform:translateX(-8px)}to{transform:translateX(8px)}}
+@keyframes refPromoFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-10px,10px) scale(1.06)}}
 </style>
 </head>
 <body><div class="shell">
@@ -239,7 +273,7 @@ radial-gradient(circle at 75% 5%,rgba(111,192,255,.18),transparent 22%);z-index:
 </div>
 <section class="refDashboard" data-ref-dashboard>
   <div class="refTop">
-    <div class="refBrand"><div class="refBrandLogo">A</div><div><b>AUSOAI</b><small>Global AI OS · Voice to Create</small></div></div>
+    <div class="refBrand"><div class="refBrandLogo" id="refBrandLogo"></div><div><b>AUSOAI</b><small>Global AI OS · Voice to Create</small></div></div>
     <div class="refEarth"><span>세상을 연결하는<br>당신만의 AI 파트너</span></div>
     <div class="refUser"><div><b>의장님</b><small>AUSOAI와 함께합니다.</small></div></div>
   </div>
@@ -410,6 +444,7 @@ radial-gradient(circle at 75% 5%,rgba(111,192,255,.18),transparent 22%);z-index:
 <script>
 const AUSO_SVG='<svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#04122F"/><path fill="#50F5FF" d="M54 16c-21 0-38 17-38 38s17 38 38 38c13 0 25-7 32-17l-13-9c-4 6-11 10-19 10-12 0-22-10-22-22s10-22 22-22c8 0 15 4 19 10l13-9c-7-10-19-17-32-17z"/><path fill="#247CFF" d="M54 34c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 12c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/></svg>';
 document.getElementById('headerLogo').innerHTML=AUSO_SVG;
+const rbl=document.getElementById('refBrandLogo');if(rbl)rbl.innerHTML=AUSO_SVG;
 document.body.classList.add('refReady');
 function setRefLang(lang){const s=document.getElementById('langSel');if(s){s.value=lang;applyHubLanguage(lang)}}
 
@@ -612,6 +647,11 @@ function speakHud(text){
  try{speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}
 }
 setHudPersona(0);
+(function bindReferenceVoiceModels(){
+ const map=[['refP1','female'],['refP2','male'],['refP3','senior']];
+ map.forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.onclick=()=>{if(typeof selectVoicePreset==='function')selectVoicePreset(v);unlockVoice();showWebHud(false)}});
+ const mic=document.querySelector('.refMic');if(mic)mic.onclick=()=>{unlockVoice();showWebHud(true)};
+})();
 document.addEventListener('pointerdown',unlockVoice,{once:true,passive:true});
 const startGuide=document.getElementById('voiceStartGuide');
 if(startGuide && sessionStorage.getItem('voiceStartGuideDismissed')==='1') startGuide.style.display='none';
