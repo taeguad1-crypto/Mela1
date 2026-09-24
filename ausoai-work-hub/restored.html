@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>AUSOAI Global · Work Hub · R2</title><style>body{margin:0;padding:24px;background:linear-gradient(140deg,#e3faf1,#edf3ff);color:#123b41;font:14px system-ui}main{max-width:540px;margin:auto}a{color:inherit}</style></head><body><main id="boot" role="status">AUSOAI Global · Work Hub</main><script>
+(async()=>{'use strict';try{
+ const source=new URL('index.html?source=R2',location.href);const response=await fetch(source,{cache:'no-cache'});if(!response.ok)throw Error('HTTP '+response.status);
+ let html=await response.text();if(!html.includes('HUB_TEST')||!html.includes('</body>'))throw Error('원본 허브 파일을 확인할 수 없습니다.');
+ html=html.replace('</body>','<script src="restore-r2.js?v=R2"><\/script></body>');
+ document.open();document.write(html);document.close();
+}catch(error){const status=document.getElementById('boot');if(status){status.textContent='허브를 불러오지 못했습니다. 네트워크 연결을 확인한 뒤 새로고침해 주세요. ';const retry=document.createElement('a');retry.href=location.href;retry.textContent='다시 열기';status.append(retry)}console.error(error)}})();
+</script></body></html>
