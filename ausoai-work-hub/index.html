@@ -152,6 +152,10 @@ body{
     <button class="ribbonLink" onclick="document.getElementById('siteGuide').scrollIntoView({behavior:'smooth'})">사이트안내</button>
   </div>
 </div>
+<div id="voiceOnboarding" style="margin:0 0 7px;padding:8px 10px;border-radius:14px;background:rgba(245,255,252,.96);border:1px solid rgba(95,205,186,.26);box-shadow:0 5px 16px rgba(31,89,82,.06);font-size:8px;line-height:1.55;color:#2b655f">
+  <b style="display:block;font-size:9px;color:#155c55;margin-bottom:2px">AUSOAI Voice OS</b>
+  가운데 마이크를 누르면 대화가 시작됩니다. 질문은 자연스럽게 말하고, 실행할 때는 “메일 열어”, “일본어로 번역해”처럼 말씀하세요.
+</div>
 <div class="voiceQuickBar">
   <span class="vqTitle">AUSOAI Voice OS</span>
   <button class="vqBtn primary" onclick="unlockVoice();showWebHud(true)">마이크</button>
@@ -167,7 +171,7 @@ body{
 </header>
 <section class="homeHeroPeople">
   <div class="heroPeopleCopy"><small>AUSOAI AI GLOBAL</small><b>AI가 만드는<br>더 넓은 세상</b><p>말하면 바로 실행됩니다.<br>Voice · Translate · Edit · Mail · Meeting</p></div>
-  <div class="heroPeopleMic"></div>
+  <div class="heroPeopleMic" onclick="unlockVoice();showWebHud(true)" aria-label="AUSOAI 마이크 시작"></div>
   <img class="heroPortrait p1" id="heroP1" alt="">
   <img class="heroPortrait p2" id="heroP2" alt="">
   <img class="heroPortrait p3" id="heroP3" alt="">
@@ -205,7 +209,7 @@ body{
   <div class="modelDot m1" id="modelMale" data-label="남성"><img id="novaImg" alt="남성 모델"></div>
   <div class="modelDot m2" id="modelFemale1" data-label="여성 1"><img id="auraImg" alt="여성 모델 1"></div>
   <div class="modelDot m3" id="modelFemale2" data-label="여성 2"><img id="lumiImg" alt="여성 모델 2"></div>
-  <div class="voicePulseBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="hudLines"><div id="hudUser" style="font-weight:850;color:#174d48">나: 말씀하세요</div><div id="hudAi" style="margin-top:2px;color:#2a6d65">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="voiceProfileTray" id="voiceProfileTray">
+  <div class="voicePulseBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="hudLines"><div id="hudUser" style="font-weight:850;color:#174d48">나: 질문하거나 명령해 주세요</div><div id="hudAi" style="margin-top:2px;color:#2a6d65">AUSOAI: 마이크를 누르면 대화가 시작됩니다.</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="voiceProfileTray" id="voiceProfileTray">
   <button class="voiceProfile active" data-voice="male"><img id="vpMale" alt=""><span><b>남성</b><small>빠르고 낮은 톤</small></span></button>
   <button class="voiceProfile" data-voice="female"><img id="vpFemale" alt=""><span><b>여성</b><small>자연스러운 톤</small></span></button>
   <button class="voiceProfile" data-voice="senior"><img id="vpSenior" alt=""><span><b>시니어</b><small>차분한 톤</small></span></button>
@@ -427,6 +431,7 @@ function findRoute(q){
  });
  return bestScore>=35?best:null;
 }
+function looksLikeQuestionWeb(q){const s=String(q||'').trim();return /[?？]$/.test(s)||/(뭐야|무엇|왜|어떻게|어디|언제|누구|몇|알려줘|설명해|가능해|할 수 있어|할수있어|어떤|어느)/.test(s)}
 function execute(q){
  const it=findRoute(q);if(it){flash(it.title+' 실행');location.href=it.url;return true}
  const raw=String(q||'').trim();if(raw){flash('Google 검색 · '+raw);location.href='https://www.google.com/search?q='+encodeURIComponent(raw);return true}
@@ -439,11 +444,12 @@ document.getElementById('cmdForm').onsubmit=e=>{e.preventDefault();execute(docum
 const hud=document.getElementById('webVoiceHud'),orb=document.getElementById('voiceOrb'),hudUser=document.getElementById('hudUser'),hudAi=document.getElementById('hudAi'),hudText=document.getElementById('hudText');
 let hudRecognizer=null,hudDragging=false,hudMoved=false,hudDX=0,hudDY=0;
 let webVoiceSessionActive=false;
+let firstVoiceGuidePlayed=false;
 async function loadPortrait(id,name){try{const t=await fetch('./'+name+'.b64').then(r=>r.text());document.getElementById(id).src='data:image/jpeg;base64,'+t.trim()}catch(e){}}
 loadPortrait('novaImg','nova_face');loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');
 loadPortrait('heroP1','aura_face');loadPortrait('heroP2','nova_face');loadPortrait('heroP3','lumi_face');
 function clampHud(x,y){const w=hud.offsetWidth||246,h=hud.offsetHeight||204;return{x:Math.max(0,Math.min(innerWidth-w,x)),y:Math.max(0,Math.min(innerHeight-h,y))}}
-function showWebHud(listen=true){unlockVoice();hud.classList.add('show');hud.style.display='block';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 실행 · 듣기/문자대화';if(listen){hudAi.textContent='AUSOAI: 듣고 있습니다';startWebVoice()}}
+function showWebHud(listen=true){unlockVoice();hud.classList.add('show');hud.style.display='block';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 실행 · 질문/명령 가능';if(!firstVoiceGuidePlayed){firstVoiceGuidePlayed=true;hudAi.textContent='AUSOAI: 마이크를 눌러 주세요. 대화가 시작됩니다.';speakHud('마이크를 눌러 주세요. 대화가 시작됩니다.')}if(listen){setTimeout(()=>{hudAi.textContent='AUSOAI: 듣고 있습니다';startWebVoice()},250)}}
 function hideWebHud(){hud.classList.remove('show');hud.style.display='none';const s=document.getElementById('topVoiceStatus');if(s)s.textContent='마이크 숨김 · Android Voice OS는 별도 유지'}
 function deleteWebHud(){webVoiceSessionActive=false;stopWebVoice();hideWebHud();hud.dataset.deleted='1';if(hudStateChip)hudStateChip.textContent='종료'}
 function stopWebVoice(){if(hudRecognizer){try{hudRecognizer.abort()}catch(e){}hudRecognizer=null}orb.classList.remove('listening');hud.classList.remove('listening')}
@@ -485,6 +491,7 @@ function runHudText(text){const q=String(text||'').trim();if(!q)return;hudUser.t
  if(/마이크.*(숨겨|감춰|감춤)/.test(q)){hudAi.textContent='AUSOAI: 마이크를 감췄습니다.';speakHud('마이크를 감췄습니다.');setTimeout(hideWebHud,200);return}
  if(/마이크.*(삭제|없애)/.test(q)){hudAi.textContent='AUSOAI: 화면에서 삭제합니다. 다시 마이크를 누르면 나타납니다.';setTimeout(deleteWebHud,250);return}
  if(/마이크.*(보여|나와|열어)/.test(q)){showWebHud(false);hudAi.textContent='AUSOAI: 마이크를 표시했습니다.';speakHud('마이크를 표시했습니다.');return}
+ if(looksLikeQuestionWeb(q)){hudAi.textContent='AUSOAI: 질문을 받았습니다. Android Voice OS에서는 AI 대화 엔진으로 전달됩니다.';speakHud('질문을 받았습니다.');return}
  hudAi.textContent='AUSOAI: '+q+' 실행 중';speakHud(q+' 실행합니다.');
  const ok=execute(q);if(!ok)hudAi.textContent='AUSOAI: 명령을 확인해 주세요.';
 }
