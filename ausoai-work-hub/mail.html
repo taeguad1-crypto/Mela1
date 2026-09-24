@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=.7,maximum-scale=3,user-scalable=yes,viewport-fit=cover">
+<title>AUSOAI Global Mail</title>
+<style>
+:root{--mint:#31d1b5;--blue:#559ef4;--ink:#173f3e;--muted:#6a8986;--paper:#ffffff;--line:#d9ece7}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans KR",system-ui,sans-serif;background:
+radial-gradient(circle at 8% 0%,rgba(50,214,183,.18),transparent 28%),
+radial-gradient(circle at 96% 6%,rgba(85,158,244,.16),transparent 28%),
+linear-gradient(180deg,#fbfffe,#edf9f5 54%,#eef5ff);color:var(--ink)}
+body{padding:8px}.wrap{max-width:1180px;margin:auto}
+.top{position:sticky;top:0;z-index:20;display:flex;gap:8px;align-items:center;padding:7px;border-radius:15px;background:rgba(251,255,254,.94);backdrop-filter:blur(16px);box-shadow:0 8px 25px rgba(33,104,94,.09)}
+.brand{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#7ffff0;font-weight:1000;background:linear-gradient(145deg,#041a35,#075f70);box-shadow:0 0 18px rgba(47,209,181,.20)}
+.title{flex:1}.title b{display:block;font-size:14px}.title small{display:block;margin-top:2px;color:var(--muted);font-size:7.5px}
+.domain{padding:6px 8px;border-radius:999px;background:#e3f8f2;color:#2a6a63;font-size:7.5px;white-space:nowrap}
+.providers,.quick,.actions,.tools{display:flex;gap:6px;overflow:auto;margin:7px 0}
+button,a.btn{border:0;text-decoration:none;border-radius:11px;background:#e3f7f1;color:#195f59;min-height:38px;padding:0 11px;display:inline-grid;place-items:center;font-weight:850;font-size:9px;white-space:nowrap}
+.primary{background:linear-gradient(135deg,var(--mint),var(--blue))!important;color:white!important}
+.provider{display:flex!important;grid-auto-flow:column;gap:6px;align-items:center}.provider img{width:18px;height:18px;object-fit:contain}
+.search{display:flex;gap:6px}.search input{flex:1;height:40px;border:0;border-radius:12px;background:white;padding:0 11px;outline:1px solid var(--line);font-size:10px}
+.mailbox{display:grid;grid-template-columns:190px 1fr 230px;gap:8px;margin-top:8px}
+.panel{background:rgba(255,255,255,.94);border-radius:16px;padding:10px;box-shadow:0 7px 20px rgba(32,104,94,.07);min-width:0}
+.addr{padding:10px;border-radius:12px;background:linear-gradient(135deg,#e4f8f2,#e7f0ff);margin-bottom:7px}.addr b{display:block;font-size:12px}.addr small{display:block;margin-top:4px;color:var(--muted);font-size:7.5px;line-height:1.45}
+.nav button{display:block;width:100%;text-align:left;margin:3px 0;background:transparent;min-height:34px;padding:0 8px}.nav button:active{background:#eaf7f3}
+.compose{display:grid;gap:7px}.compose input,.compose textarea,.compose select{width:100%;border:0;border-radius:10px;background:#f8fbfa;padding:10px;outline:1px solid var(--line);font:inherit;font-size:10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:6px}.compose textarea{min-height:250px;resize:vertical;font-size:11px;line-height:1.6}
+.attach{padding:9px;border:1px dashed #b8ddd5;border-radius:10px;background:#fbfffe}.attach small{display:block;margin-top:4px;color:var(--muted);font-size:7.5px;line-height:1.4}
+.sideTitle{font-size:9px;font-weight:900;margin:4px 0 6px}.drafts{display:grid;gap:5px;max-height:185px;overflow:auto}.draft{padding:8px;border-radius:10px;background:#f2faf7;font-size:8px;cursor:pointer}.draft b{display:block;font-size:9px}.draft small{display:block;margin-top:3px;color:var(--muted)}
+.templates{display:grid;gap:5px}.templates button{width:100%;justify-content:start;text-align:left;background:#f5f9ff}
+.status{margin-top:7px;padding:8px 10px;border-radius:10px;background:#e8f7f3;color:#4c7772;font-size:8px}
+@media(max-width:850px){.mailbox{grid-template-columns:165px 1fr}.right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px}}
+@media(max-width:600px){.mailbox{grid-template-columns:1fr}.left{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.addr{grid-column:1/-1}.nav{display:contents}.nav button{text-align:center;padding:0 3px}.right{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<header class="top"><div class="brand">AI</div><div class="title"><b>AUSOAI Global Mail</b><small>Google 기반 우선 · 도메인 연결 후 주소만 전환</small></div><span class="domain">정식 도메인 연결 전</span></header>
+
+<div class="providers">
+<a class="btn provider primary" href="https://mail.google.com/"><img src="https://cdn.simpleicons.org/gmail/EA4335">Gmail 로그인</a>
+<a class="btn provider" href="https://mail.naver.com/"><img src="https://cdn.simpleicons.org/naver/03C75A">네이버 메일</a>
+<a class="btn provider" href="https://outlook.live.com/mail/"><img src="https://cdn.simpleicons.org/microsoftoutlook/0078D4">Outlook</a>
+<a class="btn provider" href="https://drive.google.com/"><img src="https://cdn.simpleicons.org/googledrive/4285F4">Drive</a>
+<a class="btn provider" href="https://contacts.google.com/"><img src="https://cdn.simpleicons.org/googlecontacts/4285F4">주소록</a>
+<a class="btn provider" href="https://calendar.google.com/"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4">Calendar</a>
+</div>
+
+<div class="search"><input id="mailSearch" placeholder="Gmail 검색어 입력 · 예: 계약서 / 홍보 / 박대표"><button onclick="searchMail()">메일 검색</button></div>
+
+<div class="mailbox">
+<aside class="panel left">
+<div class="addr"><b id="plannedAddress">mail@AUSOAI-GLOBAL</b><small>예정 표시입니다. 정식 도메인과 Google Workspace MX 연결 후 실제 주소로 전환합니다.</small></div>
+<div class="nav">
+<button onclick="openFolder('inbox')">받은편지함</button>
+<button onclick="openFolder('starred')">별표편지함</button>
+<button onclick="openFolder('sent')">보낸편지함</button>
+<button onclick="openFolder('drafts')">임시보관</button>
+<button onclick="openFolder('spam')">스팸</button>
+<button onclick="openFolder('trash')">휴지통</button>
+<button onclick="location.href='https://contacts.google.com/'">주소록</button>
+<button onclick="location.href='https://calendar.google.com/'">캘린더</button>
+<button onclick="location.href='https://drive.google.com/'">Drive</button>
+</div>
+</aside>
+
+<main class="panel">
+<form id="compose" class="compose">
+<div class="row2">
+<select id="provider"><option value="gmail">Gmail로 작성</option><option value="naver">네이버 메일로 작성</option><option value="outlook">Outlook로 작성</option><option value="system">휴대폰 기본 메일</option></select>
+<select id="template"><option value="">템플릿 선택</option><option value="business">업무 안내</option><option value="followup">후속 연락</option><option value="meeting">미팅 안내</option><option value="thanks">감사 인사</option></select>
+</div>
+<input id="to" type="email" placeholder="받는 사람" required>
+<div class="row2"><input id="cc" placeholder="참조 CC"><input id="bcc" placeholder="숨은참조 BCC"></div>
+<input id="subject" placeholder="제목">
+<textarea id="body" placeholder="메일 내용을 입력하세요. 터치·문자·음성 명령으로 수정할 수 있습니다."></textarea>
+<div class="row2"><input id="label" placeholder="라벨/분류 예: 계약, 고객, 홍보"><input id="signature" placeholder="서명 예: AUSOAI Global"></div>
+<div class="attach"><input id="files" type="file" multiple><small id="fileStatus">첨부 파일 이름을 AUSOAI 초안에 기록합니다. 실제 파일 첨부·전송은 연결된 메일 서비스의 작성 화면에서 최종 확인합니다.</small></div>
+<div class="row2"><input id="scheduleDate" type="date"><input id="scheduleTime" type="time"></div>
+<div class="actions">
+<button type="button" onclick="saveDraft(true)">임시 저장</button>
+<button type="button" onclick="saveScheduledDraft()">예약 초안</button>
+<button type="button" onclick="copyMail()">복사</button>
+<button type="button" onclick="exportEml()">EML 내보내기</button>
+<button type="button" onclick="cancelDraft()">취소</button>
+<button class="primary" type="submit">메일 작성 열기</button>
+</div>
+</form>
+<div id="status" class="status">AUSOAI Mail · 작성 준비됨</div>
+</main>
+
+<aside class="panel right">
+<div class="sideTitle">AUSOAI 임시보관</div><div id="draftList" class="drafts"></div>
+<div class="sideTitle" style="margin-top:10px">빠른 문구</div>
+<div class="templates">
+<button onclick="applyTemplate('business')">업무 안내</button>
+<button onclick="applyTemplate('followup')">후속 연락</button>
+<button onclick="applyTemplate('meeting')">미팅 안내</button>
+<button onclick="applyTemplate('thanks')">감사 인사</button>
+</div>
+<div class="sideTitle" style="margin-top:10px">메일 작업</div>
+<div class="quick">
+<button onclick="openFolder('inbox')">받은메일</button><button onclick="openFolder('sent')">보낸메일</button>
+<button onclick="location.href='https://drive.google.com/'">Drive</button><button onclick="location.href='https://calendar.google.com/'">Calendar</button>
+</div>
+</aside>
+</div></div>
+<script>
+const K='ausoai_mail_drafts_v3', to=$('to'), cc=$('cc'), bcc=$('bcc'), subject=$('subject'), body=$('body'),
+ provider=$('provider'), label=$('label'), signature=$('signature'), scheduleDate=$('scheduleDate'), scheduleTime=$('scheduleTime'), status=$('status');
+function $(id){return document.getElementById(id)}
+function nowId(){return Date.now()+Math.floor(Math.random()*1000)}
+function readDrafts(){try{return JSON.parse(localStorage.getItem(K)||'[]')}catch(e){return[]}}
+function payload(){return{id:currentId||nowId(),to:to.value,cc:cc.value,bcc:bcc.value,subject:subject.value,body:body.value,provider:provider.value,label:label.value,signature:signature.value,date:scheduleDate.value,time:scheduleTime.value,files:[...$('files').files].map(f=>f.name),savedAt:new Date().toISOString()}}
+let currentId=null;
+function setStatus(v){status.textContent=v}
+function saveDraft(show=true){let arr=readDrafts(),d=payload();currentId=d.id;arr=arr.filter(x=>x.id!==d.id);arr.unshift(d);localStorage.setItem(K,JSON.stringify(arr.slice(0,20)));renderDrafts();if(show)setStatus('임시 저장됨')}
+function loadDraft(id){const d=readDrafts().find(x=>x.id===id);if(!d)return;currentId=d.id;to.value=d.to||'';cc.value=d.cc||'';bcc.value=d.bcc||'';subject.value=d.subject||'';body.value=d.body||'';provider.value=d.provider||'gmail';label.value=d.label||'';signature.value=d.signature||'';scheduleDate.value=d.date||'';scheduleTime.value=d.time||'';setStatus('임시보관 불러옴')}
+function deleteDraft(id){localStorage.setItem(K,JSON.stringify(readDrafts().filter(x=>x.id!==id)));if(currentId===id)currentId=null;renderDrafts();setStatus('임시보관 삭제됨')}
+function renderDrafts(){const arr=readDrafts(),el=$('draftList');el.innerHTML=arr.length?arr.map(d=>'<div class="draft" onclick="loadDraft('+d.id+')"><b>'+esc(d.subject||'(제목 없음)')+'</b><small>'+esc(d.to||'받는 사람 없음')+' · '+new Date(d.savedAt).toLocaleString()+'</small><button onclick="event.stopPropagation();deleteDraft('+d.id+')">삭제</button></div>').join(''):'<div class="draft">저장된 초안이 없습니다.</div>'}
+function esc(s){return String(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function clearDraft(){currentId=null;[to,cc,bcc,subject,body,label,scheduleDate,scheduleTime].forEach(x=>x.value='');setStatus('작성 내용 취소됨')}
+function cancelDraft(){clearDraft()}
+const templates={
+ business:{s:'업무 안내드립니다',b:'안녕하세요.\n\n요청하신 업무 관련 내용을 안내드립니다.\n\n감사합니다.'},
+ followup:{s:'후속 연락드립니다',b:'안녕하세요.\n\n앞서 말씀드린 내용에 이어 연락드립니다.\n확인 부탁드립니다.\n\n감사합니다.'},
+ meeting:{s:'미팅 일정 안내',b:'안녕하세요.\n\n미팅 일정과 관련해 안내드립니다.\n가능한 시간을 확인해 회신 부탁드립니다.\n\n감사합니다.'},
+ thanks:{s:'감사드립니다',b:'안녕하세요.\n\n도움 주셔서 감사합니다.\n좋은 하루 보내십시오.'}
+};
+function applyTemplate(name){const t=templates[name];if(!t)return;subject.value=t.s;body.value=t.b;setStatus('템플릿 적용됨')}
+$('template').onchange=e=>applyTemplate(e.target.value);
+function withSignature(text){return text+(signature.value.trim()?'\n\n'+signature.value.trim():'')}
+function exportEml(){const d=payload();const lines=['To: '+(d.to||''),'Cc: '+(d.cc||''),'Bcc: '+(d.bcc||''),'Subject: '+(d.subject||''),'Content-Type: text/plain; charset=UTF-8','',''+withSignature(d.body||'')];const blob=new Blob([lines.join('\r\n')],{type:'message/rfc822'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(d.subject||'AUSOAI_Mail')+'.eml';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200);setStatus('EML 내보내기 완료')}
+function openGmailCompose(){provider.value='gmail';return openCompose()}
+function openCompose(){saveDraft(false);const d=payload(),T=encodeURIComponent(d.to||''),S=encodeURIComponent(d.subject||''),B=encodeURIComponent(withSignature(d.body||''));let u='';
+ if(d.provider==='outlook')u='https://outlook.live.com/mail/0/deeplink/compose?to='+T+'&subject='+S+'&body='+B;
+ else if(d.provider==='naver')u='https://mail.naver.com/';
+ else if(d.provider==='system')u='mailto:'+T+'?subject='+S+'&body='+B;
+ else u='https://mail.google.com/mail/?view=cm&fs=1&to='+T+'&cc='+encodeURIComponent(d.cc||'')+'&bcc='+encodeURIComponent(d.bcc||'')+'&su='+S+'&body='+B;
+ setStatus('연결된 메일 작성 화면을 엽니다');location.href=u;return true}
+$('compose').onsubmit=e=>{e.preventDefault();openCompose()}
+function openFolder(folder){const p=provider.value;let u;if(p==='outlook'){const map={inbox:'inbox',sent:'sentitems',drafts:'drafts',spam:'junkemail',trash:'deleteditems',starred:'inbox'};u='https://outlook.live.com/mail/0/'+(map[folder]||'inbox')}
+ else if(p==='naver')u='https://mail.naver.com/';
+ else {const map={inbox:'inbox',sent:'sent',drafts:'drafts',spam:'spam',trash:'trash',starred:'starred'};u='https://mail.google.com/mail/u/0/#'+(map[folder]||'inbox')}
+ location.href=u}
+function searchMail(){const q=$('mailSearch').value.trim();if(!q)return;if(provider.value==='gmail'){location.href='https://mail.google.com/mail/u/0/#search/'+encodeURIComponent(q)}else{setStatus('검색어 저장됨 · 선택한 메일 서비스에서 검색하세요');localStorage.setItem('ausoai_mail_search',q);openFolder('inbox')}}
+$('files').onchange=e=>{$('fileStatus').textContent=e.target.files.length?'선택됨: '+[...e.target.files].map(f=>f.name).join(', '):'첨부 파일 없음';saveDraft(false)}
+function saveScheduledDraft(){saveDraft(false);setStatus(scheduleDate.value?'예약 초안 저장됨 · 실제 예약 발송은 메일 서비스에서 확인':'날짜를 선택해 주세요')}
+async function copyMail(){const text='받는 사람: '+to.value+'\n제목: '+subject.value+'\n\n'+withSignature(body.value);try{await navigator.clipboard.writeText(text);setStatus('메일 내용 복사됨')}catch(e){setStatus('복사 권한을 확인해 주세요')}}
+function command(raw){const q=String(raw||'').trim();let m;if(!q)return false;
+ if(/받은편지|받은메일|인박스/.test(q)){openFolder('inbox');return true}
+ if(/보낸편지|보낸메일/.test(q)){openFolder('sent');return true}
+ if(/임시보관|초안/.test(q)&&/열어|보여/.test(q)){openFolder('drafts');return true}
+ if(/스팸/.test(q)){openFolder('spam');return true}
+ if(/휴지통/.test(q)){openFolder('trash');return true}
+ if(/구글|지메일|gmail/i.test(q)&&/선택|사용|바꿔/.test(q)){provider.value='gmail';setStatus('Gmail 선택');return true}
+ if(/네이버/.test(q)&&/선택|사용|바꿔/.test(q)){provider.value='naver';setStatus('네이버 메일 선택');return true}
+ if(/아웃룩|outlook/i.test(q)&&/선택|사용|바꿔/.test(q)){provider.value='outlook';setStatus('Outlook 선택');return true}
+ if(/저장/.test(q)){saveDraft();return true}
+ if(/취소|전부지워|초기화/.test(q)){cancelDraft();return true}
+ if(/eml|내보내/.test(q)){exportEml();return true}
+ if(/메일.*보내|보내기|작성.*열어/.test(q)){openCompose();return true}
+ if(/드라이브/.test(q)){location.href='https://drive.google.com/';return true}
+ if(/캘린더|일정/.test(q)){location.href='https://calendar.google.com/';return true}
+ if((m=q.match(/받는 ?사람(?:을|은)?\s*(\S+@\S+)/))){to.value=m[1];saveDraft(false);return true}
+ if((m=q.match(/참조(?:를|는)?\s*(\S+@\S+)/))){cc.value=m[1];saveDraft(false);return true}
+ if((m=q.match(/제목(?:을|은)?\s*(.+?)(?:로|으로)?\s*(?:바꿔|입력|설정)/))){subject.value=m[1].trim();saveDraft(false);return true}
+ if((m=q.match(/내용(?:을|은)?\s*(.+?)(?:로|으로)?\s*(?:바꿔|입력)/))){body.value=m[1].trim();saveDraft(false);return true}
+ if((m=q.match(/(?:내용|문장)?\s*(.+?)\s*(?:추가해|추가|넣어)/))){body.value+=(body.value?'\n':'')+m[1].trim();saveDraft(false);return true}
+ if(/업무안내/.test(q)){applyTemplate('business');return true}
+ if(/후속연락/.test(q)){applyTemplate('followup');return true}
+ if(/미팅안내/.test(q)){applyTemplate('meeting');return true}
+ if(/감사인사/.test(q)){applyTemplate('thanks');return true}
+ return false}
+window.__AUSOAI_COMMAND__=raw=>command(raw)?'handled':false;
+['input','change'].forEach(ev=>[to,cc,bcc,subject,body,provider,label,signature,scheduleDate,scheduleTime].forEach(el=>el.addEventListener(ev,()=>saveDraft(false))));
+renderDrafts();
+</script></body></html>
