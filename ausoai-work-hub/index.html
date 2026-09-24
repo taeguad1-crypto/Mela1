@@ -79,9 +79,37 @@ body{
 @keyframes orbit3{from{transform:rotate(240deg) translateX(66px) rotate(-240deg)}to{transform:rotate(600deg) translateX(66px) rotate(-600deg)}}
 .langbar{position:sticky;bottom:4px;z-index:50;display:flex;gap:5px;align-items:center;margin:8px 0 2px;padding:6px;border:1px solid rgba(255,255,255,.85);border-radius:15px;background:rgba(248,255,253,.93);backdrop-filter:blur(15px)}
 .langbar select,.langbar button{height:33px;border:1px solid rgba(59,140,128,.16);border-radius:10px;background:#fff;color:#174c48;font-size:9px;padding:0 9px}.langbar select{flex:1}
+
+.ausoTopRibbon{position:sticky;top:0;z-index:80;margin:-2px -2px 8px;padding:7px 8px;border-radius:0 0 16px 16px;background:linear-gradient(90deg,#dff9f2 0%,#f8f4df 30%,#e6f1ff 65%,#f7e9f3 100%);border-bottom:1px solid rgba(76,153,143,.18);box-shadow:0 5px 18px rgba(38,88,82,.08);backdrop-filter:blur(14px)}
+.ausoTopRibbonInner{display:flex;align-items:center;gap:7px;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.ausoTopRibbonInner::-webkit-scrollbar{display:none}
+.ribbonTitle{font-size:8px;font-weight:950;color:#155d56;letter-spacing:.08em;margin-right:2px}
+.ribbonLink{flex:0 0 auto;border:0;border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.86);color:#315f5b;font-size:8px;font-weight:850;box-shadow:0 2px 8px rgba(38,88,82,.05)}
+.ribbonLink:active{transform:scale(.97)}
+.policySection{margin:14px 2px 4px}
+.policyGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.policyCard{border-radius:13px;padding:10px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.8);box-shadow:0 4px 14px rgba(31,87,80,.06);min-height:84px}
+.policyCard b{display:block;font-size:9px;color:#164f4c;margin-bottom:5px}.policyCard p{margin:0;font-size:7px;line-height:1.55;color:#6b8380}
+.siteInfo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:7px}
+.siteInfo a,.siteInfo button{border:0;border-radius:11px;padding:9px;background:#f8fffd;color:#215f59;font-size:8px;font-weight:850;text-decoration:none;text-align:center}
+@media(max-width:700px){.policyGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.siteInfo{grid-template-columns:1fr 1fr}.ausoTopRibbon{top:0}}
 </style>
 </head>
 <body><div class="shell">
+<div class="ausoTopRibbon" aria-label="AUSOAI 빠른 목차">
+  <div class="ausoTopRibbonInner">
+    <span class="ribbonTitle">AUSOAI</span>
+    <button class="ribbonLink" onclick="document.getElementById('groups').scrollIntoView({behavior:'smooth'})">목차</button>
+    <button class="ribbonLink" onclick="render('quick');document.getElementById('groups').scrollIntoView({behavior:'smooth'})">오늘</button>
+    <button class="ribbonLink" onclick="render('create');document.getElementById('groups').scrollIntoView({behavior:'smooth'})">편집</button>
+    <button class="ribbonLink" onclick="render('office');document.getElementById('groups').scrollIntoView({behavior:'smooth'})">메일</button>
+    <button class="ribbonLink" onclick="render('web');document.getElementById('groups').scrollIntoView({behavior:'smooth'})">검색·번역</button>
+    <button class="ribbonLink" onclick="render('biz');document.getElementById('groups').scrollIntoView({behavior:'smooth'})">비즈니스</button>
+    <button class="ribbonLink" onclick="render('project');document.getElementById('groups').scrollIntoView({behavior:'smooth'})">프로젝트</button>
+    <button class="ribbonLink" onclick="document.getElementById('supportPolicy').scrollIntoView({behavior:'smooth'})">지원정책</button>
+    <button class="ribbonLink" onclick="document.getElementById('siteGuide').scrollIntoView({behavior:'smooth'})">사이트안내</button>
+  </div>
+</div>
 <header class="head">
   <div class="ausoLogo" id="headerLogo"></div>
   <div class="brand"><b>AUSOAI Global · Work Hub</b><small>매일 쓰는 기능을 터치 · 문자 · 음성으로 같은 방식으로 실행</small></div>
@@ -100,6 +128,32 @@ body{
   <div class="modelDot m3" id="modelFemale2" data-label="여성 2"><img id="lumiImg" alt="여성 모델 2"></div>
   <div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="hudCtl"><button id="hudHide">감춤</button><button id="hudDelete">삭제</button><button id="hudListen">듣기</button></div></div>
 </div>
+
+<section id="supportPolicy" class="policySection">
+  <div class="groupHead"><b>AUSOAI 지원정책</b><span>서비스 운영 · 계정 · 데이터 · 보안</span></div>
+  <div class="policyGrid">
+    <div class="policyCard"><b>무료 체험 · 사용량</b><p>기본 번역·음성·편집·메일 기능은 무료 사용량 범위에서 체험하고, 한도 도달 시 플랜 안내를 제공합니다.</p></div>
+    <div class="policyCard"><b>계정 · 로그인</b><p>개인 작업공간·메일·관리자 기능은 로그인 후 사용하며, 계정별 데이터와 프로젝트를 분리합니다.</p></div>
+    <div class="policyCard"><b>개인정보 · 보안</b><p>비밀번호 직접 저장을 피하고 OAuth·최소권한·세션 관리·접속기록·연결해제 정책을 우선 적용합니다.</p></div>
+    <div class="policyCard"><b>프로젝트 · 버전</b><p>작업 원본·수정본·최종본·배포본을 구분하고, 작업 이력과 복구가 가능하도록 관리합니다.</p></div>
+    <div class="policyCard"><b>번역 · 글로벌</b><p>선택 언어를 세션 동안 유지하고, 페이지 이동 후에도 같은 언어 설정을 이어가는 것을 목표로 합니다.</p></div>
+    <div class="policyCard"><b>음성 · 실행</b><p>음성·문자·터치가 같은 명령 체계를 사용하며, 이동형 마이크 HUD에서 질문과 실행을 이어갑니다.</p></div>
+    <div class="policyCard"><b>메일 · 외부연동</b><p>Gmail·Naver·Outlook 등은 공식 로그인과 권한 동의를 기준으로 연결하며, 계정별로 분리합니다.</p></div>
+    <div class="policyCard"><b>기업 · 관리자</b><p>기업용은 관리자·직원·팀 권한을 분리하고, 감사로그·조직별 작업공간·기업 정책을 적용합니다.</p></div>
+  </div>
+</section>
+
+<section id="siteGuide" class="policySection">
+  <div class="groupHead"><b>사이트 안내</b><span>일반 사이트에 필요한 기본 안내를 AUSOAI에 맞게 구성</span></div>
+  <div class="siteInfo">
+    <button onclick="alert('AUSOAI 이용약관 초안 영역입니다. 출시 전 법률 검토 후 확정합니다.')">이용약관</button>
+    <button onclick="alert('AUSOAI 개인정보처리방침 초안 영역입니다. 메일·로그인·번역·AI 처리 범위를 명확히 고지합니다.')">개인정보처리방침</button>
+    <button onclick="alert('구독·무료사용량·결제·해지·환불 정책을 플랜별로 안내합니다.')">구독·환불정책</button>
+    <button onclick="alert('외부 서비스 연결 시 필요한 권한과 데이터 처리 범위를 안내합니다.')">외부서비스 연동</button>
+    <button onclick="alert('보안·계정·접속기록·기기관리·연결해제 안내 영역입니다.')">보안센터</button>
+    <button onclick="alert('사용방법·FAQ·문제 신고·기술지원 안내 영역입니다.')">고객지원·FAQ</button>
+  </div>
+</section>
 <div class="footer">AUSOAI Global · Practical Voice Work Environment</div>
 </div>
 <script>
