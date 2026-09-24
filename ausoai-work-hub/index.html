@@ -69,7 +69,7 @@ body{
 .voiceOrb{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#eaffff 0 10%,#52f7de 28%,#1699b5 58%,#05273c 100%);box-shadow:0 0 0 7px rgba(82,247,222,.11),0 0 28px rgba(52,228,211,.55);display:grid;place-items:center;color:#fff;font-size:34px;animation:orbbeat 1.6s ease-in-out infinite}
 .voiceOrb.listening{animation:orbbeat .75s ease-in-out infinite}
 .modelDot{position:absolute;width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid #dff;box-shadow:0 0 12px rgba(80,240,220,.45);background:#fff;left:97px;top:38px;transform-origin:16px 16px;pointer-events:none}
-.modelDot img{width:100%;height:100%;object-fit:cover}
+.modelDot img{width:100%;height:100%;object-fit:cover}.modelDot:after{content:attr(data-label);position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);font-size:6px;font-weight:900;color:#0c5b55;white-space:nowrap}.modelDot.active{border-color:#55f2d5;box-shadow:0 0 0 4px rgba(85,242,213,.18),0 0 18px rgba(80,240,220,.72)}
 .m1{animation:orbit1 9s linear infinite}.m2{animation:orbit2 9s linear infinite}.m3{animation:orbit3 9s linear infinite}
 .hudLines{position:absolute;left:6px;right:6px;bottom:2px;background:rgba(5,39,45,.93);color:#eafffb;border:1px solid rgba(95,232,211,.75);border-radius:13px;padding:6px 8px;font-size:9px;line-height:1.45;pointer-events:auto}.hudTalk{display:grid;grid-template-columns:1fr auto;gap:5px;margin-top:5px}.hudTalk input{min-width:0;height:29px;border:0;border-radius:8px;padding:0 8px;font-size:9px}.hudTalk button{border:0;border-radius:8px;background:#56d9bd;color:#063a35;font-weight:900;padding:0 9px;font-size:9px}.hudCtl{display:flex;gap:4px;margin-top:4px}.hudCtl button{flex:1;border:0;border-radius:8px;padding:5px;background:#dff8f1;color:#155e58;font-size:8px;font-weight:800}
 .hudNav{display:flex;gap:5px;margin-top:5px}.hudNav button{flex:1;border:0;border-radius:9px;padding:6px;background:#e9fff9;color:#155e58;font-size:9px;font-weight:800}
@@ -95,9 +95,9 @@ body{
 <div class="langbar"><button id="translateBtn">화면 번역</button><select id="langSel"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh-CN">中文</option><option value="vi">Tiếng Việt</option><option value="th">ไทย</option><option value="id">Indonesia</option><option value="hi">हिन्दी</option><option value="ru">Русский</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="ms">Melayu</option><option value="mn">Монгол</option><option value="lo">ລາວ</option></select><button id="origBtn">원문</button></div>
 <div id="webVoiceHud" class="webVoiceHud">
   <div class="voiceOrbWrap" id="dragOrb"><div class="voiceOrb" id="voiceOrb">🎙</div></div>
-  <div class="modelDot m1"><img id="auraImg" alt="AURA"></div>
-  <div class="modelDot m2"><img id="lumiImg" alt="LUMI"></div>
-  <div class="modelDot m3"><img id="novaImg" alt="NOVA"></div>
+  <div class="modelDot m1" id="modelMale" data-label="남성"><img id="novaImg" alt="남성 모델"></div>
+  <div class="modelDot m2" id="modelFemale1" data-label="여성 1"><img id="auraImg" alt="여성 모델 1"></div>
+  <div class="modelDot m3" id="modelFemale2" data-label="여성 2"><img id="lumiImg" alt="여성 모델 2"></div>
   <div class="hudLines"><div id="hudUser">나: 말씀하세요</div><div id="hudAi">AUSOAI: 준비됨</div><div class="hudTalk"><input id="hudText" placeholder="말하거나 글을 입력하세요"><button id="hudSend">실행</button></div><div class="hudNav"><button id="hudBack">이전</button><button id="hudHome">홈</button><button id="hudNext">다음</button></div><div class="hudCtl"><button id="hudHide">감춤</button><button id="hudDelete">삭제</button><button id="hudListen">듣기</button></div></div>
 </div>
 <div class="footer">AUSOAI Global · Practical Voice Work Environment</div>
@@ -260,17 +260,38 @@ document.getElementById('cmdForm').onsubmit=e=>{e.preventDefault();execute(docum
 const hud=document.getElementById('webVoiceHud'),orb=document.getElementById('voiceOrb'),hudUser=document.getElementById('hudUser'),hudAi=document.getElementById('hudAi'),hudText=document.getElementById('hudText');
 let hudRecognizer=null,hudDragging=false,hudMoved=false,hudDX=0,hudDY=0;
 async function loadPortrait(id,name){try{const t=await fetch('./'+name+'.b64').then(r=>r.text());document.getElementById(id).src='data:image/jpeg;base64,'+t.trim()}catch(e){}}
-loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');loadPortrait('novaImg','nova_face');
+loadPortrait('novaImg','nova_face');loadPortrait('auraImg','aura_face');loadPortrait('lumiImg','lumi_face');
 function clampHud(x,y){const w=hud.offsetWidth||246,h=hud.offsetHeight||204;return{x:Math.max(0,Math.min(innerWidth-w,x)),y:Math.max(0,Math.min(innerHeight-h,y))}}
 function showWebHud(listen=true){hud.classList.add('show');hud.style.display='block';if(listen)startWebVoice()}
 function hideWebHud(){hud.classList.remove('show');hud.style.display='none'}
 function deleteWebHud(){stopWebVoice();hideWebHud();hud.dataset.deleted='1'}
 function stopWebVoice(){if(hudRecognizer){try{hudRecognizer.abort()}catch(e){}hudRecognizer=null}orb.classList.remove('listening')}
+const hudPersonas=[
+ {id:'modelMale',label:'남성',pitch:.82,rate:1.12},
+ {id:'modelFemale1',label:'여성 1',pitch:1.03,rate:1.10},
+ {id:'modelFemale2',label:'여성 2',pitch:1.16,rate:1.08}
+];
+let hudPersonaIndex=0;
+function setHudPersona(index){
+ hudPersonaIndex=(index+hudPersonas.length)%hudPersonas.length;
+ document.querySelectorAll('.modelDot').forEach(x=>x.classList.remove('active'));
+ const p=hudPersonas[hudPersonaIndex],el=document.getElementById(p.id);if(el)el.classList.add('active');
+ return p;
+}
+function speakHud(text){
+ if(!('speechSynthesis' in window)||!text)return;
+ const p=setHudPersona(hudPersonaIndex+1),u=new SpeechSynthesisUtterance(text);
+ const vs=speechSynthesis.getVoices().filter(v=>/^ko/i.test(v.lang)||/Korean|한국/i.test(v.name));
+ if(vs.length)u.voice=vs[hudPersonaIndex%vs.length];
+ u.lang='ko-KR';u.pitch=p.pitch;u.rate=p.rate;u.volume=1;
+ try{speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}
+}
+setHudPersona(0);
 function runHudText(text){const q=String(text||'').trim();if(!q)return;hudUser.textContent='나: '+q;hudText.value='';
- if(/마이크.*(숨겨|감춰|감춤)/.test(q)){hudAi.textContent='AUSOAI: 마이크를 감췄습니다.';setTimeout(hideWebHud,200);return}
+ if(/마이크.*(숨겨|감춰|감춤)/.test(q)){hudAi.textContent='AUSOAI: 마이크를 감췄습니다.';speakHud('마이크를 감췄습니다.');setTimeout(hideWebHud,200);return}
  if(/마이크.*(삭제|없애)/.test(q)){hudAi.textContent='AUSOAI: 화면에서 삭제합니다. 다시 마이크를 누르면 나타납니다.';setTimeout(deleteWebHud,250);return}
- if(/마이크.*(보여|나와|열어)/.test(q)){showWebHud(false);hudAi.textContent='AUSOAI: 마이크를 표시했습니다.';return}
- hudAi.textContent='AUSOAI: '+q+' 실행 중';
+ if(/마이크.*(보여|나와|열어)/.test(q)){showWebHud(false);hudAi.textContent='AUSOAI: 마이크를 표시했습니다.';speakHud('마이크를 표시했습니다.');return}
+ hudAi.textContent='AUSOAI: '+q+' 실행 중';speakHud(q+' 실행합니다.');
  const ok=execute(q);if(!ok)hudAi.textContent='AUSOAI: 명령을 확인해 주세요.';
 }
 function startWebVoice(){
