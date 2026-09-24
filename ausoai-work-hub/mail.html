@@ -173,4 +173,4 @@ function command(raw){const q=String(raw||'').trim();let m;if(!q)return false;
 window.__AUSOAI_COMMAND__=raw=>command(raw)?'handled':false;
 ['input','change'].forEach(ev=>[to,cc,bcc,subject,body,provider,label,signature,scheduleDate,scheduleTime].forEach(el=>el.addEventListener(ev,()=>saveDraft(false))));
 renderDrafts();
-</script></body></html>
+</script><script src="os-layer.js"></script></body></html>
