@@ -139,6 +139,20 @@ body{
 .voiceStartGuide .pulseMic{width:30px;height:30px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff 0 8%,#7ef1dd 18%,#2cb2b9 58%,#0b3852 100%);box-shadow:0 0 0 5px rgba(91,221,198,.10);position:relative;flex:0 0 30px}
 .voiceStartGuide .pulseMic:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:12px;transform:translate(-50%,-58%);border:1.7px solid #fff;border-radius:6px}
 .voiceStartGuide .guideText{min-width:0;flex:1}.voiceStartGuide .guideText b{display:block;font-size:9px;color:#165c55}.voiceStartGuide .guideText small{display:block;margin-top:2px;font-size:7px;color:#6a8783}.voiceStartGuide button{border:0;border-radius:999px;padding:7px 10px;background:linear-gradient(135deg,#52d8bc,#6caaff);color:#063e3c;font-size:7.5px;font-weight:900}
+
+.premiumMicBar{display:flex;align-items:center;gap:8px;margin:7px 0 8px;padding:7px 9px;border-radius:16px;background:linear-gradient(90deg,rgba(250,255,254,.98),rgba(239,248,255,.98));border:1px solid rgba(255,255,255,.96);box-shadow:0 7px 22px rgba(27,83,79,.08);backdrop-filter:blur(16px)}
+.premiumMicBrand{display:flex;align-items:center;gap:6px;min-width:0}.premiumMicBrand .miniMark{width:28px;height:28px;border-radius:9px;overflow:hidden;box-shadow:0 4px 10px rgba(12,70,91,.13)}.premiumMicBrand b{font-size:8.5px;color:#174f4b}.premiumMicBrand small{display:block;font-size:6.2px;color:#7a918e}
+.premiumMicActions{display:flex;gap:5px;overflow:auto;margin-left:auto;scrollbar-width:none}.premiumMicActions::-webkit-scrollbar{display:none}.premiumMicActions button{flex:0 0 auto;border:0;border-radius:999px;padding:7px 9px;background:#eefbf7;color:#1b625b;font-size:7px;font-weight:900}.premiumMicActions .active{background:linear-gradient(135deg,#58dbc0,#6da9ff);color:#073f3d}
+.webVoiceHud{width:210px;height:145px}
+.hudDragBar{top:0;height:13px;min-width:66px;font-size:5px;background:rgba(235,255,250,.72);border-color:rgba(91,202,182,.24)}
+.voiceOrbWrap{top:17px;width:50px;height:50px}
+.modelDot{width:22px;height:22px;top:31px;margin-left:-11px}
+.voicePulseBars{top:72px}
+.hudLines{left:5px;right:5px;top:83px;color:#fff;text-shadow:none}
+.hudLines:before{content:"";position:absolute;inset:-4px -5px -4px;border-radius:12px;background:rgba(8,49,53,.72);backdrop-filter:blur(10px);z-index:-1;box-shadow:0 5px 14px rgba(11,60,61,.10)}
+.hudTalk{background:rgba(240,255,251,.88);border-color:rgba(147,224,208,.30)}
+.hudTalk input{color:#174f4a}.hudTalk input::placeholder{color:#78928e}
+.hudCtl button{background:rgba(238,255,250,.86)}
 </style>
 </head>
 <body><div class="shell">
@@ -173,6 +187,15 @@ body{
   <div class="pulseMic" aria-hidden="true"></div>
   <div class="guideText"><b>마이크를 눌러 주세요 · 대화가 시작됩니다</b><small>질문은 대화로 답하고, 실행 명령은 바로 수행합니다. 문자 입력도 함께 사용할 수 있습니다.</small></div>
   <button onclick="unlockVoice();showWebHud(true)">대화 시작</button>
+</div>
+<div class="premiumMicBar">
+  <div class="premiumMicBrand"><div class="miniMark" id="premiumMicLogo"></div><div><b>AUSOAI Voice OS</b><small>음성 · 문자 · 번역 · 실행</small></div></div>
+  <div class="premiumMicActions">
+    <button class="active" onclick="unlockVoice();showWebHud(true)">마이크 시작</button>
+    <button onclick="location.href='voicehub://settings'">음성 설정</button>
+    <button onclick="document.getElementById('langSel').focus()">번역</button>
+    <button onclick="showWebHud(false);document.getElementById('hudText').focus()">문자 입력</button>
+  </div>
 </div>
 <header class="head">
   <div class="ausoLogo" id="headerLogo"></div>
@@ -298,6 +321,7 @@ body{
 <script>
 const AUSO_SVG='<svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="26" fill="#04122F"/><path fill="#50F5FF" d="M54 16c-21 0-38 17-38 38s17 38 38 38c13 0 25-7 32-17l-13-9c-4 6-11 10-19 10-12 0-22-10-22-22s10-22 22-22c8 0 15 4 19 10l13-9c-7-10-19-17-32-17z"/><path fill="#247CFF" d="M54 34c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 12c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/></svg>';
 document.getElementById('headerLogo').innerHTML=AUSO_SVG;
+const pml=document.getElementById('premiumMicLogo');if(pml)pml.innerHTML=AUSO_SVG;
 const fav=d=>'https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';
 const SI=(name,color='')=>'https://cdn.simpleicons.org/'+name+(color?'/'+color:'');
 const APPICON=(emoji,c1,c2)=>'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(
