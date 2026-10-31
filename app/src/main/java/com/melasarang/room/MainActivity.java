@@ -158,6 +158,29 @@ public final class MainActivity extends Activity implements
 
         view.setWebViewClient(new SarangbangWebViewClient());
         view.setWebChromeClient(new WebChromeClient() {
+
+            @Override public void onPermissionRequest(android.webkit.PermissionRequest request) {
+                runOnUiThread(() -> {
+                    Uri origin = request.getOrigin();
+                    Uri trusted = Uri.parse(HOME_URL);
+                    boolean trustedOrigin = "https".equalsIgnoreCase(origin.getScheme())
+                        && trusted.getHost().equalsIgnoreCase(origin.getHost())
+                        && (origin.getPort() == -1 || origin.getPort() == 443);
+                    if (isFinishing() || isDestroyed() || !trustedOrigin || !hasMicrophonePermission()) {
+                        request.deny();
+                        return;
+                    }
+                    for (String resource : request.getResources()) {
+                        if (android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(resource)) {
+                            request.grant(new String[]{android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE});
+                            return;
+                        }
+                    }
+                    request.deny();
+                });
+            }
+
+
             @Override public boolean onShowFileChooser(
                 WebView webView,
                 ValueCallback<Uri[]> filePathCallback,
