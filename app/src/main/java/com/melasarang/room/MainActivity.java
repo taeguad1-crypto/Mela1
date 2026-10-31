@@ -84,7 +84,8 @@ public final class MainActivity extends Activity implements
 
         voiceController = new FloatingVoiceController(this);
         voiceController.setListener(this);
-        root.addView(voiceController);
+        // Keep the website's gold microphone as the only visible voice control.
+        // Do not attach the duplicate native blue microphone overlay to the screen.
         root.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
             if (voiceController != null &&
                 (right - left != oldRight - oldLeft || bottom - top != oldBottom - oldTop)) {
