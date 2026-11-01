@@ -159,6 +159,22 @@ public final class MainActivity extends Activity implements
         }
         WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
 
+        // APK/PDF downloads must leave WebView and use the phone browser's download manager.
+        view.setDownloadListener((url, userAgent, disposition, mimeType, length) -> {
+            Uri download = Uri.parse(url);
+            if (!"https".equalsIgnoreCase(download.getScheme())) {
+                Toast.makeText(this, "다운로드 주소를 확인해 주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, download);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                startActivity(intent);
+            } catch (ActivityNotFoundException error) {
+                Toast.makeText(this, "Chrome 또는 삼성 인터넷에서 다운로드 주소를 열어 주세요.", Toast.LENGTH_LONG).show();
+            }
+        });
+
         view.setWebViewClient(new SarangbangWebViewClient());
         view.setWebChromeClient(new WebChromeClient() {
 
