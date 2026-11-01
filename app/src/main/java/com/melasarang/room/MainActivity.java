@@ -100,6 +100,9 @@ public final class MainActivity extends Activity implements
         ));
         brandSplash.bringToFront();
         brandSplash.postDelayed(() -> {
+            if (brandSplash != null && brandSplash.getParent() != null && !isFinishing()) brandSplash.showWaterScene();
+        }, 5000);
+        brandSplash.postDelayed(() -> {
             if (brandSplash == null || brandSplash.getParent() == null || isFinishing()) return;
             brandSplash.animate()
                 .alpha(0f)
@@ -110,7 +113,7 @@ public final class MainActivity extends Activity implements
                     }
                 })
                 .start();
-        }, 1650);
+        }, 10000);
 
         if (savedInstanceState == null || browser.restoreState(savedInstanceState) == null) {
             browser.loadUrl(HOME_URL);
@@ -343,7 +346,6 @@ public final class MainActivity extends Activity implements
         if (hasMicrophonePermission()) {
             initializeVoiceAssistantSafely();
             if (voiceAssistant != null) {
-                voiceAssistant.resumeCompletely();
                 voiceAssistant.onHostResume();
             }
         } else {
@@ -580,7 +582,7 @@ public final class MainActivity extends Activity implements
         voiceController.showController();
         if (hasMicrophonePermission()) {
             initializeVoiceAssistantSafely();
-            if (voiceAssistant != null) voiceAssistant.resumeCompletely();
+            if (voiceAssistant != null) voiceAssistant.onHostResume();
         } else {
             requestVoicePermissionIfNeeded();
         }

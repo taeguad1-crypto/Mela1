@@ -1,92 +1,70 @@
 package com.melasarang.room;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RadialGradient;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.view.View;
 
-/** Exact, code-rendered 멜라루카 사랑방 splash branding so the brand spelling cannot be altered. */
+/** Two quiet nature scenes; text stays native and readable at every screen size. */
 public final class BrandSplashView extends View {
-    private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private final Paint line = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
+    private final Bitmap forest;
+    private final Bitmap water;
+    private int scene;
 
     public BrandSplashView(Context context) {
         super(context);
-        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        setContentDescription("멜라루카 사랑방 시작 화면");
+        forest = BitmapFactory.decodeResource(getResources(), R.drawable.splash_forest);
+        water = BitmapFactory.decodeResource(getResources(), R.drawable.splash_water);
+        setContentDescription("멜라루카 사랑방 · 숲과 맑은 물 시작 화면");
+    }
+
+    public void showWaterScene() {
+        scene = 1;
+        invalidate();
     }
 
     @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        float width = getWidth();
-        float height = getHeight();
-        float cx = width / 2f;
-        float cy = height * .43f;
-
-        paint.setShader(new LinearGradient(0, 0, width, height,
-            new int[]{Color.rgb(236, 255, 255), Color.rgb(72, 212, 224), Color.rgb(22, 82, 164)},
-            new float[]{0f, .48f, 1f}, Shader.TileMode.CLAMP));
-        canvas.drawRect(0, 0, width, height, paint);
+        float w = getWidth(), h = getHeight();
+        if (w <= 0 || h <= 0) return;
+        Bitmap photo = scene == 0 ? forest : water;
+        canvas.drawColor(Color.rgb(15, 59, 43));
+        if (photo != null) {
+            float scale = Math.max(w / photo.getWidth(), h / photo.getHeight());
+            float pw = photo.getWidth() * scale, ph = photo.getHeight() * scale;
+            paint.setShader(null);
+            canvas.drawBitmap(photo, null, new RectF((w-pw)/2, (h-ph)/2, (w+pw)/2, (h+ph)/2), paint);
+        }
+        paint.setShader(new LinearGradient(0, h*.35f, 0, h,
+            new int[]{Color.TRANSPARENT, Color.argb(230, 4, 35, 25)}, null, Shader.TileMode.CLAMP));
+        canvas.drawRect(0, 0, w, h, paint);
         paint.setShader(null);
-
-        float glowRadius = Math.min(width, height) * .18f;
-        paint.setShader(new RadialGradient(cx, cy, glowRadius * 1.6f,
-            new int[]{Color.argb(240, 255, 255, 255), Color.argb(155, 80, 245, 255), Color.TRANSPARENT},
-            new float[]{0f, .48f, 1f}, Shader.TileMode.CLAMP));
-        canvas.drawCircle(cx, cy, glowRadius * 1.6f, paint);
-        paint.setShader(null);
-
-        line.setStyle(Paint.Style.STROKE);
-        line.setStrokeWidth(dp(2));
-        line.setColor(Color.argb(190, 255, 255, 255));
-        canvas.drawCircle(cx, cy, glowRadius, line);
-        line.setColor(Color.argb(125, 80, 245, 255));
-        canvas.drawCircle(cx, cy, glowRadius * 1.22f, line);
-        canvas.drawCircle(cx, cy, glowRadius * 1.46f, line);
-
-        drawSarangbangMark(canvas, cx, cy, glowRadius * .58f);
-
-        paint.setShader(null);
-        paint.setColor(Color.WHITE);
         paint.setTextAlign(Paint.Align.CENTER);
-        paint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD));
-        paint.setTextSize(Math.min(width * .095f, dp(42)));
-        paint.setLetterSpacing(.02f);
-        paint.setShadowLayer(dp(10), 0, dp(2), Color.rgb(11, 99, 190));
-        canvas.drawText("멜라루카 사랑방", cx, cy + glowRadius * 1.95f, paint);
-        paint.clearShadowLayer();
-
+        paint.setColor(Color.rgb(229, 240, 201));
         paint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL));
-        paint.setTextSize(Math.min(width * .047f, dp(18)));
-        paint.setLetterSpacing(.04f);
-        paint.setColor(Color.argb(235, 255, 255, 255));
-        canvas.drawText("사진으로 보고, 말로 찾는 사업자 사랑방", cx, cy + glowRadius * 2.38f, paint);
+        paint.setTextSize(Math.min(w*.03f, dp(14)));
+        canvas.drawText("MELALEUCA · SARANGBANG", w/2, h*.715f, paint);
+        paint.setColor(Color.WHITE);
+        paint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD));
+        paint.setTextSize(Math.min(w*.087f, dp(38)));
+        canvas.drawText("멜라루카 사랑방", w/2, h*.78f, paint);
+        paint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL));
+        paint.setTextSize(Math.min(w*.039f, dp(18)));
+        canvas.drawText(scene == 0 ? "자연과 함께하는 건강한 일상" : "더 나은 생활을 함께 나누는 곳", w/2, h*.825f, paint);
+        paint.setColor(Color.argb(220, 255, 255, 255));
+        canvas.drawRoundRect(w*.42f, h*.9f, w*.58f, h*.9f+dp(2), dp(1), dp(1), paint);
+        paint.setColor(Color.rgb(219, 220, 163));
+        float left = scene == 0 ? w*.42f : w*.50f;
+        canvas.drawRoundRect(left, h*.9f, left+w*.08f, h*.9f+dp(2), dp(1), dp(1), paint);
     }
 
-    private void drawSarangbangMark(Canvas canvas, float cx, float cy, float size) {
-        line.setStrokeCap(Paint.Cap.ROUND);
-        line.setStrokeJoin(Paint.Join.ROUND);
-        line.setStyle(Paint.Style.STROKE);
-        line.setStrokeWidth(size * .24f);
-        line.setColor(Color.WHITE);
-        line.setShadowLayer(dp(9), 0, 0, Color.rgb(50, 240, 255));
-        Path mark = new Path();
-        mark.moveTo(cx - size * .72f, cy - size * .25f);
-        mark.cubicTo(cx - size * .55f, cy - size * .86f, cx, cy - size * .52f, cx, cy - size * .10f);
-        mark.cubicTo(cx, cy - size * .52f, cx + size * .55f, cy - size * .86f, cx + size * .72f, cy - size * .25f);
-        mark.cubicTo(cx + size * .88f, cy + size * .35f, cx + size * .24f, cy + size * .72f, cx, cy + size * .92f);
-        mark.cubicTo(cx - size * .24f, cy + size * .72f, cx - size * .88f, cy + size * .35f, cx - size * .72f, cy - size * .25f);
-        canvas.drawPath(mark, line);
-        line.clearShadowLayer();
-    }
-
-    private float dp(float value) {
-        return value * getResources().getDisplayMetrics().density;
-    }
+    private float dp(float value) { return value * getResources().getDisplayMetrics().density; }
 }

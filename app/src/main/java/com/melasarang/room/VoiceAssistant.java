@@ -34,7 +34,7 @@ public final class VoiceAssistant implements RecognitionListener, TextToSpeech.O
     private final Handler main = new Handler(Looper.getMainLooper());
     private SpeechRecognizer recognizer;
     private TextToSpeech speaker;
-    private boolean desiredListening = true;
+    private boolean desiredListening = false;
     private boolean hostResumed;
     private boolean listening;
     private boolean speaking;
